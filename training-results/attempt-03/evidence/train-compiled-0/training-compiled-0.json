@@ -1,0 +1,130 @@
+{
+  "event": "training_result",
+  "unix_seconds": 1792912535.1762042,
+  "backend": "compiled",
+  "repetition": 0,
+  "model": "Qwen/Qwen3.5-2B",
+  "scope": "LoRA rank8; not full-parameter training",
+  "initial_adapter_sha256": "ab9d2690d20ba2788619bafa21181baae078d17ad2e6cd3752f6318cb9e2e561",
+  "final_adapter_sha256": "b30d23fd34e17abc25eb00f5a592c8bfbc3ea4d370806eefc28106e7753b36c5",
+  "trainable_parameters": 8409600,
+  "total_parameters": 1890234688,
+  "max_length": 256,
+  "batch_size": 1,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "checkpoint": "nonreentrant",
+  "steps": [
+    {
+      "step": 0,
+      "warmup": true,
+      "loss": 3.7260525226593018,
+      "gradient_norm": 3.8062708377838135,
+      "seconds": 1.3592671835795045,
+      "effective_tokens": 158,
+      "peak_allocated_bytes": 4749135872,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 1,
+      "warmup": true,
+      "loss": 4.112591743469238,
+      "gradient_norm": 5.358016490936279,
+      "seconds": 0.38054870814085007,
+      "effective_tokens": 94,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 2,
+      "warmup": false,
+      "loss": 3.407346248626709,
+      "gradient_norm": 3.3246817588806152,
+      "seconds": 0.3790683029219508,
+      "effective_tokens": 188,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 3,
+      "warmup": false,
+      "loss": 3.1455330848693848,
+      "gradient_norm": 5.988982677459717,
+      "seconds": 0.3778790645301342,
+      "effective_tokens": 77,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 4,
+      "warmup": false,
+      "loss": 3.127885580062866,
+      "gradient_norm": 2.703009843826294,
+      "seconds": 0.5127427950501442,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849902080,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 5,
+      "warmup": false,
+      "loss": 2.2354538440704346,
+      "gradient_norm": 2.3113059997558594,
+      "seconds": 0.6992697939276695,
+      "effective_tokens": 221,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 6,
+      "warmup": false,
+      "loss": 2.2816340923309326,
+      "gradient_norm": 3.2993297576904297,
+      "seconds": 0.38180335238575935,
+      "effective_tokens": 121,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 7,
+      "warmup": false,
+      "loss": 3.3536856174468994,
+      "gradient_norm": 2.6646454334259033,
+      "seconds": 0.37623357865959406,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849902080,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 8,
+      "warmup": false,
+      "loss": 2.6844327449798584,
+      "gradient_norm": 3.1451404094696045,
+      "seconds": 0.3820313895121217,
+      "effective_tokens": 180,
+      "peak_allocated_bytes": 4849967616,
+      "peak_reserved_bytes": 5010096128
+    },
+    {
+      "step": 9,
+      "warmup": false,
+      "loss": 3.896148204803467,
+      "gradient_norm": 2.9071085453033447,
+      "seconds": 0.3787956200540066,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849902080,
+      "peak_reserved_bytes": 5010096128
+    }
+  ],
+  "validation_loss_before": 3.4908242425518834,
+  "validation_loss_after": 2.3319946645262712,
+  "adapter": {
+    "backend": "compiled",
+    "inverse_method": "block",
+    "calls": 504,
+    "cache_hits": 502,
+    "cache_misses": 2,
+    "cache_entries": 2
+  },
+  "data_sha256": "dcf4a6f54b1225f11a1535ef66648371c8367ccac23702dfd99eaa33286e31e1"
+}

@@ -1,0 +1,16 @@
+{
+  "backend": "default",
+  "reference": "torch",
+  "model": "Qwen/Qwen3.5-2B",
+  "logits": {
+    "max_abs": 1.15625,
+    "relative_l2": 0.027366086840629578,
+    "finite": true
+  },
+  "loss_abs_difference": 0.0009186267852783203,
+  "parameter_gradient_relative_l2": 0.22573963321746704,
+  "gradient_gate_max": 0.08,
+  "gate_passed": false,
+  "training_executed": false,
+  "root_cause": "not yet established; normalization and low-precision kernel arithmetic are hypotheses"
+}

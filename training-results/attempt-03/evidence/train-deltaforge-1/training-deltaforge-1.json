@@ -1,0 +1,130 @@
+{
+  "event": "training_result",
+  "unix_seconds": 1792912763.5854955,
+  "backend": "deltaforge",
+  "repetition": 1,
+  "model": "Qwen/Qwen3.5-2B",
+  "scope": "LoRA rank8; not full-parameter training",
+  "initial_adapter_sha256": "ab9d2690d20ba2788619bafa21181baae078d17ad2e6cd3752f6318cb9e2e561",
+  "final_adapter_sha256": "a4d0626ab714a8babfd33403a07d6a78b71ed261caf9b15d4a18207e963c559a",
+  "trainable_parameters": 8409600,
+  "total_parameters": 1890234688,
+  "max_length": 256,
+  "batch_size": 1,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0001,
+  "checkpoint": "nonreentrant",
+  "steps": [
+    {
+      "step": 0,
+      "warmup": true,
+      "loss": 3.7283356189727783,
+      "gradient_norm": 3.812260627746582,
+      "seconds": 1.2711412301287055,
+      "effective_tokens": 158,
+      "peak_allocated_bytes": 4749135872,
+      "peak_reserved_bytes": 4947181568
+    },
+    {
+      "step": 1,
+      "warmup": true,
+      "loss": 4.11374568939209,
+      "gradient_norm": 5.339554309844971,
+      "seconds": 0.6285780370235443,
+      "effective_tokens": 94,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 2,
+      "warmup": false,
+      "loss": 3.4112699031829834,
+      "gradient_norm": 3.3243467807769775,
+      "seconds": 0.6293237134814262,
+      "effective_tokens": 188,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 3,
+      "warmup": false,
+      "loss": 3.1402008533477783,
+      "gradient_norm": 5.946863651275635,
+      "seconds": 0.6567505653947592,
+      "effective_tokens": 77,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 4,
+      "warmup": false,
+      "loss": 3.126863718032837,
+      "gradient_norm": 2.7045936584472656,
+      "seconds": 0.7939816815778613,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849115648,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 5,
+      "warmup": false,
+      "loss": 2.2388458251953125,
+      "gradient_norm": 2.314210891723633,
+      "seconds": 0.9004678558558226,
+      "effective_tokens": 221,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 6,
+      "warmup": false,
+      "loss": 2.2810959815979004,
+      "gradient_norm": 3.301234483718872,
+      "seconds": 0.623055687174201,
+      "effective_tokens": 121,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 7,
+      "warmup": false,
+      "loss": 3.352738618850708,
+      "gradient_norm": 2.6748545169830322,
+      "seconds": 0.6411293717101216,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849115648,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 8,
+      "warmup": false,
+      "loss": 2.686253547668457,
+      "gradient_norm": 3.1516201496124268,
+      "seconds": 0.6282109003514051,
+      "effective_tokens": 180,
+      "peak_allocated_bytes": 4849181184,
+      "peak_reserved_bytes": 5203034112
+    },
+    {
+      "step": 9,
+      "warmup": false,
+      "loss": 3.8967137336730957,
+      "gradient_norm": 2.9221293926239014,
+      "seconds": 0.6145838629454374,
+      "effective_tokens": 255,
+      "peak_allocated_bytes": 4849115648,
+      "peak_reserved_bytes": 5203034112
+    }
+  ],
+  "validation_loss_before": 3.490182764872819,
+  "validation_loss_after": 2.330327025252188,
+  "adapter": {
+    "backend": "deltaforge",
+    "inverse_method": "block",
+    "calls": 504,
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "cache_entries": 0
+  },
+  "data_sha256": "dcf4a6f54b1225f11a1535ef66648371c8367ccac23702dfd99eaa33286e31e1"
+}

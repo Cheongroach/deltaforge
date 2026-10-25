@@ -1,0 +1,94 @@
+{
+  "model": {
+    "repo_id": "Qwen/Qwen3.5-2B",
+    "source": "modelscope",
+    "metadata_url": "https://modelscope.cn/api/v1/models/Qwen/Qwen3.5-2B/repo/files",
+    "files": {
+      "preprocessor_config.json": {
+        "bytes": 390,
+        "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "config.json": {
+        "bytes": 2908,
+        "sha256": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "chat_template.jinja": {
+        "bytes": 7755,
+        "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+        "file_revision": "5a09c8938499e2b2f764dcb8c2d61f772ad0f815"
+      },
+      "tokenizer_config.json": {
+        "bytes": 16709,
+        "sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c",
+        "file_revision": "5a09c8938499e2b2f764dcb8c2d61f772ad0f815"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 64460,
+        "sha256": "aca8afed9da75b0f050b408d270766fd77627f1af401e240f61c3b47d0db02f9",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "merges.txt": {
+        "bytes": 3353259,
+        "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "vocab.json": {
+        "bytes": 6722759,
+        "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "tokenizer.json": {
+        "bytes": 12807982,
+        "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      },
+      "model.safetensors-00001-of-00001.safetensors": {
+        "bytes": 4548221488,
+        "sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+        "file_revision": "5bc562c789648e2cd69b2377526939f5f72060e9"
+      }
+    },
+    "created_unix_s": 1792375667.3022597
+  },
+  "model_manifest_sha256": "8361f621a86e2d7e87e0c9af8fd78e2fe2d939d391bc8b09cbc7e03f19ba122b",
+  "data_sha256": "dcf4a6f54b1225f11a1535ef66648371c8367ccac23702dfd99eaa33286e31e1",
+  "packages": {
+    "transformers": "5.2.0",
+    "peft": "0.18.1",
+    "fla-core": "0.4.1"
+  },
+  "wheels": {
+    "einops-0.8.1-py3-none-any.whl": {
+      "sha256": "919387eb55330f5757c6bea9165c5ff5cfe63a642682ea788a6d472576d81737",
+      "bytes": 64359
+    },
+    "fla_core-0.4.1-py3-none-any.whl": {
+      "sha256": "93c6afe4c80fc7bc705fa8aeea6a46d2cf2d77383f9619a41863c7114c801bab",
+      "bytes": 437282
+    }
+  },
+  "excluded_optional_wheels": {
+    "flash_linear_attention-0.4.1-py3-none-any.whl": {
+      "sha256": "d18bdfe9d1f4b424676444eac9d50fb8433b70e5d4e0e0878b20bcbcdbea57ce",
+      "reason": "FLA models/layers are unused; required GDN and normalization kernels live in fla-core"
+    }
+  },
+  "protocol": {
+    "seeds": [
+      20261025
+    ],
+    "independent_process_repetitions": 2,
+    "train_steps": 10,
+    "warmup_updates": 2,
+    "batch_size": 1,
+    "shape_bucket": 256,
+    "learning_rate": 0.0001,
+    "kernel_output_relative_l2_max": 0.05,
+    "gradient_relative_l2_max": 0.08,
+    "model_logits_relative_l2_max": 0.03,
+    "model_loss_abs_max": 0.05,
+    "validation_loss_backend_abs_max": 0.05
+  }
+}

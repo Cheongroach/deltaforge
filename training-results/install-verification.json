@@ -1,0 +1,20 @@
+{
+  "verified_unix_seconds": 1792914212.0126967,
+  "wheel_sha256": "724a06ba203ed792b5516f37eb27552e8dd987e919b3c6863efc926907964954",
+  "package": "deltaforge-gdn==0.3.0",
+  "python": "3.11",
+  "scope": "isolated venv package install from clean working directory; base runtime dependencies reused",
+  "ensurepip_unavailable": true,
+  "installation_method": "venv without ensurepip; existing pip --python",
+  "wheel_import_and_recurrent_smoke_exit": 0,
+  "installed_cpu_gate_exit": 0,
+  "installed_cpu_tests": 14,
+  "local_interpreter_teardown": "explicit --sandbox-exit; worker CPU evidence separately used normal exit",
+  "asset_verification": {
+    "verified": true,
+    "model_files": 9,
+    "data_sha256": "dcf4a6f54b1225f11a1535ef66648371c8367ccac23702dfd99eaa33286e31e1"
+  },
+  "sampled_public_source_hash_match": true,
+  "outer_tool_result": "sandbox restriction on /proc thread comm during teardown; child return codes and persisted results verified separately"
+}

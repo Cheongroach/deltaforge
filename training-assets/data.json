@@ -1,0 +1,104 @@
+{
+  "source": {
+    "repository": "https://github.com/amazon-science/esci-data",
+    "revision": "7916cdf6ab75a462e77f20ab40428a10923998d5",
+    "license": "Apache-2.0 (official project)",
+    "files": {
+      "shopping_queries_dataset_examples.parquet": {
+        "sha256": "4a735b693b4a424a6fc67f5be6e4c811495c488bbf66d02a602d308b2744263a",
+        "bytes": 51286808
+      },
+      "shopping_queries_dataset_products.parquet": {
+        "sha256": "25124442d064d64b26f74082d6fa09438d679efc0c183cf28d19064a2b65a265",
+        "bytes": 1108857465
+      }
+    }
+  },
+  "source_manifest_sha256": "3910161714d6b41e6339d182038b19a7c1c2eee009694905d4dcb66fda71e28f",
+  "objective": "causal language modeling on public ESCI query/product text",
+  "scope": "backend training probe; not a business-quality experiment",
+  "train": [
+    {
+      "sample_id": "esci:train:relevance:71351c6d83d90da3ceb3",
+      "query_group_sha256": "71351c6d83d90da3ceb33ef54780ae85f9a8ee58b665312cfffea8727670e801",
+      "text": "Query: i regret the day i lost my virginity: you are not your past\nProduct: {\"brand\":\"Primitives by Kathy\",\"color\":\"I Love You\",\"details\":\"Box sign measures 3\\\" x 3\\\" Made with high quality wood and distressed paint design Box signs are specially designed to freely stand on their own or hang on the wall\",\"title\":\"Primitives by Kathy 23238 Chevron Trimmed Box Sign, 3 x 3-Inches, I Love You\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"I\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:dd88a243ae9765e14f22",
+      "query_group_sha256": "dd88a243ae9765e14f2241c903d66028cf2ce2940e828456cc9f45bb5f2f726d",
+      "text": "Query: tim and eric awesome show great job\nProduct: {\"brand\":\"\",\"color\":\"\",\"details\":\"\",\"title\":\"HAM - directed by Eric Wareheim, ft. John C. Reilly\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"I\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:524e9d76700ff074ae54",
+      "query_group_sha256": "524e9d76700ff074ae544956e53bb5e366dccd7defcae97eae586596790199fb",
+      "text": "Query: tejanos cintura alta mujer\nProduct: {\"brand\":\"RISTHY Pantalones\",\"color\":\"Azul Oscuro\",\"details\":\"Ropa de deporte Ropa deportiva mujer running Leggins Yoga leggings Leggins camuflaje mujer Pantalones deportivos mujer Ropa de deporte mujer en oferta Ropa deportiva mujer Leggings deporte mujer Leggins yoga mujer Pantalones de mujer Ropa de deporte mujer Ropa de mujer deportiva \",\"title\":\"RISTHY Jeans Skinny Push-Up Mujer Vaqueros Pantalones Elásticos Jeans Denim Largo Mujer Cintura Alta con Cordón Lazo Vaquero Tejano para Mujer Elástico Relaxed-Fit\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"E\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:915855b30983ceca2450",
+      "query_group_sha256": "915855b30983ceca2450b0ab72fc68fd643ab6f91ef65050a039a83ef771d0b9",
+      "text": "Query: new release movies\nProduct: {\"brand\":\"\",\"color\":\"\",\"details\":\"\",\"title\":\"I See You\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"S\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:3b183f16e57bd2daa196",
+      "query_group_sha256": "3b183f16e57bd2daa1969b6e50f8c7822d74c5f61dfd244aa714eb6f56743951",
+      "text": "Query: 冷蔵庫ドアストッパー\nProduct: {\"brand\":\"shttown\",\"color\":\"黒\",\"details\":\"【商品サイズ、重量、材質】 プレート：縦×横７.５cm × ６.５cm、 ワイヤー長さ：１９cm、 ワイヤー直径：０.３cm、 重量：５０g、 材質：ABS樹脂、スチール 【いたずら防止で安心！】 子供やペットのいたずら防止に効果的です。ドアや引き出しを簡単にロックできます。目を話した隙に鋭利な刃物などの危険物を取り出し、怪我をする危険を防ぐことができます。冷蔵庫、キッチン収納、窓、机の引き出し、戸棚などさまざまな場所に使用することができます。 【キーを失くすリスクなし！】 あなたもキーの保管場所を忘れて困った経験はありませんか？キーレスの番号ロックタイ\",\"title\":\"shttown 冷蔵庫 引き出し ドア ロック いたずら防止で安心子育て 暗証番号 工事不要 キーレス 2色 (黒)\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"E\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:c9fb17d287bb49e651f9",
+      "query_group_sha256": "c9fb17d287bb49e651f91457faf091234efd349deda3f7ccbee5e4a71889b122",
+      "text": "Query: huge stainless steel bowl\nProduct: {\"brand\":\"Wildone\",\"color\":\"Silver\",\"details\":\"🍎 [VERSATILE BOWLS] With capacity of 8, 5, 3, 2, 1.5 QT, these stainless steel mixing bowls can satisfy your demands for dressing salads, mixing eggs, making dough, and washing vegetables, etc. 🍎 [PREMIUM MATERIAL] Made of high-quality stainless steel, these bowls are durable and\",\"title\":\"Mixing Bowls with Airtight Lids, Wildone Stainless Steel Nesting Mixing Bowls Set of 5, with Non-slip Silicone Bottoms, Size 8, 5, 3, 2, 1.5 QT, Stackable Design, Great for Mixing and Prepping\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"S\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:9f58adb6dff77210e222",
+      "query_group_sha256": "9f58adb6dff77210e22261224cfe4e362cb8027a2340dcaa3f77a3723cba90ee",
+      "text": "Query: midi cable 20 ft\nProduct: {\"brand\":\"Cable Up\",\"color\":\"\",\"details\":\"20' MIDI Cable (Blue) MIDI Male to MIDI Male\",\"title\":\"Cable Up CU/MD120/BLU 20' MIDI Male to MIDI Male MIDI Cable (Blue)\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"E\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:f17db9f0ecd415747bb9",
+      "query_group_sha256": "f17db9f0ecd415747bb94b87de814b24a8ab8b8dde2aeb762db06fb38433e5cc",
+      "text": "Query: xperia xz1 compact 白ロム\nProduct: {\"brand\":\"EastWave\",\"color\":\"レトロ ダークブラウン\",\"details\":\"【機能性①】：レトロの表面（高品質のPUレザー）＋優しい裏面（柔軟なTPUカバー）と組み合わせ、衝撃吸収機能あり、しっかりの二重保護でお携帯を守り抜きます。 【機能性②】：内蔵マグネット機能搭載の手帳型ケースなので、留め具の邪魔無し、滑り防止の素材を採用され、とてもシンプルな感じで、しかも持ち易く、使い勝手がよいのです。 【機能性③】：スタンド機能が付き、横向いて斜めに立てて、お好きな角度を調整でき（150°以内）、両手が解放され、お気軽に読書やビデオの観賞を楽しむことができます。 【機能性④】：各機種にピッタリの専門設計なので、ケース装着時も、カメラ、\",\"title\":\"SONY Xperia XZ1 Compact SO-02K ケース エクスぺリア XZ1 コンパクト XZ1compact スマホケース 携帯カバー ケース SO-02Kケース 手帳 XZ1 Compact ケース 適用 内蔵マグネット スタンド 落ち着いた色 【レトロ ダークブラウン】\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"C\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:9ba6115a8ac4fbce5ac6",
+      "query_group_sha256": "9ba6115a8ac4fbce5ac67dd469ca29198a2f364995010b6c68d45576ed774aa8",
+      "text": "Query: girl rings size 11\nProduct: {\"brand\":\"BORUO\",\"color\":\"\",\"details\":\"Quality: Solid Sterling Silver w/ 925 stamp, AAAAA+ High Quality Cubic Zirconia Stones.Platinum plating OVER STERLING SILVER, give the look of white gold and platinum, Tarnish resistant .Comfort Fit Design. Extremely hard. retain the perfectly round shape. Comes with a Eco Friend\",\"title\":\"BORUO 925 Sterling Silver Ring, Cubic Zirconia CZ Eternity Engagement Wedding Band Ring Size 11.5\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"E\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:31663dd20758d52f1a9f",
+      "query_group_sha256": "31663dd20758d52f1a9fdda118fa877a7b97c5a9134c0faf8d3adf62e49c8211",
+      "text": "Query: 蝶ネジm8\nProduct: {\"brand\":\"HKM\",\"color\":\"白い\",\"details\":\"（上質素材）本制品は良質な304ステンレス材質、丈夫で耐久性に優れ、抗酸化、耐腐食、耐高温、高靭性良いなどの特徴。 （精緻な工芸）良質セイコー制作、表面がつるつるして、しっかり丈夫で耐久性耐摩耗、さびない。きれいで丈夫な収納箱を持っていて、お荷物を保管するのが便利です。 （機能）：このネジは六角ボルトやナット、ガスケット、六角レンチの構成 （用途）：広範なDIY、手作りのロボット、無人機、空撮飛行機、3 D印刷設備、通信設備、医療設備、食品機械、石油化学、船舶電力設備、建築など様々な分野での応用。 （安全）の優良品質の材料施工、仕事のプロセスの中で無限の\",\"title\":\"SZHKM 304ステンレスネジナットワッシャー六角穴ボルトセット内六角ボルトM3分類箱 (BT9-01, 白い) 600件\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"S\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:71ae4f600ae8d1f9208b",
+      "query_group_sha256": "71ae4f600ae8d1f9208b8fd68649ddf8fc6af741020feb3d5917476f505a6acf",
+      "text": "Query: dark nail polish and top coat\nProduct: {\"brand\":\"AIMEILI\",\"color\":\"top coat\",\"details\":\"21 days high-gloss wear , On like polish, Wears like Gel, Off in minutes Mirror shine finish. No Nicks, Chips or Smudges Requires drying under UV or LED Lamp. Cure times vary per lighting system. BEWARE: May cause ALLERGIC REACTION. Please take SKIN TEST EVERY TIME before doing m\",\"title\":\"AIMEILI No Wipe Top Coat Soak Off UV LED Gel Nail Polish\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"S\"}"
+    },
+    {
+      "sample_id": "esci:train:relevance:51efa468285cd2ac0886",
+      "query_group_sha256": "51efa468285cd2ac0886087e7937f011bb61846a572ae4354712d7d6cb0aa1a0",
+      "text": "Query: squirell cage\nProduct: {\"brand\":\"Prevue Hendryx\",\"color\":\"Black Hammertone\",\"details\":\"Spacious cage provides room for even the most energetic ferret Includes 2 Plastic Platforms, 3 Plastic Ramps, 1 Hammock and Grille Escape-proof large hinged doors Overall Size: 31\\\" L x 20\\\" W x 54\\\" H (on stand) with 7/8-inch wire spacing | Platform Measurement: 20 3/8\\\" x 7 7/8\\\" x \",\"title\":\"Prevue Hendryx Feisty Ferret Home with Stand, Black Hammertone\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"S\"}"
+    }
+  ],
+  "validation": [
+    {
+      "sample_id": "esci:dev:relevance:6edc8fbb5da90364b95e",
+      "query_group_sha256": "6edc8fbb5da90364b95eebfb618a6469b0a507f06b596c9f04e0c573cb2f6dff",
+      "text": "Query: the expanse season 1\nProduct: {\"brand\":\"\",\"color\":\"\",\"details\":\"\",\"title\":\"Anti Matter\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"I\"}"
+    },
+    {
+      "sample_id": "esci:dev:relevance:94373bcc8b311cd066a3",
+      "query_group_sha256": "94373bcc8b311cd066a39408b0b351306b78f4f88c43bed3f7d332364972fce3",
+      "text": "Query: fertile one pc600\nProduct: {\"brand\":\"Theralogix\",\"color\":\"\",\"details\":\"EVIDENCE-BASED: High-dose antioxidants (vitamins C, E, and selenium), methylated folate, and other nutrients designed to promote male fertility.* PRECONCEPTION SUPPORT FOR MEN: Recommended for men trying to conceive naturally or for those going through fertility treatment such as\",\"title\":\"ConceptionXR Reproductive Health Male Fertility Supplement (90 Day Supply)\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"I\"}"
+    },
+    {
+      "sample_id": "esci:dev:relevance:fb3a0ec03e0e12f71add",
+      "query_group_sha256": "fb3a0ec03e0e12f71adddc9af4692d8d66fd190a680621f7da556b8978d30f61",
+      "text": "Query: chocolate blanco sin azucar\nProduct: {\"brand\":\"foodspring\",\"color\":\"\",\"details\":\"CREMA PROTEICA DUO: Tan buena que tendrás que untar más de una capa. 85% menos de azúcares y 45% menos de carbohidratos que las cremas de untar tradicionales. INGREDIENTES REALES: Nuestra Crema Proteica está hecha con los mejores ingredientes de la más alta calidad: nuestras mejo\",\"title\":\"foodspring Crema Proteica, Whey y Avellanas, Pack de 3 x 200g, Extremadamente cremosa, Con 85% menos de azúcar\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"I\"}"
+    },
+    {
+      "sample_id": "esci:dev:relevance:225ebb074698458ff9dd",
+      "query_group_sha256": "225ebb074698458ff9dd6522ee71cf72ab372df3ff9c0525df8f5f9ad643498f",
+      "text": "Query: galaxy s8 イヤホン\nProduct: {\"brand\":\"Galaxy\",\"color\":\"ホワイト\",\"details\":\"「聴く」はもちろん、「話す」にも最適。 次世代のGalaxy Buds Galaxy 純正の完全ワイヤレスイヤホンとなる「Galaxy Buds」は、音楽の連続再生時間が6時間、連続通話時間が5時間というロングバッテリーを 誇り、「Galaxy Wearable」アプリと組み合わせることによって更なる可能性を引き出します。 さらに、オーストリアの名門オーディオメーカーAKGによるチューニングで自然でピュアなサウンドを提供。 人間工学に基づいてデザインされたイヤホンは、同梱されるイヤーチップ、ウィングチップとともに使用することでどんな耳にもぴったりとフィッ\",\"title\":\"Galaxy Buds トゥルーワイヤレスイヤホン完全ワイヤレス (ホワイト)\"}\nE=exact match to the requested product and constraints; S=substitute with the same function but not all constraints; C=complementary accessory; I=irrelevant. Return {\"label\":\"E|S|C|I\"} with one label.\n{\"label\": \"E\"}"
+    }
+  ]
+}

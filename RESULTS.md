@@ -1,5 +1,7 @@
 # DeltaForge 双硬件实测报告
 
+> 本页为历史算子源码快照的结果。新默认 stable block 与 Qwen3.5 LoRA 的验收、强基线和支持范围见 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)；本页数值不代表新算法性能。
+
 实测日期：2026-10-25。工作负载为固定种子随机算子夹具，锚定 Qwen3.5-2B GDN 维度；未加载完整模型权重。
 
 ## 已完成结果

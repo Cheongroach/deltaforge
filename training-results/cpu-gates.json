@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 4.72278904914856,
+  "versions": {
+    "torch": "2.9.1",
+    "transformers": "5.2.0"
+  },
+  "source_sha256": {
+    "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+    "backends.py": "82b370c69de881977630a0594e643ef1ec5f048bcc0bc3fd051cb44bf17e1b79",
+    "benchmark.py": "0242c90fdb0189453aafcd47b7d931f08e250f886ff0ea6470c513247d3230d9",
+    "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13",
+    "cpu_gate.py": "8ed2aa2ceb58c75d1f383e283e420de83b2c812e7fc6a1845747e000a3a07d55",
+    "cuda_decode.py": "ef025e175053b6c939d764bb96c41fe6145b148ca80dd980f81d53259522f20d",
+    "ops.py": "6d33c9b47646a358f522cfc710d899925ef6c0cf46c8785083d0c001d78e0f86",
+    "platform.py": "550de6a20166fe7392297e15cc0bd2e4c898b5beb2e3262dac418d32130bc4de",
+    "prepare_training.py": "cbde12560d64c1728c7d93082b02d069ccf82c73abddd2b061a1a1f32a81ef0b",
+    "profile.py": "3773c234877b409d6ed548fddf8740cbfc7e62db5f2b079c55008bf2b1a402c7",
+    "test_backends.py": "8d045043bb87567cceed9c40a45bb2021b1f80334385c55251005c92c5cacdf7",
+    "training_launch.py": "d9fff9bc8d6171953416204a9a8a196fe372b80a9cda893466cd1ab25c837506",
+    "training_probe.py": "03dfc10f7b42dac54ddc304724aa1dfff2fca9d1897bfaaa7712f9e02f7d4fdf",
+    "training_worker.py": "bbaa81ad6762348bf4b1ef9600be9d3e46af953e63ab3935e162b1d59cd2c983",
+    "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498"
+  },
+  "scope": "CPU only; excludes FLA, CUDA, compiled backward and pretrained training"
+}

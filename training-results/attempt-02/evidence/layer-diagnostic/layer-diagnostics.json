@@ -1,0 +1,947 @@
+[
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911488.3878264,
+    "layer": 0,
+    "backend": "torch32",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911488.4166715,
+    "layer": 0,
+    "backend": "torch64",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 7.62939453125e-06,
+      "relative_l2": 1.4504995533570764e-06,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 3.814697265625e-06,
+        "relative_l2": 2.309985802639858e-06,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 1.52587890625e-05,
+        "relative_l2": 4.00469843953033e-06,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 3.0517578125e-05,
+        "relative_l2": 6.462385499617085e-06,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 2.4097971618175507e-08,
+        "relative_l2": 1.651128513913136e-06,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 1.9073486328125e-06,
+        "relative_l2": 1.4349820048664697e-05,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911488.431574,
+    "layer": 0,
+    "backend": "deltaforge",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 17.544921875,
+      "relative_l2": 3.4912221431732178,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 3.814697265625e-06,
+        "relative_l2": 2.1897037640883354e-06,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 7.62939453125e-06,
+        "relative_l2": 2.063964075205149e-06,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 1.52587890625e-05,
+        "relative_l2": 2.5275692223658552e-06,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 9.93895810097456e-09,
+        "relative_l2": 1.2370536524031195e-06,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 1.9073486328125e-06,
+        "relative_l2": 1.4349698176374659e-05,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911564.2256317,
+    "layer": 0,
+    "backend": "fla_common",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0018064529867842793,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.0036932434886693954,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.03277587890625,
+        "relative_l2": 0.01882404275238514,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.0037155463360249996,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.03827844560146332,
+        "relative_l2": 1.6948530673980713,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.014545440673828125,
+        "relative_l2": 0.20172427594661713,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.7030478,
+    "layer": 0,
+    "backend": "native",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.00390625,
+      "relative_l2": 0.0036560604348778725,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.004299424588680267,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.015625,
+        "relative_l2": 0.022545693442225456,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.005046346224844456,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.039680302143096924,
+        "relative_l2": 1.7573362588882446,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.16108372807502747,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.7294123,
+    "layer": 0,
+    "backend": "fla_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.00390625,
+      "relative_l2": 0.003994515165686607,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00390625,
+        "relative_l2": 0.0031037062872201204,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.015625,
+        "relative_l2": 0.004662180319428444,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.004258899483829737,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.00010725762695074081,
+        "relative_l2": 0.00548526830971241,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.000244140625,
+        "relative_l2": 0.004203320015221834,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.7544522,
+    "layer": 0,
+    "backend": "fp32_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.00390625,
+      "relative_l2": 0.003994514234364033,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00390625,
+        "relative_l2": 0.003170655108988285,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.015625,
+        "relative_l2": 0.004707193933427334,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0078125,
+        "relative_l2": 0.004258902743458748,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.00010725762695074081,
+        "relative_l2": 0.005485168192535639,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.000244140625,
+        "relative_l2": 0.004203295800834894,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.7803288,
+    "layer": 12,
+    "backend": "torch32",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.8071692,
+    "layer": 12,
+    "backend": "torch64",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 6.103515625e-05,
+      "relative_l2": 2.7753778340411372e-05,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 1.9073486328125e-06,
+        "relative_l2": 5.929251528868917e-06,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 3.0517578125e-05,
+        "relative_l2": 4.9523758207214996e-05,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 1.52587890625e-05,
+        "relative_l2": 1.2901381523988675e-05,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 3.958120942115784e-09,
+        "relative_l2": 7.367656280621304e-07,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 1.1920928955078125e-07,
+        "relative_l2": 4.298494786780793e-06,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.8205314,
+    "layer": 12,
+    "backend": "deltaforge",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 6.103515625e-05,
+      "relative_l2": 3.60236044798512e-05,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 7.62939453125e-06,
+        "relative_l2": 1.8778760932036676e-05,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 3.0517578125e-05,
+        "relative_l2": 4.541685484582558e-05,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 1.52587890625e-05,
+        "relative_l2": 1.1999150046904106e-05,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 3.841705620288849e-09,
+        "relative_l2": 5.52738924852747e-07,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 1.1920928955078125e-07,
+        "relative_l2": 6.076389126974391e-06,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.829205,
+    "layer": 12,
+    "backend": "fla_common",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0028792046941816807,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00048828125,
+        "relative_l2": 0.0038282109890133142,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0054473876953125,
+        "relative_l2": 0.06270334869623184,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.000732421875,
+        "relative_l2": 0.004966569133102894,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.012378877028822899,
+        "relative_l2": 1.2387807369232178,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.0077571868896484375,
+        "relative_l2": 0.8464669585227966,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.8371108,
+    "layer": 12,
+    "backend": "native",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0037999851629137993,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00048828125,
+        "relative_l2": 0.005541892256587744,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.00937652587890625,
+        "relative_l2": 0.066294364631176,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.001953125,
+        "relative_l2": 0.006870693061500788,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.012907227501273155,
+        "relative_l2": 1.112613558769226,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.004711151123046875,
+        "relative_l2": 0.7445369362831116,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.8596597,
+    "layer": 12,
+    "backend": "fla_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.003655803855508566,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00048828125,
+        "relative_l2": 0.004711953457444906,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0006256103515625,
+        "relative_l2": 0.004800145048648119,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.00146484375,
+        "relative_l2": 0.005050683859735727,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 2.3594475351274014e-05,
+        "relative_l2": 0.00603158213198185,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 3.0517578125e-05,
+        "relative_l2": 0.00518023781478405,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.8830912,
+    "layer": 12,
+    "backend": "fp32_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0036558029241859913,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.00048828125,
+        "relative_l2": 0.005034552421420813,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.000732421875,
+        "relative_l2": 0.0049708145670592785,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.00146484375,
+        "relative_l2": 0.005050854757428169,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 2.3594475351274014e-05,
+        "relative_l2": 0.006031373515725136,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 3.0517578125e-05,
+        "relative_l2": 0.005180238280445337,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.90481,
+    "layer": 22,
+    "backend": "torch32",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.931005,
+    "layer": 22,
+    "backend": "torch64",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 3.0517578125e-05,
+      "relative_l2": 1.7773547369870357e-05,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 4.76837158203125e-07,
+        "relative_l2": 4.594453457684722e-06,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 9.5367431640625e-07,
+        "relative_l2": 6.779977411497384e-06,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 1.52587890625e-05,
+        "relative_l2": 1.74712640728103e-05,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 4.472894943319261e-09,
+        "relative_l2": 1.3495924804374226e-06,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 4.76837158203125e-07,
+        "relative_l2": 2.3086209694156423e-05,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.9446864,
+    "layer": 22,
+    "backend": "deltaforge",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 52.781494140625,
+      "relative_l2": 70.68698120117188,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.06252193450927734,
+        "relative_l2": 0.9372595548629761,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.2411956787109375,
+        "relative_l2": 1.5599331855773926,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 7.1261749267578125,
+        "relative_l2": 21.05454444885254,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 1.1468207836151123,
+        "relative_l2": 128.19760131835938,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 1.4766321182250977,
+        "relative_l2": 93.29739379882812,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.9535575,
+    "layer": 22,
+    "backend": "fla_common",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.000732421875,
+      "relative_l2": 0.0037597916088998318,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0001220703125,
+        "relative_l2": 0.0038034135941416025,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0013275146484375,
+        "relative_l2": 0.025430472567677498,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0009765625,
+        "relative_l2": 0.0053221979178488255,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.012531294487416744,
+        "relative_l2": 1.3900151252746582,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.00168609619140625,
+        "relative_l2": 0.20235447585582733,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.9603329,
+    "layer": 22,
+    "backend": "native",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.004892935510724783,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0001220703125,
+        "relative_l2": 0.005693766754120588,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.00151824951171875,
+        "relative_l2": 0.027132784947752953,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.00146484375,
+        "relative_l2": 0.006351619493216276,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 0.0051992167718708515,
+        "relative_l2": 1.0760815143585205,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 0.001804351806640625,
+        "relative_l2": 0.22318120300769806,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911606.9837925,
+    "layer": 22,
+    "backend": "fla_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0037682335823774338,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0001220703125,
+        "relative_l2": 0.005021057557314634,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.000244140625,
+        "relative_l2": 0.005189491901546717,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0009765625,
+        "relative_l2": 0.003999170381575823,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 2.3634755052626133e-05,
+        "relative_l2": 0.005858271382749081,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 6.103515625e-05,
+        "relative_l2": 0.005525886546820402,
+        "finite": true
+      }
+    }
+  },
+  {
+    "event": "layer_diagnostic",
+    "unix_seconds": 1792911607.0064735,
+    "layer": 22,
+    "backend": "fp32_norm_torch",
+    "input_shape": [
+      1,
+      256,
+      16,
+      128
+    ],
+    "fixed_upstream": true,
+    "output": {
+      "max_abs": 0.0009765625,
+      "relative_l2": 0.0037701537366956472,
+      "finite": true
+    },
+    "input_gradients": {
+      "q": {
+        "max_abs": 0.0001220703125,
+        "relative_l2": 0.0051695178262889385,
+        "finite": true
+      },
+      "k": {
+        "max_abs": 0.0003662109375,
+        "relative_l2": 0.00545399310067296,
+        "finite": true
+      },
+      "v": {
+        "max_abs": 0.0009765625,
+        "relative_l2": 0.003999172709882259,
+        "finite": true
+      },
+      "g": {
+        "max_abs": 2.3634755052626133e-05,
+        "relative_l2": 0.005858980119228363,
+        "finite": true
+      },
+      "beta": {
+        "max_abs": 6.103515625e-05,
+        "relative_l2": 0.005525874439626932,
+        "finite": true
+      }
+    }
+  }
+]
