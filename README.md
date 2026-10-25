@@ -52,6 +52,7 @@ git -C deltaforge-workspace/main worktree prune
 
 ## 训练后端与本轮进展
 
+- [STAR 项目讲解](STAR.md)：背景、职责、诊断与方案取舍、量化结果，附面试讲述和简历段落。
 - [接入与复跑](TRAINING_INTEGRATION.md)：安装、资产 hash 核验、可恢复 adapter、模型门禁与 LoRA。
 - [训练结果与支持矩阵](TRAINING_RESULTS.md)：14 项 CPU 回归，torch／DeltaForge／compiled 各两次十步 LoRA；compiled 完整步中位数相对 torch 为 2.02–2.20×。FLA 的随机算子明显更快，真实模型梯度分歧保留。
 - [小周报](progress/WEEKLY_2026-10-25.md)：timeline、每个任务的动作、问题、难处、方案取舍和后续计划。
