@@ -2,6 +2,7 @@
 
 Gated DeltaNet 算子与异构编译实验项目，面向 AI Infra / 算子开发 / AI 编译岗位。
 
+- [STAR 项目讲解](STAR.md)：负责人范围、技术决策、实测结果、面试讲述和简历段落。
 - [训练接入](TRAINING_INTEGRATION.md) · [终态结果与支持矩阵](TRAINING_RESULTS.md) · [小周报](progress/WEEKLY_2026-10-25.md)。
 - [近期模型调研](RESEARCH.md)：Qwen3.8-Flash-Next、DeepSeek-V4.1、FlashQLA 与选题取舍。
 - [技术设计与数学手稿](DESIGN.md)：递推 / chunk 等价、幂零求解展开、后端与验收。
