@@ -2,6 +2,54 @@
 
 Gated DeltaNet 算子与异构图编译实验，以及可以离线操作的 Profiling Lab。AI 辅助原型、调研与实机实验；不是生产推理／训练框架。
 
+## 同时签出 main / doc
+
+推荐使用 Git worktree，把一个仓库组织成“母目录 + main/doc 两个子工作区”。两个目录共享 Git 对象库，但可以同时签出、编辑和提交不同分支：
+
+```text
+deltaforge-workspace/
+├── main/  # 代码、Profiling Lab、可复跑实验
+└── doc/   # 手稿、日志、原始证据、对话轨迹
+```
+
+首次建立：
+
+```bash
+mkdir deltaforge-workspace
+git clone --branch main \
+  https://github.com/CheongRoach/deltaforge.git \
+  deltaforge-workspace/main
+
+git -C deltaforge-workspace/main fetch origin main doc
+git -C deltaforge-workspace/main worktree add \
+  -b doc ../doc origin/doc
+```
+
+如果已经存在本地 `doc` 分支，将最后一条改为：
+
+```bash
+git -C deltaforge-workspace/main worktree add \
+  ../doc doc
+```
+
+日常同步与查看：
+
+```bash
+git -C deltaforge-workspace/main pull --ff-only origin main
+git -C deltaforge-workspace/doc pull --ff-only origin doc
+git -C deltaforge-workspace/main worktree list
+```
+
+删除 doc 工作区不会删除远端分支：
+
+```bash
+git -C deltaforge-workspace/main worktree remove \
+  ../doc
+git -C deltaforge-workspace/main worktree prune
+```
+
+也可以把 `doc` 放在 `main/doc` 内形成严格的父子目录，但它会出现在 main 工作区的未跟踪路径中，需要额外维护 `.git/info/exclude`。因此默认使用上面的并列子工作区形式。
+
 ## 现在就能玩
 
 下载 Code → Download ZIP，解压后打开 `profiling-lab/profiling-lab.html`。不需要联网或后台服务。包含真实微基准、CPU/CUDA 时间线、明确标为模拟的参数滑杆、判断题、导入 Chrome trace 和导出练习记录。
