@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/Cheongroach/deltaforge",
+  "verified_at": "2026-10-25 15:49:14 +08:00",
+  "implementation_main_commit": "649210e0ccaa8cfefc3a9d2d0ed88d3ebdababf4",
+  "evidence_doc_commit": "9882d129b9dc2d50d542086aae1c468195692522",
+  "push_method": "atomic normal fast-forward; both branches updated",
+  "remote_heads_verified": true,
+  "scope": "implementation/evidence publication; the following journal-only commit records this event"
+}
