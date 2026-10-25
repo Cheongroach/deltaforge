@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-25",
+  "hardware_final_runs": 2,
+  "final_compiled_prefill_cases": 6,
+  "final_decode_tuning_cases": 24,
+  "cpu_regression_tests_per_final_container": 8,
+  "device_numerical_cases_per_final_container": 14,
+  "archived_events": 193,
+  "archived_measurements": 123,
+  "all_own_jobs_terminal": true,
+  "snapshot_hashes_verified": true,
+  "final_operator_sources_match_snapshots": true,
+  "pdf_pages": 1,
+  "pdf_visually_inspected": true,
+  "relative_deliverable_links_verified": true,
+  "no_end_to_end_model_benchmark": true,
+  "baseline": "own_torch_token_recurrence_or_same_chunk_portable_eager"
+}

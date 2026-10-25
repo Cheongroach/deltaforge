@@ -1,0 +1,944 @@
+successfully checkout <address>
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 27] [main] [arnold] ----- Full Environment Variables At Start -----
+     ARNOLD_APPLIED_GPU_NUM=1
+     ARNOLD_BASE_DIR=hdfs://haruna
+     ARNOLD_BASE_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a
+     ARNOLD_BASE_URL=<internal URL>
+     ARNOLD_CKPT_TRIAL_ID=[0]
+     ARNOLD_CLUSTER_BACKEND=kubernetes
+     ARNOLD_CLUSTER_GROUP_ID=2079
+     ARNOLD_CLUSTER_GROUP_NAME=search_douyin_life_nlp
+     ARNOLD_CLUSTER_GROUP_RESOURCE_OWNER=tangxuan.yjz
+     ARNOLD_CLUSTER_SLICE=search_douyin_life_nlp
+     ARNOLD_DEVICE_TYPE=NVIDIA-H20
+     ARNOLD_DLP_ENTRYPOINT_EURUS_AGENT_REPO=mlsys/arnold/eurus/agent_nonseed
+     ARNOLD_DLP_ENTRYPOINT_EURUS_AGENT_VERSION=<address>
+     ARNOLD_DLP_ENTRYPOINT_REPO=mlsys/dlp/dlp_entrypoint
+     ARNOLD_DLP_ENTRYPOINT_ROBUST_VERSION=1.0.0.1911
+     ARNOLD_ENTRYPOINT_BUILD_TYPE=online
+     ARNOLD_ENTRYPOINT_DIR=/opt/tiger/arnold/arnold_entrypoint
+     ARNOLD_ENTRYPOINT_OVERRIDE_VERSION=<address>
+     ARNOLD_ENTRYPOINT_VERSION=1.0.0.3219
+     ARNOLD_EURUS_VC_JOB=1
+     ARNOLD_EXTRA_PORT_NAMES=MERLIN_INTERNAL_0:MERLIN_INTERNAL_1:MERLIN_INTERNAL_2:MERLIN_INTERNAL_3:MERLIN_INTERNAL_4:MERLIN_INTERNAL_5:MERLIN_INTERNAL_6:MERLIN_INTERNAL_7:MERLIN_INTERNAL_8:MERLIN_INTERNAL_9:RESERVED_4:RESERVED_3:RESERVED_2:RESERVED_1:RESERVED_0
+     ARNOLD_FRAMEWORK=mxnet
+     ARNOLD_GPU_UTIL=64.8402030462749
+     ARNOLD_HDFSFUSE_CPU_PERCENT={"total":["1","2","5","10","50","100","168"],"sidecar":["500m","1","1","3","5","16","20"]}
+     ARNOLD_HDFSFUSE_ENABLE_INLINE_CSI=true
+     ARNOLD_HDFSFUSE_IMAGE_FULLNAME=hub.byted.org/arnold/hdfs.fuse:<address>-<address>-506_nydus
+     ARNOLD_HDFSFUSE_MEM_PERCENT={"total":["1Gi","2Gi","10Gi","20Gi","100Gi","500Gi","1.5Ti"],"sidecar":["500Mi","1Gi","3Gi","4Gi","10Gi","50Gi","100Gi"]}
+     ARNOLD_HDFSFUSE_RESOURCE_PERCENT=20
+     ARNOLD_HDFSFUSE_TERM_GRACE_PERIOD_SECONDS=30
+     ARNOLD_HDFS_CLIENT_VERSION=<address>
+     ARNOLD_HDFS_NATIVE=true
+     ARNOLD_HOSTING_PLATFORM=rh2
+     ARNOLD_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a_nydus
+     ARNOLD_IPV6=1
+     ARNOLD_JOB_ID=102327
+     ARNOLD_JOB_PSM=aml.merlin_job.4d0d17f01c7b49bd
+     ARNOLD_LARK_RECEIVER=zhangyang.exp@bytedance.com
+     ARNOLD_LIBHDFS_VERSION=<address>
+     ARNOLD_MATCH_CLUSTERS=cloudnative-hl
+     ARNOLD_MONITOR_3PARTY_ID=MERLIN_307bfdeda66a71e4_439151574
+     ARNOLD_MONITOR_BATCH_SERVER=0
+     ARNOLD_MONITOR_BUSINESS_GROUP=搜索|生活服务
+     ARNOLD_MONITOR_BUSINESS_GROUP_FULLPATH=[{"id":6017,"name":"搜索"},{"id":7262135,"name":"生活服务"},{"id":10312472,"name":"Arnold训练"},{"id":23406099,"name":"search_douyin_life_nlp.arnold.bill"}]
+     ARNOLD_MONITOR_BUSINESS_GROUP_ID=7262135
+     ARNOLD_MONITOR_CLUSTER=cloudnative-hl
+     ARNOLD_MONITOR_CLUSTER_BACKEND=kubernetes
+     ARNOLD_MONITOR_CLUSTER_SLICE=search_douyin_life_nlp
+     ARNOLD_MONITOR_FRAMEWORK=mxnet
+     ARNOLD_MONITOR_JOB_ID=102327
+     ARNOLD_MONITOR_JOB_PSM=aml.merlin_job.4d0d17f01c7b49bd
+     ARNOLD_MONITOR_MACHINE_GROUP=default
+     ARNOLD_MONITOR_MINIPOD=nonseed
+     ARNOLD_MONITOR_NODE_LEVEL=ai
+     ARNOLD_MONITOR_PREEMPTABLE=false
+     ARNOLD_MONITOR_RH2_JOB_AUTO=0
+     ARNOLD_MONITOR_RH2_JOB_CREATOR_ROLE=RD
+     ARNOLD_MONITOR_RH2_JOB_DEBUG=0
+     ARNOLD_MONITOR_RH2_JOB_DEF_NAME=
+     ARNOLD_MONITOR_RH2_JOB_PROJECT=/user/zhangyang.exp
+     ARNOLD_MONITOR_RH2_JOB_TYPE=Train
+     ARNOLD_MONITOR_ROLE=worker
+     ARNOLD_MONITOR_SLICE_SERVICE_TREE_ID=23406099
+     ARNOLD_MONITOR_TASK_ID=
+     ARNOLD_MONITOR_TASK_OWNER=
+     ARNOLD_MONITOR_TRIAL_ID=439151574
+     ARNOLD_MONITOR_TRIAL_OWNER=zhangyang.exp
+     ARNOLD_MONITOR_USER_GROUP=search_douyin_life_nlp
+     ARNOLD_MOUNT_HDFS=1
+     ARNOLD_NEW_METIS=true
+     ARNOLD_NEW_SERVICE_DISCOVERY=true
+     ARNOLD_ORIGIN_PLATFORM_URL=<internal URL>
+     ARNOLD_PASSWORD=WVj1hqjWWGJgmfvuOCXqnziaacQ7I8eX
+     ARNOLD_PINNED_ENTRYPOINT_VERSION=1.0.0.3219
+     ARNOLD_QUOTA_POOL=default
+     ARNOLD_REGION=CN
+     ARNOLD_ROBUST_EXECUTOR_GPU_TYPE=NVIDIA-H20
+     ARNOLD_ROBUST_ROLE_CONFIGS={"worker":{"managementLevel":"lite"}}
+     ARNOLD_ROBUST_TRAINING_USE_EURUS_AGENT=1
+     ARNOLD_ROLE=worker
+     ARNOLD_RUN_ID=439151574
+     ARNOLD_SEED=2268
+     ARNOLD_SLICE_SERVICE_TREE_ID=23406099
+     ARNOLD_SORT_IP_TYPE=metis
+     ARNOLD_SORT_NEW_VERSION=1
+     ARNOLD_START_TS=1792900888
+     ARNOLD_TASK_TYPE=eurus
+     ARNOLD_TCE_AGENT_SEED_KEY_PATH=/var/run/arnold/tce_agent/seed.key
+     ARNOLD_TRIAL_CALLBACK=<internal URL>
+     ARNOLD_TRIAL_CALLBACK_HEADERS={"X-Merlin-Job-Id":"307bfdeda66a71e4","X-Tt-Logid":"2026102512002812D493EE0D582D8A6E2D"}
+     ARNOLD_TRIAL_ID=439151574
+     ARNOLD_TRIAL_KEEP_MINS=0
+     ARNOLD_TRIAL_OWNER=zhangyang.exp
+     ARNOLD_TRIAL_START_TIME=1792900829410
+     ARNOLD_USE_GLOBAL_QUOTA_CHECKER=true
+     ARNOLD_WORKER_CPU=20
+     ARNOLD_WORKER_DISK=0
+     ARNOLD_WORKER_GPU=1
+     ARNOLD_WORKER_MEM=230400
+     ARNOLD_WORKER_NUM=1
+     ARNOLD_WORKER_PORTS=17
+     ARNOLD_WORKER_ROLE_ENV=null
+     ARNOLD_WORK_DIR=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574
+     BYTEDRH2_VERSION=1.18.12a1
+     BYTED_HOST_IP=
+     BYTED_HOST_IPV6=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     BYTE_REGION=CN
+     CLOUDNATIVE_APPLICATION_COMPONENT=
+     CLOUDNATIVE_APPLICATION_ID=trial-439151574-trialrun-439151574
+     CLOUDNATIVE_APPLICATION_PLATFORM=arnold
+     CLOUDNATIVE_APPLICATION_TYPE=Trial
+     CLOUDNATIVE_CLUSTER=cloudnative-hl
+     CLOUDNATIVE_GODEL_QUEUE=arnold/compute-124-hl-cloudnative-ai-search.douyin.life.nlp
+     CONSUL_HTTP_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     CPP_HDFS_CONF=/opt/tiger/yarn_deploy/hadoop/conf/core-site.xml:/opt/tiger/yarn_deploy/hadoop/conf/hdfs-site.xml:/mnt/hdfs/__HDFS_CONF__/hdfs-site.xml
+     CPP_HDFS_DEFAULT_USER_AGENT=trial-439151574-trialrun-439151574
+     CPP_HDFS_NN_CONSUL_MODE=match
+     CPP_HDFS_TASK_FAMILY=mlsys-arnold
+     CUDA_HOME=/usr/local/cuda
+     DELTAFORGE_DEVICE=cuda
+     DEVBOX_PATH=/opt/common_tools:/opt/tiger/typhoon-blade:/usr/local/cuda/bin:/home/tiger/system_op/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+     DMLC_ENABLE_RDMA=1
+     ENABLE_COREDUMP_MONITOR=1
+     EURUS_MORNINGSTAR_URL=<internal URL>
+     HDFS_IO_THROW_EXCEPTION=1
+     HOME=/home/tiger
+     HOSTNAME=g340-cd51-4900-15ac-4e48-e501-8aab
+     IS_CONTAINERD_ENV=true
+     IS_DOCKER_ENV=true
+     IS_PY3=1
+     KUBERNETES_PORT=tcp://<address>:443
+     KUBERNETES_PORT_443_TCP=tcp://<address>:443
+     KUBERNETES_PORT_443_TCP_ADDR=<address>
+     KUBERNETES_PORT_443_TCP_PORT=443
+     KUBERNETES_PORT_443_TCP_PROTO=tcp
+     KUBERNETES_SERVICE_HOST=k8s-cloudnative.k8s-hl.byted.org
+     KUBERNETES_SERVICE_PORT=6443
+     KUBERNETES_SERVICE_PORT_HTTPS=6443
+     LANG=en_US.UTF-8
+     LC_ALL=en_US.UTF-8
+     LC_CTYPE=en_US.UTF-8
+     LD_LIBRARY_PATH=/usr/local/cuda/lib64:
+     LIBHDFS_OPTS=-Dhadoop.root.logger=ERROR,console
+     MERLIN_CLI_REPLACE_MLX_ALLOWLIST=
+     MERLIN_CLI_REPLACE_MLX_DENYLIST=
+     MERLIN_CLI_REPLACE_MLX_MODE=off
+     MERLIN_CLI_REPLACE_MLX_PERCENT=0
+     MERLIN_CREATE_TRIAL_FINISH_TIME=1792900829312
+     MERLIN_CREATE_TRIAL_START_TIME=1792900829288
+     MERLIN_HOST_URL=<internal URL>
+     MERLIN_ICM_DOCKERFILE_CACHE_KEY_EXTRAS=[]
+     MERLIN_JOB_CAPTION=deltaforge-profile-20261025120024
+     MERLIN_JOB_GIT_REPO_NAMES=
+     MERLIN_JOB_ID=307bfdeda66a71e4
+     MERLIN_JOB_RUN_DESC=One-H20 bounded torch.profiler learning capture; CPU/CUDA, no model training, max 900s.
+     MERLIN_JOB_RUN_TAGS=
+     MERLIN_JOB_RUN_TRIAL_ID=439151574
+     MERLIN_MAIN_REPO_MNT_PATH=
+     MERLIN_NAMESPACE=/user/zhangyang.exp
+     MERLIN_RECENT_CREATE_JOB_RUN_TIME=1792900829255
+     MERLIN_SEED_PROJECT=0
+     MERLIN_TRIAL_CALLBACK_HEADER={"X-Merlin-Job-Id":"307bfdeda66a71e4","X-Tt-Logid":"2026102512002812D493EE0D582D8A6E2D"}
+     MERLIN_TRIAL_CALLBACK_URL=<internal URL>
+     METIS_SERVICE_URL=metisservicehl.byted.org
+     METIS_TASK_REPLICA=1
+     MLX_HOST_URL=<internal URL>
+     MLX_USER=zhangyang.exp
+     MY_CPU_LIMIT=20
+     MY_CPU_REQUEST=20
+     MY_HOST_IP=
+     MY_HOST_IPV6=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     MY_MEM_LIMIT=241591910400
+     MY_MEM_REQUEST=241591910400
+     MY_POD_IP=
+     MY_POD_IPV6=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     MY_POD_NAME=trial-439151574-trialrun-439151574-worker-0
+     MY_POD_NAMESPACE=arnold
+     NCCL_DEBUG=INFO
+     NVIDIA_DRIVER_CAPABILITIES=compute,utility
+     NVIDIA_REQUIRE_CUDA=cuda>=12.1 brand=tesla,driver>=450,driver<451 brand=tesla,driver>=470,driver<471 brand=unknown,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=geforce,driver>=470,driver<471 brand=geforcertx,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=titan,driver>=470,driver<471 brand=titanrtx,driver>=470,driver<471 brand=tesla,driver>=510,driver<511 brand=unknown,driver>=510,driver<511 brand=nvidia,driver>=510,driver<511 brand=nvidiartx,driver>=510,driver<511 brand=geforce,driver>=510,driver<511 brand=geforcertx,driver>=510,driver<511 brand=quadro,driver>=510,driver<511 brand=quadrortx,driver>=510,driver<511 brand=titan,driver>=510,driver<511 brand=titanrtx,driver>=510,driver<511 brand=tesla,driver>=515,driver<516 brand=unknown,driver>=515,driver<516 brand=nvidia,driver>=515,driver<516 brand=nvidiartx,driver>=515,driver<516 brand=geforce,driver>=515,driver<516 brand=geforcertx,driver>=515,driver<516 brand=quadro,driver>=515,driver<516 brand=quadrortx,driver>=515,driver<516 brand=titan,driver>=515,driver<516 brand=titanrtx,driver>=515,driver<516 brand=tesla,driver>=525,driver<526 brand=unknown,driver>=525,driver<526 brand=nvidia,driver>=525,driver<526 brand=nvidiartx,driver>=525,driver<526 brand=geforce,driver>=525,driver<526 brand=geforcertx,driver>=525,driver<526 brand=quadro,driver>=525,driver<526 brand=quadrortx,driver>=525,driver<526 brand=titan,driver>=525,driver<526 brand=titanrtx,driver>=525,driver<526
+     NVIDIA_VISIBLE_DEVICES=GPU-14eecf91-761f-5126-b322-a1ebe7366449
+     PATH=/opt/common_tools:/opt/tiger/typhoon-blade:/usr/local/cuda/bin:/home/tiger/system_op/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+     PORT0=9994
+     PORT10=11806
+     PORT11=9814
+     PORT12=10447
+     PORT13=9614
+     PORT14=10462
+     PORT15=11479
+     PORT16=9836
+     PORT1=11235
+     PORT2=11904
+     PORT3=9475
+     PORT4=9802
+     PORT5=10736
+     PORT6=10117
+     PORT7=11092
+     PORT8=11354
+     PORT9=9320
+     PORT=9994
+     PORT_LIST=9994,11235,11904,9475,9802,10736,10117,11092,11354,9320,11806,9814,10447,9614,10462,11479,9836
+     PREFER_MINIPOD=
+     PWD=/
+     RH2_CHECKPOINT_HDFS=hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/checkpoints/20261025/307bfdeda66a71e4
+     RH2_ENTRYPOINT=lab/rh2/entry_point:2.0.0.2469:/opt/tiger/rh2
+     RH2_HOST=ml.bytedance.net
+     RH2_IS_BUILD_FREE=1
+     RH2_JOB_RUN_ID=307bfdeda66a71e4
+     RH2_OFFICIAL_IMAGE=1
+     RH2_PYTHONPATH=/opt/tiger/rh2:/opt/tiger/pyutil
+     RH2_RUNDAY=1792857600000
+     RH2_TENSORBOARD_HDFS=hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/tensorboard/20261025/307bfdeda66a71e4
+     ROBUST_EXECUTOR_CONTROL_PLANE=eurus
+     RUNTIME_CLASS_NAME=runc
+     RUNTIME_IDC_NAME=hl
+     SEC_IDENTITY_DIR=/etc/tce_dynamic
+     SEC_TOKEN_PATH=/etc/tce_dynamic/identity.token
+     SHLVL=1
+     TCE_CLUSTER=trial
+     TCE_INTERNAL_IDC=HL
+     TCE_PHYSICAL_CLUSTER=CloudNative
+     TCE_PSM=aml.merlin_job.4d0d17f01c7b49bd
+     TCE_PSM_GROUP=default
+     TCE_PSM_OWNER=zhangyang.exp
+     TCE_ZONE=China-North-LF
+     TOOLBOX_CHECKPOINTER_TOS_DOMAIN=<internal URL>
+     TOOLBOX_MONITOR_KAFKA_TOPIC=arnold_toolbox_monitor
+     TOOLBOX_MONITOR_KAFKA_URL=<internal URL>
+     USER_LOGS_DIR=/var/log/tiger
+     USE_NATIVE_HDFS_CLIENT=1
+     YARN_APP_TAGS=job=102327,platform=arnold,grade=1
+     YARN_CONTAINER_RUNTIME_TYPE=docker
+     _=/usr/bin/env
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 30] [main] [arnold] ----- Full Environment Variables At Start End -----
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 36] [main] [arnold] Temporarily clearing http/https proxy env vars for entrypoint initialization
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 53] [main] [arnold] pull hdfs config
+successfully checkout <address>
+hdfs_config version:<address>
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 58] [main] [arnold] execute gen_hdfs_config.sh
+2026/10/25 12:01:28 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 62] [main] [arnold] gen_hdfs_config.sh executed successfully
+2026/10/25 12:01:29 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 203] [main] cmd: /opt/tiger/arnold/arnold_entrypoint/entrypoint.sh /opt/tiger/rh2/rh2/init/arnold.sh
+2026/10/25 12:01:29 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 174] [install_hdfs_client] [arnold] begin to pull hdfs client
+2026/10/25 12:01:29 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 197] [install_arnold_hdfs_client] [arnold] begin to pull arnold hdfs client
+successfully checkout <address>
+arnold_hdfs_client version:<address>
+successfully checkout <address>
+native_hdfs_client (data/inf/hdfs_client) version:<address>
+2026/10/25 12:01:33 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 231] [main] [arnold] ARNOLD_NODE_SPEC fetch success. Value: ecs.hpcpni3l.45xlarge.
+2026/10/25 12:01:33 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 237] [main] [arnold] ARNOLD_NODE_VENDOR fetch success. Value: volcengine.
+2026/10/25 12:01:33 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 242] [main] [arnold] init hadoop env
+2026/10/25 12:01:39 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 245] [main] [arnold] init native libhdfs
+2026/10/25 12:01:39 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/libhdfs.sh: 74] [source] pull native libhdfs.so
+successfully checkout <address>
+native_libhdfs version:<address>
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/libhdfs.sh: 44] [add_native_libhdfs] start to link /opt/tiger/native_libhdfs/lib/libhdfs_client.so /opt/tiger/native_libhdfs/lib/native/libhdfs.so
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/libhdfs.sh: 46] [add_native_libhdfs] link libhdfs_client.so to libhdfs.so success
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/libhdfs.sh: 66] [use_native_libhdfs] USE_NATIVE_HDFS_CLIENT=1, add /opt/tiger/native_libhdfs/lib/native to LD_LIBRARY_PATH
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/libhdfs.sh: 69] [use_native_libhdfs] ARROW_LIBHDFS_DIR is not set, use /opt/tiger/native_libhdfs/lib/native by default
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 248] [main] [arnold] init feature store
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 423] [main] [arnold] Instance start on host <address> <address> <address> <address> <address> <address> <address> <address> 2605:340:cd51:4900:15ac:4e48:e501:8aab 2605:340:cd51:4900:91c3::1 fdbd:fdbd:fdbd:fdbd:ffff:ffff:0:1 
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 429] [main] [arnold] pull rh2 launch scripts
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 437] [main] [arnold] pull mlx launch scripts
+arnold_entrypoint version:<address>
+2026/10/25 12:01:40 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 512] [main] begin to pull scm outside robust training
+successfully checkout <address>
+mlx_studio_loader version:<address>
+successfully checkout 2.0.0.2469
+rh2_entrypoint version:2.0.0.2469
+2026/10/25 12:01:41 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 518] [main] finish pull scm outside robust training
+2026/10/25 12:01:41 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 587] [main] [arnold] init common env
+2026/10/25 12:01:41 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/common.sh: 25] [source] waiting for all hosts to be ready
+Looking in indexes: <internal URL>
+Requirement already satisfied: requests in /usr/local/lib/python3.11/dist-packages (2.32.5)
+Collecting chardet
+  Downloading <internal URL> (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 196.1 MB/s  0:00:00
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests) (3.4.4)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests) (1.26.20)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests) (2025.10.5)
+Installing collected packages: chardet
+Successfully installed chardet-7.7.0
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/init_env/common.sh: 39] [source] all hosts are ready
+[arnold] create dir /opt/tiger/shard_train
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 592] [main] [arnold] check device env for GPU
+2026-10-25 12:01:42,582 WARNING storage_monitor nothing to check
+CUDA driver version: 12.9
+CUDA toolkit version: 12.9
+disable NVLS on NVIDIA-H20, driver version 12.9
+[arnold] device env for GPU:
+NCCL_SOCKET_IFNAME: =eth0
+NCCL_IB_HCA: ^=mlx5_0
+setting UCX env...
+[arnold] current UCX env for GPU:
+UCX_NET_DEVICES: 
+UCX_TLS: rc,tcp,cuda_copy
+UCX_MAX_RNDV_RAILS: 4
+UCX_LOG_LEVEL: INFO
+UCXX_IFNAME: eth0
+IPV6_ONLY: TRUE
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 600] [main] [arnold] check device env for Ascend910B2 NPU
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 606] [main] [arnold] init torch env
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 609] [main] [arnold] check training framework start
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 613] [main] [arnold] check training framework end
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 620] [main] [arnold] ----- Environment Variables -----
+     ARNOLD_APPLIED_GPU_NUM=1
+     ARNOLD_BASE_DIR=hdfs://haruna
+     ARNOLD_BASE_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a
+     ARNOLD_BASE_URL=<internal URL>
+     ARNOLD_CKPT_TRIAL_ID=[0]
+     ARNOLD_CLUSTER_BACKEND=kubernetes
+     ARNOLD_CLUSTER_GROUP_ID=2079
+     ARNOLD_CLUSTER_GROUP_NAME=search_douyin_life_nlp
+     ARNOLD_CLUSTER_GROUP_RESOURCE_OWNER=tangxuan.yjz
+     ARNOLD_CLUSTER_SLICE=search_douyin_life_nlp
+     ARNOLD_DEVICE_TYPE=NVIDIA-H20
+     ARNOLD_DLP_ENTRYPOINT_EURUS_AGENT_REPO=mlsys/arnold/eurus/agent_nonseed
+     ARNOLD_DLP_ENTRYPOINT_EURUS_AGENT_VERSION=<address>
+     ARNOLD_DLP_ENTRYPOINT_REPO=mlsys/dlp/dlp_entrypoint
+     ARNOLD_DLP_ENTRYPOINT_ROBUST_VERSION=1.0.0.1911
+     ARNOLD_ENTRYPOINT_BUILD_TYPE=online
+     ARNOLD_ENTRYPOINT_DIR=/opt/tiger/arnold/arnold_entrypoint
+     ARNOLD_ENTRYPOINT_OVERRIDE_VERSION=<address>
+     ARNOLD_ENTRYPOINT_VERSION=1.0.0.3219
+     ARNOLD_EURUS_VC_JOB=1
+     ARNOLD_EXTRA_PORT_NAMES=MERLIN_INTERNAL_0:MERLIN_INTERNAL_1:MERLIN_INTERNAL_2:MERLIN_INTERNAL_3:MERLIN_INTERNAL_4:MERLIN_INTERNAL_5:MERLIN_INTERNAL_6:MERLIN_INTERNAL_7:MERLIN_INTERNAL_8:MERLIN_INTERNAL_9:RESERVED_4:RESERVED_3:RESERVED_2:RESERVED_1:RESERVED_0
+     ARNOLD_FRAMEWORK=mxnet
+     ARNOLD_GPU_UTIL=64.8402030462749
+     ARNOLD_HDFS_CLIENT_VERSION=<address>
+     ARNOLD_HDFSFUSE_CPU_PERCENT={"total":["1","2","5","10","50","100","168"],"sidecar":["500m","1","1","3","5","16","20"]}
+     ARNOLD_HDFSFUSE_ENABLE_INLINE_CSI=true
+     ARNOLD_HDFSFUSE_IMAGE_FULLNAME=hub.byted.org/arnold/hdfs.fuse:<address>-<address>-506_nydus
+     ARNOLD_HDFSFUSE_MEM_PERCENT={"total":["1Gi","2Gi","10Gi","20Gi","100Gi","500Gi","1.5Ti"],"sidecar":["500Mi","1Gi","3Gi","4Gi","10Gi","50Gi","100Gi"]}
+     ARNOLD_HDFSFUSE_RESOURCE_PERCENT=20
+     ARNOLD_HDFSFUSE_TERM_GRACE_PERIOD_SECONDS=30
+     ARNOLD_HDFS_NATIVE=true
+     ARNOLD_HOSTING_PLATFORM=rh2
+     ARNOLD_ID=0
+     ARNOLD_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a_nydus
+     ARNOLD_INPUT=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574/input
+     ARNOLD_IPV6=1
+     ARNOLD_IPV6_ONLY=TRUE
+     ARNOLD_JOB_ID=102327
+     ARNOLD_JOB_PSM=aml.merlin_job.4d0d17f01c7b49bd
+     ARNOLD_LARK_RECEIVER=zhangyang.exp@bytedance.com
+     ARNOLD_LIBHDFS_VERSION=<address>
+     ARNOLD_MATCH_CLUSTERS=cloudnative-hl
+     ARNOLD_MERLIN_INTERNAL_0_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_0_CURRENT_PORT=9836
+     ARNOLD_MERLIN_INTERNAL_1_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_1_CURRENT_PORT=11479
+     ARNOLD_MERLIN_INTERNAL_2_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_2_CURRENT_PORT=10462
+     ARNOLD_MERLIN_INTERNAL_3_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_3_CURRENT_PORT=9614
+     ARNOLD_MERLIN_INTERNAL_4_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_4_CURRENT_PORT=10447
+     ARNOLD_MERLIN_INTERNAL_5_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_5_CURRENT_PORT=9814
+     ARNOLD_MERLIN_INTERNAL_6_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_6_CURRENT_PORT=11806
+     ARNOLD_MERLIN_INTERNAL_7_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_7_CURRENT_PORT=9320
+     ARNOLD_MERLIN_INTERNAL_8_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_8_CURRENT_PORT=11354
+     ARNOLD_MERLIN_INTERNAL_9_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_MERLIN_INTERNAL_9_CURRENT_PORT=11092
+     ARNOLD_MONITOR_3PARTY_ID=MERLIN_307bfdeda66a71e4_439151574
+     ARNOLD_MONITOR_BATCH_SERVER=0
+     ARNOLD_MONITOR_BUSINESS_GROUP_FULLPATH=[{"id":6017,"name":"搜索"},{"id":7262135,"name":"生活服务"},{"id":10312472,"name":"Arnold训练"},{"id":23406099,"name":"search_douyin_life_nlp.arnold.bill"}]
+     ARNOLD_MONITOR_BUSINESS_GROUP_ID=7262135
+     ARNOLD_MONITOR_BUSINESS_GROUP=搜索|生活服务
+     ARNOLD_MONITOR_CLUSTER_BACKEND=kubernetes
+     ARNOLD_MONITOR_CLUSTER=cloudnative-hl
+     ARNOLD_MONITOR_CLUSTER_SLICE=search_douyin_life_nlp
+     ARNOLD_MONITOR_FRAMEWORK=mxnet
+     ARNOLD_MONITOR_JOB_ID=102327
+     ARNOLD_MONITOR_JOB_PSM=aml.merlin_job.4d0d17f01c7b49bd
+     ARNOLD_MONITOR_MACHINE_GROUP=default
+     ARNOLD_MONITOR_MINIPOD=nonseed
+     ARNOLD_MONITOR_NODE_LEVEL=ai
+     ARNOLD_MONITOR_PREEMPTABLE=false
+     ARNOLD_MONITOR_RH2_JOB_AUTO=0
+     ARNOLD_MONITOR_RH2_JOB_CREATOR_ROLE=RD
+     ARNOLD_MONITOR_RH2_JOB_DEBUG=0
+     ARNOLD_MONITOR_RH2_JOB_DEF_NAME=
+     ARNOLD_MONITOR_RH2_JOB_PROJECT=/user/zhangyang.exp
+     ARNOLD_MONITOR_RH2_JOB_TYPE=Train
+     ARNOLD_MONITOR_ROLE=worker
+     ARNOLD_MONITOR_SLICE_SERVICE_TREE_ID=23406099
+     ARNOLD_MONITOR_TASK_ID=
+     ARNOLD_MONITOR_TASK_OWNER=
+     ARNOLD_MONITOR_TRIAL_ID=439151574
+     ARNOLD_MONITOR_TRIAL_OWNER=zhangyang.exp
+     ARNOLD_MONITOR_USER_GROUP=search_douyin_life_nlp
+     ARNOLD_MOUNT_HDFS=1
+     ARNOLD_MPI_HOME=/usr/lib/x86_64-linux-gnu/openmpi
+     ARNOLD_NCCL_DEBUG=INFO
+     ARNOLD_NCCL_DEBUG_SUBSYS=INIT,ENV,GRAPH
+     ARNOLD_NCCL_IB_DISABLE=0
+     ARNOLD_NCCL_IB_GID_INDEX=3
+     ARNOLD_NCCL_IB_HCA=^=mlx5_0
+     ARNOLD_NCCL_IB_RETRY_CNT=7
+     ARNOLD_NCCL_IB_TIMEOUT=23
+     ARNOLD_NCCL_NET_PLUGIN=none
+     ARNOLD_NCCL_NVLS_ENABLE=0
+     ARNOLD_NCCL_RAS_ENABLE=0
+     ARNOLD_NCCL_SOCKET_FAMILY=AF_INET6
+     ARNOLD_NCCL_SOCKET_IFNAME==eth0
+     ARNOLD_NEW_METIS=true
+     ARNOLD_NEW_SERVICE_DISCOVERY=true
+     ARNOLD_NODE_ARCH=x86_64
+     ARNOLD_NODE_SPEC=ecs.hpcpni3l.45xlarge
+     ARNOLD_NODE_VENDOR=volcengine
+     ARNOLD_NUM=1
+     ARNOLD_ORIGIN_PLATFORM_URL=<internal URL>
+     ARNOLD_OUTPUT=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574/output
+     ARNOLD_PINNED_ENTRYPOINT_VERSION=1.0.0.3219
+     ARNOLD_PREMODEL=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574/input/premodel
+     ARNOLD_QUOTA_POOL=default
+     ARNOLD_RDMA_DEVICE=mlx5_1
+     ARNOLD_RDMA_INTERFACE=eth1
+     ARNOLD_REGION=CN
+     ARNOLD_RESERVED_0_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_RESERVED_0_CURRENT_PORT=11904
+     ARNOLD_RESERVED_1_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_RESERVED_1_CURRENT_PORT=9475
+     ARNOLD_RESERVED_2_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_RESERVED_2_CURRENT_PORT=9802
+     ARNOLD_RESERVED_3_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_RESERVED_3_CURRENT_PORT=10736
+     ARNOLD_RESERVED_4_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_RESERVED_4_CURRENT_PORT=10117
+     ARNOLD_ROBUST_EXECUTOR_GPU_TYPE=NVIDIA-H20
+     ARNOLD_ROBUST_ROLE_CONFIGS={"worker":{"managementLevel":"lite"}}
+     ARNOLD_ROBUST_TRAINING_USE_EURUS_AGENT=1
+     ARNOLD_ROLE=worker
+     ARNOLD_RUN_ID=439151574
+     ARNOLD_RUNTIME_FRAMEWORK=torch
+     ARNOLD_SEED=2268
+     ARNOLD_SHARD_TRAIN=/opt/tiger/shard_train
+     ARNOLD_SLICE_SERVICE_TREE_ID=23406099
+     ARNOLD_SORT_IP_TYPE=metis
+     ARNOLD_SORT_NEW_VERSION=1
+     ARNOLD_START_TS=1792900888
+     ARNOLD_TASK_TYPE=eurus
+     ARNOLD_TCE_AGENT_SEED_KEY_PATH=/var/run/arnold/tce_agent/seed.key
+     ARNOLD_TEST=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574/input/test
+     ARNOLD_TOOLBOX_DIR=/opt/tiger/arnold_toolbox
+     ARNOLD_TRAIN=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574/input/train
+     ARNOLD_TRIAL_CALLBACK_HEADERS={"X-Merlin-Job-Id":"307bfdeda66a71e4","X-Tt-Logid":"2026102512002812D493EE0D582D8A6E2D"}
+     ARNOLD_TRIAL_CALLBACK=<internal URL>
+     ARNOLD_TRIAL_ID=439151574
+     ARNOLD_TRIAL_KEEP_MINS=0
+     ARNOLD_TRIAL_OWNER=zhangyang.exp
+     ARNOLD_TRIAL_START_TIME=1792900829410
+     ARNOLD_UCX_LOG_LEVEL=INFO
+     ARNOLD_UCX_MAX_RNDV_RAILS=4
+     ARNOLD_UCX_TLS=rc,tcp,cuda_copy
+     ARNOLD_UCXX_IFNAME=eth0
+     ARNOLD_UFS_DISABLE=true
+     ARNOLD_USE_GLOBAL_QUOTA_CHECKER=true
+     ARNOLD_WORK_DIR=hdfs://haruna/home/byte_arnold_lq/aml/merlin_job/4d0d17f01c7b49bd/tasks/0/trials/439151574
+     ARNOLD_WORKER_0_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     ARNOLD_WORKER_0_PORT=9994,11235
+     ARNOLD_WORKER_CPU=20
+     ARNOLD_WORKER_DISK=0
+     ARNOLD_WORKER_GPU=1
+     ARNOLD_WORKER_HOSTS=[2605:340:cd51:4900:15ac:4e48:e501:8aab]:9994,[2605:340:cd51:4900:15ac:4e48:e501:8aab]:11235
+     ARNOLD_WORKER_MEM=230400
+     ARNOLD_WORKER_NUM=1
+     ARNOLD_WORKER_PORTS=2
+     ARNOLD_WORKER_ROLE_ENV=null
+     ARNOLD_WORK_ON_HDFS=1
+     METIS_WORKER_0_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+     METIS_WORKER_0_MERLIN_INTERNAL_0_PORT=9836
+     METIS_WORKER_0_MERLIN_INTERNAL_1_PORT=11479
+     METIS_WORKER_0_MERLIN_INTERNAL_2_PORT=10462
+     METIS_WORKER_0_MERLIN_INTERNAL_3_PORT=9614
+     METIS_WORKER_0_MERLIN_INTERNAL_4_PORT=10447
+     METIS_WORKER_0_MERLIN_INTERNAL_5_PORT=9814
+     METIS_WORKER_0_MERLIN_INTERNAL_6_PORT=11806
+     METIS_WORKER_0_MERLIN_INTERNAL_7_PORT=9320
+     METIS_WORKER_0_MERLIN_INTERNAL_8_PORT=11354
+     METIS_WORKER_0_MERLIN_INTERNAL_9_PORT=11092
+     METIS_WORKER_0_PORT=9994,11235
+     METIS_WORKER_0_RESERVED_0_PORT=11904
+     METIS_WORKER_0_RESERVED_1_PORT=9475
+     METIS_WORKER_0_RESERVED_2_PORT=9802
+     METIS_WORKER_0_RESERVED_3_PORT=10736
+     METIS_WORKER_0_RESERVED_4_PORT=10117
+     METIS_WORKER_HOSTS=[2605:340:cd51:4900:15ac:4e48:e501:8aab]:9994,[2605:340:cd51:4900:15ac:4e48:e501:8aab]:11235
+     LD_LIBRARY_PATH=/opt/tiger/native_libhdfs/lib/native:/opt/tiger/jdk/jdk8u265-b01/jre/lib/amd64/server:/opt/tiger/yarn_deploy/hadoop_current/lib/native:/opt/tiger/yarn_deploy/hadoop_current/lib/native/ufs:/opt/tiger/yarn_deploy/hadoop/lib/native:/opt/tiger/yarn_deploy/hadoop_current/lib/native:/opt/tiger/yarn_deploy/hadoop_current/lzo/lib:/usr/local/cuda/lib64
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 628] [main] [arnold] ----- Environment Variables End -----
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 630] [main] [arnold] ----- Integrate Arnold Toolbox -----
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 632] [main] [arnold] ----- Integrate Arnold Toolbox End -----
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 634] [main] [arnold] ♪(^∇^*) Happy~
+
+2026/10/25 12:01:42 [INFO] [/opt/tiger/arnold/arnold_entrypoint/entrypoint.sh: 637] [main] [arnold] Restoring http/https proxy env vars before exec
+Get:1 <internal URL> bookworm InRelease [151 kB]
+Get:2 <internal URL> bookworm-updates InRelease [55.4 kB]
+Get:3 <internal URL> bookworm-backports InRelease [59.4 kB]
+Get:4 <internal URL> bookworm-security InRelease [34.8 kB]
+Get:5 <internal URL> bookworm/non-free amd64 Packages [102 kB]
+Get:6 <internal URL> bookworm/main amd64 Packages [8,790 kB]
+Get:7 <internal URL> bookworm-backports/main amd64 Packages.diff/Index [63.3 kB]
+Get:8 <internal URL> bookworm-security/contrib amd64 Packages [1,456 B]
+Get:9 <internal URL> bookworm-security/main amd64 Packages [357 kB]
+Get:10 <internal URL> bookworm-security/non-free amd64 Packages [6,296 B]
+Get:11 <internal URL> bookworm-security/non-free-firmware amd64 Packages [940 B]
+Get:12 <internal URL> bookworm-backports/main amd64 Packages T-2026-10-03-2010.25-F-2026-05-02-0803.20.pdiff [27.8 kB]
+Get:12 <internal URL> bookworm-backports/main amd64 Packages T-2026-10-03-2010.25-F-2026-05-02-0803.20.pdiff [27.8 kB]
+Fetched 9,649 kB in 2s (5,156 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+119 packages can be upgraded. Run 'apt list --upgradable' to see them.
+[arnold] ofed libibverbs install finished, apt_output: 
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libibverbs-dev is already the newest version (44.0-2).
+libibverbs-dev set to manually installed.
+The following NEW packages will be installed:
+  libibumad-dev libibumad3
+0 upgraded, 2 newly installed, 0 to remove and 119 not upgraded.
+Need to get 83.0 kB of archives.
+After this operation, 285 kB of additional disk space will be used.
+Get:1 <internal URL> bookworm/main amd64 libibumad3 amd64 44.0-2 [27.4 kB]
+Get:2 <internal URL> bookworm/main amd64 libibumad-dev amd64 44.0-2 [55.6 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 83.0 kB in 0s (1,410 kB/s)
+Selecting previously unselected package libibumad3:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 55191 files and directories currently installed.)
+Preparing to unpack .../libibumad3_44.0-2_amd64.deb ...
+Unpacking libibumad3:amd64 (44.0-2) ...
+Selecting previously unselected package libibumad-dev:amd64.
+Preparing to unpack .../libibumad-dev_44.0-2_amd64.deb ...
+Unpacking libibumad-dev:amd64 (44.0-2) ...
+Setting up libibumad3:amd64 (44.0-2) ...
+Setting up libibumad-dev:amd64 (44.0-2) ...
+Processing triggers for libc-bin (2.36-9+deb12u10) ...
+, libibverbs_check: ii  libibverbs-dev:amd64            44.0-2                               amd64        Development files for the libibverbs library
+2026/10/25 12:01:46 [INFO] [/opt/tiger/arnold/arnold_entrypoint/exec/exec.sh: 269] [main] [arnold] bootstrap: /opt/tiger/rh2/rh2/init/arnold.sh
+2026/10/25 12:01:46 [INFO] [/opt/tiger/arnold/arnold_entrypoint/exec/exec.sh: 270] [main] [arnold] args:
+    $0: /opt/tiger/arnold/arnold_entrypoint/exec/exec.sh
+2026/10/25 12:01:46 [INFO] [/opt/tiger/arnold/arnold_entrypoint/exec/exec.sh: 275] [main] [arnold] start running...
+
+2026/10/25 12:01:46 [INFO] [/opt/tiger/arnold/arnold_entrypoint/exec/exec.sh: 325] [main] exec my_init.py: /opt/tiger/rh2/rh2/init/arnold.sh 
+2026-10-25 12:01:46,958 INFO Running /opt/tiger/rh2/rh2/init/arnold.sh...
+PORT_LIST      : 9994,11235,11904,9475,9802,10736,10117,11092,11354,9320,11806,9814,10447,9614,10462,11479,9836
+2026/10/25 12:01:47 [INFO] [/opt/tiger/rh2/rh2/init/arnold.sh: 46] [main] start arnold.sh cmd: /opt/tiger/rh2/rh2/init/arnold.sh 
+MERLIN_ICM_DOCKERFILE_CACHE_KEY_EXTRAS=[]
+ARNOLD_HDFSFUSE_IMAGE_FULLNAME=hub.byted.org/arnold/hdfs.fuse:<address>-<address>-506_nydus
+ARNOLD_MERLIN_INTERNAL_2_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_MERLIN_INTERNAL_1_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_EXTRA_PORT_NAMES=MERLIN_INTERNAL_0:MERLIN_INTERNAL_1:MERLIN_INTERNAL_2:MERLIN_INTERNAL_3:MERLIN_INTERNAL_4:MERLIN_INTERNAL_5:MERLIN_INTERNAL_6:MERLIN_INTERNAL_7:MERLIN_INTERNAL_8:MERLIN_INTERNAL_9:RESERVED_4:RESERVED_3:RESERVED_2:RESERVED_1:RESERVED_0
+MERLIN_JOB_CAPTION=deltaforge-profile-20261025120024
+MERLIN_CLI_REPLACE_MLX_PERCENT=0
+RH2_OFFICIAL_IMAGE=1
+MERLIN_CLI_REPLACE_MLX_ALLOWLIST=
+ARNOLD_MONITOR_3PARTY_ID=MERLIN_307bfdeda66a71e4_439151574
+ARNOLD_MERLIN_INTERNAL_3_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_MERLIN_INTERNAL_9_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_MERLIN_INTERNAL_7_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+MERLIN_CLI_REPLACE_MLX_DENYLIST=
+ARNOLD_MERLIN_INTERNAL_4_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_ENTRYPOINT_BUILD_TYPE=online
+MERLIN_JOB_ID=307bfdeda66a71e4
+ARNOLD_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a_nydus
+MERLIN_CREATE_TRIAL_START_TIME=1792900829288
+MERLIN_JOB_RUN_DESC=One-H20 bounded torch.profiler learning capture; CPU/CUDA, no model training, max 900s.
+RH2_IS_BUILD_FREE=1
+MERLIN_HOST_URL=<internal URL>
+MERLIN_SEED_PROJECT=0
+ARNOLD_MERLIN_INTERNAL_0_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+ARNOLD_MERLIN_INTERNAL_6_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+MERLIN_TRIAL_CALLBACK_HEADER={"X-Merlin-Job-Id":"307bfdeda66a71e4","X-Tt-Logid":"2026102512002812D493EE0D582D8A6E2D"}
+MERLIN_JOB_RUN_TAGS=
+ARNOLD_BASE_IMAGE=hub.byted.org/base/devbox.pytorch2:d4e66f435a261cef842a651afee3e09a
+ARNOLD_MERLIN_INTERNAL_5_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+MERLIN_CLI_REPLACE_MLX_MODE=off
+MERLIN_JOB_GIT_REPO_NAMES=
+MERLIN_NAMESPACE=/user/zhangyang.exp
+MERLIN_RECENT_CREATE_JOB_RUN_TIME=1792900829255
+MERLIN_TRIAL_CALLBACK_URL=<internal URL>
+MERLIN_JOB_RUN_TRIAL_ID=439151574
+ARNOLD_MERLIN_INTERNAL_8_CURRENT_HOST=2605:340:cd51:4900:15ac:4e48:e501:8aab
+MERLIN_CREATE_TRIAL_FINISH_TIME=1792900829312
+MERLIN_MAIN_REPO_MNT_PATH=
+Get:1 <internal URL> bookworm InRelease [151 kB]
+Get:2 <internal URL> bookworm-updates InRelease [55.4 kB]
+Get:3 <internal URL> bookworm-backports InRelease [59.4 kB]
+Get:4 <internal URL> bookworm-security InRelease [34.8 kB]
+Get:5 <internal URL> bookworm/non-free-firmware amd64 Packages [6,368 B]
+Get:6 <internal URL> bookworm/contrib amd64 Packages [53.5 kB]
+Get:7 <internal URL> bookworm/main amd64 Packages [8,790 kB]
+Get:8 <internal URL> bookworm/non-free amd64 Packages [102 kB]
+Get:9 <internal URL> bookworm-updates/main amd64 Packages [6,924 B]
+Get:10 <internal URL> bookworm-backports/non-free amd64 Packages [13.3 kB]
+Get:11 <internal URL> bookworm-backports/non-free-firmware amd64 Packages [3,828 B]
+Get:12 <internal URL> bookworm-backports/contrib amd64 Packages [5,856 B]
+Get:13 <internal URL> bookworm-backports/main amd64 Packages [300 kB]
+Get:14 <internal URL> bookworm-security/non-free-firmware amd64 Packages [940 B]
+Get:15 <internal URL> bookworm-security/contrib amd64 Packages [1,456 B]
+Get:16 <internal URL> bookworm-security/main amd64 Packages [357 kB]
+Get:17 <internal URL> bookworm-security/non-free amd64 Packages [6,296 B]
+Fetched 9,948 kB in 2s (5,266 kB/s)
+Reading package lists...
+2026/10/25 12:01:49 [INFO] [/opt/tiger/rh2/rh2/init/arnold.sh: 115] [main] Backup file does not exist. Creating backup...
+2026/10/25 12:01:49 [INFO] [/opt/tiger/rh2/rh2/init/arnold.sh: 192] [main] Init PYTHONPATH: :/opt/tiger/arnold_toolbox
+ARNOLD_DEBUG_VSCODE_CURRENT_PORT: 
+ARNOLD_DEBUG_VSCODE: 
+PORT_LIST      : 9994,11235,11904,9475,9802,10736,10117
+ARNOLD_EXTRA_PORT_NAMES: MERLIN_INTERNAL_0:MERLIN_INTERNAL_1:MERLIN_INTERNAL_2:MERLIN_INTERNAL_3:MERLIN_INTERNAL_4:MERLIN_INTERNAL_5:MERLIN_INTERNAL_6:MERLIN_INTERNAL_7:MERLIN_INTERNAL_8:MERLIN_INTERNAL_9:RESERVED_4:RESERVED_3:RESERVED_2:RESERVED_1:RESERVED_0
+MERLIN_PROFILING_HDFS_DIR: hdfs://haruna/home/byte_merlin_profiling/
+ROBUST_RUN_ID  : 
+IP             : 
+ARNOLD_ID      : 0
+IPv6           : 2605:340:cd51:4900:15ac:4e48:e501:8aab
+POD_NAME       : trial-439151574-trialrun-439151574-worker-0
+no_proxy       : 
+https_proxy    : 
+http_proxy     : 
+GIT_SSH_COMMAND: 
+MERLIN_AGENT_FORK: 
+MERLIN_AGENT_HOST: 
+MERLIN_AGENT_PORT: 
+MERLIN_AGENT_TIMEOUT: 
+2026/10/25 12:01:49 [INFO] [/opt/tiger/rh2/rh2/init/arnold.sh: 372] [main] Required pip packages already present, skip install
+successfully checkout <address>
+ARNOLD_AGENT_PID: 1347
+ssh ok.
+wget ok.
+merlin preset start
+successfully checkout <address>
+[Merlin]: fluent-bit started successfully with PID 1460 and logs redirected to /opt/tiger/rh2/rh2/fluent-bit/stdout.log and /opt/tiger/rh2/rh2/fluent-bit/stderr.log
+2026-10-25 12:01:52 ====merlin preset start====
+	libyaml-0.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libyaml-0.so.2
+libssl not found.
+Selecting previously unselected package libssl1.1:amd64.
+(Reading database ... 55247 files and directories currently installed.)
+Preparing to unpack .../libssl1.1_1.1.1n-0+deb11u5_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1n-0+deb11u5) ...
+Setting up libssl1.1:amd64 (1.1.1n-0+deb11u5) ...
+Processing triggers for libc-bin (2.36-9+deb12u10) ...
+	libssl.so.1.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.1.1
+[Merlin]: fluent-bit async process started with PID 1456
+	libssl.so.1.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.1.1
+[Merlin]: Running fluent bit
+2026-10-25 12:01:52 ====merlin preset end====
+[2026-10-25 12:01:52] [Merlin]: Start to init
+[time_cost] opt=arnold_main cost=21000.00ms ret=success
+[time_cost] opt=merlin_sh cost=3170.71ms ret=success
+[2026-10-25 12:01:52] [Merlin]: Fetch job environment file
+====================rh2 env json====================
+{
+    "mongo": {},
+    "git_auth_config": {
+        "use_platform_account": false,
+        "use_job_def_version_owner_permission": false,
+        "platform_account_jwt": 0
+    },
+    "notify_lark_groups": "",
+    "entry_point": "",
+    "job_def_version": {
+        "sub_repos": [],
+        "image_meta": {
+            "image_vid": "d7iu6hbc77u4ebjdshsg"
+        },
+        "env": {
+            "DELTAFORGE_DEVICE": "cuda"
+        },
+        "entrypoint_mode": "FULL_SCRIPT"
+    },
+    "log_proxy": {
+        "scm_version": "<address>",
+        "enabled": true,
+        "log_topic_config": [
+            {
+                "idc_list": "wlby",
+                "merlin_log_topic": "merlin_job_log_wl",
+                "merlin_log_cluster": "bmq_common_cn5"
+            },
+            {
+                "idc_list": "hj",
+                "merlin_log_topic": "merlin_job_log_hj",
+                "merlin_log_cluster": "bmq_single_hj"
+            }
+        ],
+        "merlin_log_psm": "lab.rh2.frontend_prod",
+        "merlin_log_cluster": "bmq_single_hl",
+        "merlin_log_topic": "merlin_job_log"
+    },
+    "instance": {
+        "trigger_instance_id": 0,
+        "pipeline_run_id": "",
+        "trigger_id": ""
+    },
+    "job_def_version_num": 0,
+    "RH2_RUNDAY": 1792857600000,
+    "created_by": "zhangyang.exp",
+    "user_defined_envs": {
+        "DELTAFORGE_DEVICE": "cuda"
+    },
+    "init": {
+        "new_hdfs_paths": [
+            "hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/checkpoints/20261025/307bfdeda66a71e4"
+        ]
+    },
+    "job_def_owner": {
+        "public_key": "",
+        "private_key": "__REDACTED__",
+        "name": "zhangyang.exp"
+    },
+    "checkpoint_hdfs": "hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/checkpoints/20261025/307bfdeda66a71e4",
+    "params": {},
+    "job_run_owner": {},
+    "inputs": {},
+    "system_conf": {},
+    "skip_sshd": false,
+    "outputs": {},
+    "rh2_instance": "prod",
+    "job_run_id": "307bfdeda66a71e4",
+    "tensorboard_hdfs": "hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/tensorboard/20261025/307bfdeda66a71e4",
+    "host": "ml.bytedance.net",
+    "debug_mode": false,
+    "role_args": null,
+    "mlx_user_token": "",
+    "entrypoint_mode": "FULL_SCRIPT",
+    "git_repo": {},
+    "resource": {
+        "arnoldConfig": {
+            "roles": [
+                {
+                    "name": "worker",
+                    "queueName": "compute-124-hl-cloudnative-ai-search.douyin.life.nlp-guarantee",
+                    "schedulingOptions": "{\"completeTrialOnTaskNoRestartBool\":true,\"failTrialOnPodFailureBool\":true,\"podNoRestartState\":\"any\",\"skipInstallDependency\":true}",
+                    "ports": 2,
+                    "num": 1,
+                    "memory": 230400,
+                    "gpu": 1,
+                    "gpuv": "NVIDIA_H20",
+                    "cpu": 20
+                }
+            ],
+            "clusterName": "cloudnative-hl",
+            "clusterId": 20,
+            "resSchedulingPolicy": "FORCE_NONE",
+            "groupIds": [
+                2079
+            ],
+            "robustConf": {}
+        },
+        "backend": "ARNOLD"
+    },
+    "initial_job_def_version": {
+        "sub_repos": [],
+        "image_meta": {
+            "image_vid": "d7iu6hbc77u4ebjdshsg"
+        },
+        "env": {
+            "DELTAFORGE_DEVICE": "cuda"
+        },
+        "entrypoint_mode": "FULL_SCRIPT"
+    },
+    "try_num": 0,
+    "mlx_user_gitlab_token": "",
+    "arnold_ray_runtime_env": "",
+    "is_py3": true,
+    "ray_git_working_dir": "git://@"
+}
+[time_cost] opt=hydrate_job_env cost=1129.72ms ret=success
+[2026-10-25 12:01:53] [Merlin]: Create merlin hdfs dirs
+INFO: Skip create checkpoints path: hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/checkpoints/20261025/307bfdeda66a71e4
+INFO: Skip create tensorboard hdfs path: hdfs://haruna/home/byte_aml_platform/public/rh2_prod/4d0d17f01c7b49bd/tensorboard/20261025/307bfdeda66a71e4
+[time_cost] opt=step_set_up_hdfs_path cost=0.10ms ret=success
+[2026-10-25 12:01:53] [Merlin]: Install merlin internal depends
+[2026-10-25 12:01:53] [Merlin]: replace_mlx_enabled=False mode=off reason=off bucket=None
+[2026-10-25 12:01:53] [Merlin]: execute mlx cli script
+./commands/
+./commands/mlx
+./commands/mlxc_linux
+./commands/script/
+./commands/script/greeting.sh
+./commands/script/launch
+./commands/script/nvidia-smi
+./current_revision
+[time_cost] opt=step_run_cli_install_script cost=3854.39ms ret=success
+[2026-10-25 12:01:57] Append merlin-cli compat dir to PATH (tail): /home/tiger/.merlin-cli/compat-bin
+[time_cost] opt=install_cli_dependencies cost=3855.18ms ret=success
+======= exporting git rsa key ========
+[time_cost] opt=step_install_git_and_install_user_repo cost=0.04ms ret=success
+[2026-10-25 12:01:57] [Merlin]: Install merlin user defined depends
+[time_cost] opt=set_up_user_deps cost=0.08ms ret=success
+[2026-10-25 12:01:57] [Merlin]: byted-wandb version from importlib.metadata: 0.13.94
+[2026-10-25 12:01:58] [Merlin][Deps] installing pip3 'byted-wandb==0.13.98'...
+Pip3 install cmd: python3 -m pip install --user  byted-wandb==0.13.98 -i <internal URL>
+Pip3 install byted-wandb==0.13.98, stdout is b'Looking in indexes: <internal URL> byted-wandb==0.13.98\n  Downloading <internal URL> (1.9 MB)\n     \xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81\xe2\x94\x81 1.9/1.9 MB 193.8 MB/s  0:00:00\nRequirement already satisfied: Click!=8.0.0,<99.0.0,>=7.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (8.3.1)\nRequirement already satisfied: GitPython<99.0.0,>=1.0.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (3.1.46)\nRequirement already satisfied: requests<3,>=2.0.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (2.32.5)\nRequirement already satisfied: promise<3,>=2.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (2.3)\nRequirement already satisfied: shortuuid<99.0.0,>=0.5.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (1.0.13)\nRequirement already satisfied: psutil<99.0.0,>=5.0.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (7.1.0)\nRequirement already satisfied: sentry-sdk<99.0.0,>=1.0.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (2.56.0)\nRequirement already satisfied: six<99.0.0,>=1.13.0 in /usr/lib/python3/dist-packages (from byted-wandb==0.13.98) (1.16.0)\nRequirement already satisfied: docker-pycreds<99.0.0,>=0.4.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (0.4.0)\nRequirement already satisfied: protobuf!=4.0.*,!=4.21.0,<5,>=3.12.0 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (3.20.3)\nRequirement already satisfied: PyYAML<99.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (6.0.3)\nRequirement already satisfied: setproctitle<99.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (1.3.7)\nRequirement already satisfied: setuptools<99.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (80.9.0)\nRequirement already satisfied: bytedztijwthelper<1.0.0,>=0.0.17 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (0.0.24)\nRequirement already satisfied: bytedenv<99.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (0.7.3)\nRequirement already satisfied: byteddatabus~=1.0.4 in /usr/local/lib/python3.11/dist-packages (from byted-wandb==0.13.98) (1.0.8)\nRequirement already satisfied: bytedmetrics<1.0.0,>=0.3.0 in /usr/local/lib/python3.11/dist-packages (from byteddatabus~=1.0.4->byted-wandb==0.13.98) (0.11.0)\nRequirement already satisfied: byteddps<2.0.0,>=0.0.7 in /usr/local/lib/python3.11/dist-packages (from byteddatabus~=1.0.4->byted-wandb==0.13.98) (0.1.3)\nRequirement already satisfied: PyJWT<3.0.0,>=1.0.0 in /usr/lib/python3/dist-packages (from byteddps<2.0.0,>=0.0.7->byteddatabus~=1.0.4->byted-wandb==0.13.98) (2.6.0)\nRequirement already satisfied: urllib3<2.0.0,>=1.26.4 in /usr/local/lib/python3.11/dist-packages (from byteddps<2.0.0,>=0.0.7->byteddatabus~=1.0.4->byted-wandb==0.13.98) (1.26.20)\nRequirement already satisfied: ipaddress<2.0.0,>=1.0.10 in /usr/local/lib/python3.11/dist-packages (from bytedenv<99.0.0,>=0.0.1->byted-wandb==0.13.98) (1.0.23)\nRequirement already satisfied: bytedance.metrics<1.0.0,>=0.4.0 in /usr/local/lib/python3.11/dist-packages (from bytedmetrics<1.0.0,>=0.3.0->byteddatabus~=1.0.4->byted-wandb==0.13.98) (0.5.2)\nRequirement already satisfied: bytedbackgrounds<1.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from bytedance.metrics<1.0.0,>=0.4.0->bytedmetrics<1.0.0,>=0.3.0->byteddatabus~=1.0.4->byted-wandb==0.13.98) (0.0.6)\nRequirement already satisfied: msgpack<1.1.0,>=0.5.6 in /usr/local/lib/python3.11/dist-packages (from bytedance.metrics<1.0.0,>=0.4.0->bytedmetrics<1.0.0,>=0.3.0->byteddatabus~=1.0.4->byted-wandb==0.13.98) (1.0.8)\nRequirement already satisfied: schedule<2.0.0,>=0.1.0 in /usr/local/lib/python3.11/dist-packages (from bytedbackgrounds<1.0.0,>=0.0.1->bytedance.metrics<1.0.0,>=0.4.0->bytedmetrics<1.0.0,>=0.3.0->byteddatabus~=1.0.4->byted-wandb==0.13.98) (1.2.2)\nRequirement already satisfied: bytedztispiffe<1.0.0,>=0.0.4 in /usr/local/lib/python3.11/dist-packages (from bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (0.0.17)\nRequirement already satisfied: Deprecated<2.0.0,>=1.1.0 in /usr/local/lib/python3.11/dist-packages (from bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (1.3.1)\nRequirement already satisfied: bytedmemfd<1.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (0.2)\nRequirement already satisfied: grpcio<2.0.0,>=1.36.1 in /usr/local/lib/python3.11/dist-packages (from bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (1.78.0)\nRequirement already satisfied: cryptography<50.0.0,>=3.4 in /usr/local/lib/python3.11/dist-packages (from bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (46.0.5)\nRequirement already satisfied: pyOpenSSL<27.0.0,>=22.0.0 in /usr/local/lib/python3.11/dist-packages (from bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (26.0.0)\nRequirement already satisfied: cffi>=2.0.0 in /usr/local/lib/python3.11/dist-packages (from cryptography<50.0.0,>=3.4->bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (2.0.0)\nRequirement already satisfied: wrapt<3,>=1.10 in /usr/local/lib/python3.11/dist-packages (from Deprecated<2.0.0,>=1.1.0->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (2.1.2)\nRequirement already satisfied: gitdb<5,>=4.0.1 in /usr/local/lib/python3.11/dist-packages (from GitPython<99.0.0,>=1.0.0->byted-wandb==0.13.98) (4.0.12)\nRequirement already satisfied: smmap<6,>=3.0.1 in /usr/local/lib/python3.11/dist-packages (from gitdb<5,>=4.0.1->GitPython<99.0.0,>=1.0.0->byted-wandb==0.13.98) (5.0.3)\nRequirement already satisfied: typing-extensions~=4.12 in /usr/local/lib/python3.11/dist-packages (from grpcio<2.0.0,>=1.36.1->bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (4.15.0)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.0.0->byted-wandb==0.13.98) (3.4.4)\nRequirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.0.0->byted-wandb==0.13.98) (3.11)\nRequirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.0.0->byted-wandb==0.13.98) (2025.10.5)\nRequirement already satisfied: pycparser in /usr/local/lib/python3.11/dist-packages (from cffi>=2.0.0->cryptography<50.0.0,>=3.4->bytedztispiffe<1.0.0,>=0.0.4->bytedztijwthelper<1.0.0,>=0.0.17->byted-wandb==0.13.98) (3.0)\nInstalling collected packages: byted-wandb\nSuccessfully installed byted-wandb-0.13.98\n'
+[2026-10-25 12:02:00] [Merlin][Deps] pip3 'byted-wandb==0.13.98' installed
+[time_cost] opt=install_bytedmerlin_wandb_dependencies cost=2826.57ms ret=success
+===================== setup sshd ====================
+sshd host: 2605:340:cd51:4900:15ac:4e48:e501:8aab
+sshd bind port: 10462
+sshd advertised port: 10462
+inject_sshd_env_exit_code 0
+Generating public/private ecdsa key pair.
+Your identification has been saved in /home/tiger/.arnold_ssh/ssh_host_ecdsa_key
+Your public key has been saved in /home/tiger/.arnold_ssh/ssh_host_ecdsa_key.pub
+The key fingerprint is:
+SHA256:O517Ks3xpMO2VN4C2x7hfRHBCa354tQUevUNjDdBKuU tiger@g340-cd51-4900-15ac-4e48-e501-8aab
+The key's randomart image is:
++---[ECDSA 256]---+
+|            .=*o.|
+|           o..==o|
+|          . E.++=|
+|           . + o+|
+|        S . o =. |
+|         o.O.* o.|
+|        o+==O + .|
+|        .oBoo+ . |
+|         o+=.    |
++----[SHA256]-----+
+Generating public/private ed25519 key pair.
+Your identification has been saved in /home/tiger/.arnold_ssh/ssh_host_ed25519_key
+Your public key has been saved in /home/tiger/.arnold_ssh/ssh_host_ed25519_key.pub
+The key fingerprint is:
+SHA256:rOe7mBPS6rlPtsQXPjouVSAGCLCc82Oe/c+FcDKtg+Y tiger@g340-cd51-4900-15ac-4e48-e501-8aab
+The key's randomart image is:
++--[ED25519 256]--+
+|=...             |
+|o.. o .          |
+|.+ . . .         |
+|  o    .o        |
+|   + . =So       |
+|  o =.=o*..      |
+|   o B*+=. .     |
+|    ==+Oo..      |
+|   .+EB+==       |
++----[SHA256]-----+
+Generating public/private rsa key pair.
+Your identification has been saved in /home/tiger/.arnold_ssh/ssh_host_rsa_key
+Your public key has been saved in /home/tiger/.arnold_ssh/ssh_host_rsa_key.pub
+The key fingerprint is:
+SHA256:kEib5WkT01WYyqEcCj4EPjs3V0CFCnA9GAzaRfstgIQ tiger@g340-cd51-4900-15ac-4e48-e501-8aab
+The key's randomart image is:
++---[RSA 3072]----+
+|==+==o*o ..+.    |
+|E==+oOo=o o      |
+|.=+.B+B= o       |
+|  =..+++o        |
+| o + .o S        |
+|  o o  .         |
+|                 |
+|                 |
+|                 |
++----[SHA256]-----+
+Successfully fetched 1 SSH keys from Merlin
+Successfully ensured 1 SSH keys in /home/tiger/.arnold_ssh/authorized_keys
+Successfully fetched managed RSA SSH key from Merlin
+Successfully ensured managed RSA public key in /home/tiger/.arnold_ssh/authorized_keys
+===================== setup sshd end ==================
+[time_cost] opt=setup_sshd cost=3099.16ms ret=success
+entrypoint dir:  /opt/tiger/
+inject_webshell_exit_code 0 echo "export SERVICE_LOAD_PATH=../../opt/tiger/" >> /home/tiger/.bash_aliases
+[2026-10-25 12:02:03] [Merlin] All Packages Installed successfully: Report running
+[Merlin]: probing [env] check costs(s): {'envs': 0.001, 'image': 0.0, 'resource': 0.0, 'trial_run': 0.0, 'scm': 0.005, 'byted_packages': 0.003, 'apt': 0.012, 'pips': 0.363}
+[time_cost] opt=collect_envs_packages_info_sync cost=378.67ms ret=success
+[2026-10-25 12:02:04] [Merlin]: collect_envs_packages_info_sync cost 0.38s
+Report to rh2 resp
+====================export PYTHONPATH start====================
+Export PYTHONPATH by appending to ~/.bashrc merlin block: export PYTHONPATH=$PYTHONPATH:/opt/tiger/rh2:/opt/tiger/pyutil:/opt/tiger/arnold_toolbox
+====================export PYTHONPATH end====================
+==================== user script start ====================
+[2026-10-25 12:02:04] [Merlin]: Start to run user script
+|> ====user cmd content==== >|
+set -eo pipefail
+export PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4
+exec timeout --signal=KILL 900s python3 -u - <<'DELTAFORGE_PROFILE'
+import base64,hashlib,io,json,runpy,sys,tarfile,zlib
+from pathlib import Path
+archive=base64.b64decode('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')
+assert hashlib.sha256(archive).hexdigest()=='40611d38a2eea3bb8aca34d0f8441225258226b124b5e6faa309fb7c74f1fabe'
+tarfile.open(fileobj=io.BytesIO(archive)).extractall('/tmp/deltaforge-profile/code')
+sys.path.insert(0,'/tmp/deltaforge-profile/code')
+for device in ['cpu','cuda']:
+    root=Path('/tmp/deltaforge-profile')/device
+    sys.argv=['profile','--device',device,'--output',str(root),'--iterations','2']
+    runpy.run_module('deltaforge.profile',run_name='__main__')
+    for name in ['summary.json','trace.json.gz']:
+        file=root/name
+        original=file.read_bytes();encoded=base64.b64encode(zlib.compress(original)).decode()
+        parts=[encoded[i:i+40000] for i in range(0,len(encoded),40000)]
+        for part_index,part in enumerate(parts):
+print('DELTAFORGE '+json.dumps(dict(event='profile_complete',terminal=True)),flush=True)
+
+DELTAFORGE_PROFILE
+
+|< ====user cmd content==== <|
+user current working dir:
+/opt/tiger
+==================== main script start ====================
+[time_cost] opt=merlin_main cost=12134.67ms ret=success
+PROFILE_CAPTURE {"device": "cpu", "gpu_kernels": 0, "cpu_events": 6124, "trace_bytes": 3155308, "summary": "/tmp/deltaforge-profile/cpu/summary.json"}
+PROFILE_CAPTURE {"device": "cuda", "gpu_kernels": 1032, "cpu_events": 5764, "trace_bytes": 4450843, "summary": "/tmp/deltaforge-profile/cuda/summary.json"}
+DELTAFORGE {"event": "profile_complete", "terminal": true}
+[time_cost] opt=user_script cost=14891.18ms ret=success
+
+exit code:0
+2026-10-25 12:02:31 merlin entrypoint exit_code: 0
+2026-10-25 12:02:31,992 INFO /opt/tiger/rh2/rh2/init/arnold.sh exited with status 0.
+2026-10-25 12:02:31,992 INFO start to unregister role worker with config: needServiceDiscovery:False, sdPsm:, sdPortNum:1
+2026-10-25 12:02:31,992 INFO create /mnt/hdfs/main_terminated to notify fuse execute umount
+2026-10-25 12:02:31,993 INFO Killing all processes...

@@ -1,0 +1,1 @@
+{"event": "probe", "device": "cuda", "device_name": "NVIDIA H20", "versions": {"torch": "2.9.1", "torch-npu": null, "triton": "3.5.1", "torchair": null, "tilelang": null, "flash-linear-attention": null}, "torchair_importable": false, "matmul_verified": true, "capability": [9, 0]}

@@ -1,0 +1,64 @@
+[
+  {
+    "url": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+    "retrieved_date": "2026-10-25",
+    "sha256": "fc5ee2c18b07fa30d7a03650dca0b7c0aef4dc4200192a763d900e84f49e0e35",
+    "bytes": 94344,
+    "contains_article_body": false,
+    "archive_type": "frontend_application_shell",
+    "original_filename": "qwen38-release.html",
+    "public_dump_omitted": true
+  },
+  {
+    "url": "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+    "retrieved_date": "2026-10-25",
+    "sha256": "2f6db410eac964987a53c21455b4f4168bbd66489efc2819d1a2348bcd6a8c20",
+    "bytes": 114584,
+    "original_filename": "deepseek41-release.html",
+    "public_dump_omitted": true
+  },
+  {
+    "url": "https://qwen.ai/blog?id=flashqla",
+    "retrieved_date": "2026-10-25",
+    "sha256": "757b646d3180ae726d32f3c78c21abc5ed1143593728c03dcd7deb65c4f8620c",
+    "bytes": 94344,
+    "contains_article_body": false,
+    "archive_type": "frontend_application_shell",
+    "original_filename": "flashqla-release.html",
+    "public_dump_omitted": true
+  },
+  {
+    "url": "https://arxiv.org/abs/2412.06464",
+    "retrieved_date": "2026-10-25",
+    "sha256": "14da2088d109401709c9f4a99afb28847b65935048d37b68e3169520140aaedd",
+    "bytes": 41824,
+    "original_filename": "gdn-paper.html",
+    "public_dump_omitted": true
+  },
+  {
+    "file": "qwen35-config.json",
+    "url": "https://modelscope.cn/models/Qwen/Qwen3.5-2B/resolve/master/config.json",
+    "retrieved_date": "2026-10-25",
+    "sha256": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+    "bytes": 2908,
+    "revision": "moving reference; exact downloaded bytes hashed"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/QwenLM/FlashQLA/main/README.md",
+    "retrieved_date": "2026-10-25",
+    "sha256": "1993a45a8cdae8bb9c637ac617f7365c66991d4157bbaaff9d9c6cbbbc03b3e7",
+    "bytes": 5749,
+    "revision": "moving reference; exact downloaded bytes hashed",
+    "original_filename": "flashqla-readme.md",
+    "public_dump_omitted": true
+  },
+  {
+    "url": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+    "retrieved_date": "2026-10-25",
+    "archive_type": "verified_article_excerpt_via_WebFetch",
+    "sha256": "43139094e13e381bf3243b56f3d4f859fb44ad5917c28fa6db489d7639fd7e9e",
+    "bytes": 1572,
+    "original_filename": "qwen38-excerpt.md",
+    "public_dump_omitted": true
+  }
+]

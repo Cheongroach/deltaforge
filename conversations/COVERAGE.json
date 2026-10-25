@@ -1,0 +1,56 @@
+{
+  "exported_at": "2026-10-25T04:18:26.806539+00:00",
+  "conversation_id": "6adcff7e792beb2e665842f2",
+  "sources": [
+    {
+      "phase": "original",
+      "cloud_record_file": "conversation-original.jsonl",
+      "source_records": 333,
+      "source_sha256": "b0bf21792151374a386e6b6d1bb554b91a65b2a1887a331272ece10c6cdfbe90",
+      "export_counts": {
+        "user": 1,
+        "assistant": 19,
+        "tool_call": 238,
+        "tool_result_without_body": 238,
+        "non_public_context_omitted": 0
+      }
+    },
+    {
+      "phase": "questions",
+      "cloud_record_file": "conversation-followup.jsonl",
+      "source_records": 30,
+      "source_sha256": "e1c00270ea4db2ca682d2c62971a50ede645b8c25711966c9de07623a4043113",
+      "export_counts": {
+        "user": 1,
+        "assistant": 2,
+        "tool_call": 24,
+        "tool_result_without_body": 19,
+        "non_public_context_omitted": 0
+      }
+    },
+    {
+      "phase": "profiling",
+      "cloud_record_file": "conversation-profiling.jsonl",
+      "source_records": 61,
+      "source_sha256": "678110c8f185a570844b12adc12acc9c3239cce87f238a3871e4bd6eab896180",
+      "export_counts": {
+        "user": 1,
+        "assistant": 3,
+        "tool_call": 44,
+        "tool_result_without_body": 44,
+        "non_public_context_omitted": 0
+      }
+    }
+  ],
+  "records_exported": 333,
+  "control_records_omitted": 1,
+  "all_available_public_message_text_exported": true,
+  "tool_result_bodies_available": false,
+  "tool_arguments_exported": false,
+  "hidden_reasoning_exported": false,
+  "limitations": [
+    "Cloud history has no tool-result bodies. The tool-call index is not a stdout archive.",
+    "System/developer context and internal control content are excluded.",
+    "Live actions after export cutoff are documented separately."
+  ]
+}
