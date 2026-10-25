@@ -2,6 +2,7 @@
 
 Gated DeltaNet 算子与异构编译实验项目，面向 AI Infra / 算子开发 / AI 编译岗位。
 
+- [训练接入](TRAINING_INTEGRATION.md) · [终态结果与支持矩阵](TRAINING_RESULTS.md) · [小周报](progress/WEEKLY_2026-10-25.md)。
 - [近期模型调研](RESEARCH.md)：Qwen3.8-Flash-Next、DeepSeek-V4.1、FlashQLA 与选题取舍。
 - [技术设计与数学手稿](DESIGN.md)：递推 / chunk 等价、幂零求解展开、后端与验收。
 - [实测报告](RESULTS.md)：真实 H20 / 910B4，基线、数值、原始样本与失败边界。
@@ -36,7 +37,7 @@ platform.py 固定本次用户授权的 CN / search_douyin_life_nlp / cloudnativ
 
 ## 结论使用范围
 
-Triton decode 的对照是本项目 PyTorch token recurrence；prefill compiler 对照为同 chunk 的 portable eager。它们不是 FlashQLA / FLA 的领先性证据。尚未完成原生 AscendC kernel、融合 backward、完整模型接入或线上 SLA 验证。
+Triton decode 的对照是本项目 PyTorch token recurrence；prefill compiler 对照为同 chunk 的 portable eager。它们不是 FlashQLA / FLA 的领先性证据。固定 Qwen3.5 LoRA 已接入；原生默认比较、原生 AscendC kernel、融合 backward 或线上 SLA 验证未完成。
 
 AI 辅助完成原型、调研和实验。建议独立复跑、推导与修改一个 schedule 后，再在面试中承诺独立掌握相应实现。
 
@@ -59,3 +60,5 @@ PDF 复建需 reportlab 和支持中文的 TrueType 字体；PDF 已交付，可
 打开 [Profiling Lab](../profiling-lab/profiling-lab.html)，无需联网。真实 CPU/CUDA 采集在 H20 容器完成，CUDA 窗口含 1032 个 kernel，两次 decode 对照都为 PyTorch 15 个、Triton 1 个。profile 不是稳定 latency；滑杆明确标为教学模拟。
 
 [实操手册](PROFILING_GUIDE.md) · [训练与研究下一阶段](TRAINING_RESEARCH_PLAN.md) · [对话覆盖说明](../conversations/COVERAGE.json)。
+
+本页旧算子章节保留为历史材料；当前代码与复跑入口见 [仓库 README](../README.md)，新训练报告见 [TRAINING_RESULTS](../TRAINING_RESULTS.md)。历史内部平台 helper 不在公共代码中。

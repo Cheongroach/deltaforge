@@ -19,6 +19,27 @@ def inverse_unit_lower(lower: torch.Tensor) -> torch.Tensor:
     return inverse if size > 1 else eye.expand_as(lower)
 
 
+def block_inverse_unit_lower(lower: torch.Tensor) -> torch.Tensor:
+    """Block substitution avoids cancellation of large nilpotent matrix powers."""
+    original = lower.shape[-1]
+    size = 1 << (original - 1).bit_length()
+    lower = F.pad(lower, (0, size - original, 0, size - original))
+    inverse = torch.ones((*lower.shape[:-2], size, 1, 1),
+                         dtype=lower.dtype, device=lower.device)
+    width = 2
+    while width <= size:
+        half = width // 2
+        positions = torch.arange(size, device=lower.device).reshape(-1, width)
+        cross = lower[..., positions[:, half:, None], positions[:, None, :half]]
+        left, right = inverse[..., ::2, :, :], inverse[..., 1::2, :, :]
+        bottom_left = -(right @ cross) @ left
+        top = torch.cat((left, torch.zeros_like(bottom_left)), dim=-1)
+        bottom = torch.cat((bottom_left, right), dim=-1)
+        inverse = torch.cat((top, bottom), dim=-2)
+        width *= 2
+    return inverse[..., 0, :original, :original]
+
+
 @torch.library.custom_op("deltaforge::unit_lower_solve", mutates_args=())
 def unit_lower_solve(lower: torch.Tensor, rhs: torch.Tensor) -> torch.Tensor:
     """Semantic IR op: lower is STRICTLY lower, diagonal is supplied implicitly."""
@@ -33,11 +54,12 @@ def _fake_solve(lower, rhs):
 
 def _prepare(q, k, v, g, beta, lengths=None):
     # Transpose into head-major layout. Expand GQA heads in the same order as HF.
+    accumulation_dtype = torch.float64 if q.dtype == torch.float64 else torch.float32
     repeats = v.shape[2] // k.shape[2]
-    q = q.repeat_interleave(repeats, dim=2).transpose(1, 2).float()
-    k = k.repeat_interleave(repeats, dim=2).transpose(1, 2).float()
-    v = v.transpose(1, 2).float()
-    g, beta = g.transpose(1, 2).float(), beta.transpose(1, 2).float()
+    q = q.repeat_interleave(repeats, dim=2).transpose(1, 2).to(accumulation_dtype)
+    k = k.repeat_interleave(repeats, dim=2).transpose(1, 2).to(accumulation_dtype)
+    v = v.transpose(1, 2).to(accumulation_dtype)
+    g, beta = (x.transpose(1, 2).to(accumulation_dtype) for x in (g, beta))
     if lengths is not None:
         valid = torch.arange(q.shape[2], device=q.device)[None, :] < lengths[:, None]
         valid = valid[:, None, :]
@@ -50,7 +72,7 @@ def recurrent(q, k, v, g, beta, initial_state, lengths=None):
     """Independent token recurrence, used as the FP32 correctness oracle."""
     dtype = v.dtype
     q, k, v, g, beta = _prepare(q, k, v, g, beta, lengths)
-    state = initial_state.float()
+    state = initial_state.to(q.dtype)
     output = []
     scale = q.shape[-1] ** -0.5
     for token in range(q.shape[2]):
@@ -71,12 +93,15 @@ class GDN(nn.Module):
     The caller owns normalization, gate construction, and request-to-state mapping.
     """
 
-    def __init__(self, chunk_size=32, semantic_solve=False):
+    def __init__(self, chunk_size=32, semantic_solve=False, inverse_method="block"):
         super().__init__()
         if chunk_size < 1:
             raise ValueError("chunk_size must be positive")
         self.chunk_size = chunk_size
         self.semantic_solve = semantic_solve
+        if inverse_method not in ("block", "doubling", "triangular"):
+            raise ValueError("inverse_method must be block, doubling or triangular")
+        self.inverse_method = inverse_method
 
     def forward(self, q, k, v, g, beta, initial_state, lengths=None):
         dtype, original_length = v.dtype, q.shape[1]
@@ -101,12 +126,17 @@ class GDN(nn.Module):
         factors = (
             unit_lower_solve(lower, rhs)
             if self.semantic_solve
-            else inverse_unit_lower(lower) @ rhs
+            else torch.linalg.solve_triangular(
+                torch.eye(size, dtype=lower.dtype, device=lower.device) + lower,
+                rhs, upper=False, unitriangular=True)
+            if self.inverse_method == "triangular"
+            else (block_inverse_unit_lower(lower) if self.inverse_method == "block"
+                  else inverse_unit_lower(lower)) @ rhs
         )
         u, w = factors[..., :v.shape[-1]], factors[..., v.shape[-1]:]
         attention = (q @ k.transpose(-1, -2)) * decay
         k_tail = k * (prefix[..., -1, None] - prefix).exp()[..., None]
-        state = initial_state.float()
+        state = initial_state.to(q.dtype)
         outputs = []
         for chunk in range(chunks):
             residual = u[:, :, chunk] - w[:, :, chunk] @ state

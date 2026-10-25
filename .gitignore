@@ -5,3 +5,5 @@ build/
 dist/
 my-profile*/
 my-benchmark*/
+
+.private/

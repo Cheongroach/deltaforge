@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "tests": 14,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 3.2361667156219482,
+  "versions": {
+    "torch": "2.9.1",
+    "transformers": "5.2.0"
+  },
+  "source_sha256": {
+    "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+    "backends.py": "9e59ba897993ab6b7a3b2845806fff4314bedad3b379e8ca1b7b61e791bd104a",
+    "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13",
+    "cpu_gate.py": "8ed2aa2ceb58c75d1f383e283e420de83b2c812e7fc6a1845747e000a3a07d55",
+    "ops.py": "8b50296e09826022b95d8be77cd6ec34b7bf18e8ccba5463c60269efd2450724",
+    "test_backends.py": "3caa3a59cfb0679851c9a8849892e130ab50755342b04a581805177fb53378c1",
+    "training_probe.py": "e5ac3347e39e20bcf7218bf48885e164e0733896d6baf6460df4f1a4d6b723c7",
+    "training_worker.py": "d9e99831a63206236e400821ede9970848f908657b436b5217522e24cb1e41c2",
+    "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498"
+  },
+  "scope": "CPU only; excludes FLA, CUDA, compiled backward and pretrained training"
+}

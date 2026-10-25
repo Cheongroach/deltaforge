@@ -1,5 +1,7 @@
 # DeltaForge 双硬件实测报告
 
+> 历史算子实验，原始数值与源码快照保持不变。新 stable block／LoRA 结果见 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)。
+
 实测日期：2026-10-25。工作负载为固定种子随机算子夹具，锚定 Qwen3.5-2B GDN 维度；未加载完整模型权重。
 
 ## 已完成结果

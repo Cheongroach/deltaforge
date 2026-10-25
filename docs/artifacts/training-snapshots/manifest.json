@@ -1,0 +1,56 @@
+{
+  "verified_against_worker_hashes": true,
+  "snapshots": [
+    {
+      "attempt": "attempt-01",
+      "original_bundle_sha256": "78d0e2ad42dd87468b24b35828e4b36548f4892d42722d96e2b8c3f594594a8c",
+      "included_exact_files": {
+        "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+        "ops.py": "6d33c9b47646a358f522cfc710d899925ef6c0cf46c8785083d0c001d78e0f86",
+        "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13",
+        "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498",
+        "backends.py": "82b370c69de881977630a0594e643ef1ec5f048bcc0bc3fd051cb44bf17e1b79",
+        "test_backends.py": "8d045043bb87567cceed9c40a45bb2021b1f80334385c55251005c92c5cacdf7",
+        "cpu_gate.py": "8ed2aa2ceb58c75d1f383e283e420de83b2c812e7fc6a1845747e000a3a07d55",
+        "training_probe.py": "03dfc10f7b42dac54ddc304724aa1dfff2fca9d1897bfaaa7712f9e02f7d4fdf"
+      },
+      "omitted_organization_specific": {
+        "training_worker.py": "38854ad601b3259e01c7d1b72646bf9e3a907d7277668216ac871ab71816ecb2"
+      }
+    },
+    {
+      "attempt": "attempt-02",
+      "original_bundle_sha256": "b669d1c76409459f65c87be014342da8e711603ef710ea59e777b596ae81622e",
+      "included_exact_files": {
+        "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+        "ops.py": "6d33c9b47646a358f522cfc710d899925ef6c0cf46c8785083d0c001d78e0f86",
+        "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13",
+        "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498",
+        "backends.py": "82b370c69de881977630a0594e643ef1ec5f048bcc0bc3fd051cb44bf17e1b79",
+        "test_backends.py": "8d045043bb87567cceed9c40a45bb2021b1f80334385c55251005c92c5cacdf7",
+        "cpu_gate.py": "8ed2aa2ceb58c75d1f383e283e420de83b2c812e7fc6a1845747e000a3a07d55",
+        "training_probe.py": "8001a118f185a91d6c3a21859d45e83e8e5dd26cad8745827eb617fad4909103"
+      },
+      "omitted_organization_specific": {
+        "training_worker.py": "d9e99831a63206236e400821ede9970848f908657b436b5217522e24cb1e41c2"
+      }
+    },
+    {
+      "attempt": "attempt-03",
+      "original_bundle_sha256": "e7f54fc4c7daa8170ae2d800535c2a292dcdc222df6efcf6d5497b6874f2ac17",
+      "included_exact_files": {
+        "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+        "ops.py": "8b50296e09826022b95d8be77cd6ec34b7bf18e8ccba5463c60269efd2450724",
+        "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13",
+        "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498",
+        "backends.py": "9e59ba897993ab6b7a3b2845806fff4314bedad3b379e8ca1b7b61e791bd104a",
+        "test_backends.py": "3caa3a59cfb0679851c9a8849892e130ab50755342b04a581805177fb53378c1",
+        "cpu_gate.py": "8ed2aa2ceb58c75d1f383e283e420de83b2c812e7fc6a1845747e000a3a07d55",
+        "training_probe.py": "e5ac3347e39e20bcf7218bf48885e164e0733896d6baf6460df4f1a4d6b723c7"
+      },
+      "omitted_organization_specific": {
+        "training_worker.py": "d9e99831a63206236e400821ede9970848f908657b436b5217522e24cb1e41c2"
+      }
+    }
+  ]
+}

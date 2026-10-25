@@ -1,0 +1,30 @@
+{
+  "scope": "CPU FP32 collinear/weak-decay counterexample; exact model linkage pending fixed-input GPU comparison",
+  "lower_definition": "0.999 * tril(ones(C,C),-1)",
+  "triangular_inverse": [
+    {
+      "C": 32,
+      "doubling_relative_l2": 4.575531005859375,
+      "doubling_max_abs": 32.0,
+      "block_relative_l2": 1.4028313621849975e-08,
+      "block_max_abs": 5.960464477539063e-08
+    },
+    {
+      "C": 64,
+      "doubling_relative_l2": 4526666752.0,
+      "doubling_max_abs": 25769803776.0,
+      "block_relative_l2": 1.700306917484795e-08,
+      "block_max_abs": 5.960464477539063e-08
+    }
+  ],
+  "gdn_recurrence_comparison": {
+    "C": 32,
+    "T": 64,
+    "g": -1e-06,
+    "beta": 0.999,
+    "doubling_output_relative_l2": 6.397240161895752,
+    "block_output_relative_l2": 1.9551031016362685e-07
+  },
+  "regression": "test_collinear_keys_weak_decay_forward_backward",
+  "cpu_tests": 14
+}
