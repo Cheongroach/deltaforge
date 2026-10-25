@@ -1,0 +1,142 @@
+{
+  "offline_recommendation_only": true,
+  "independent_confirmation_pending": true,
+  "rule": "Reject compiled candidates whose measured latency exceeds same-chunk eager",
+  "entries": [
+    {
+      "run": "h20-constants",
+      "kind": "decode",
+      "shape": {
+        "B": 1,
+        "T": 1,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "bfloat16"
+      },
+      "speedup": 4.998683117611789,
+      "recommendation": "triton_candidate"
+    },
+    {
+      "run": "h20-constants",
+      "kind": "decode",
+      "shape": {
+        "B": 4,
+        "T": 1,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "bfloat16"
+      },
+      "speedup": 5.198963756593524,
+      "recommendation": "triton_candidate"
+    },
+    {
+      "run": "h20-constants",
+      "kind": "decode",
+      "shape": {
+        "B": 16,
+        "T": 1,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "bfloat16"
+      },
+      "speedup": 5.0161055283008915,
+      "recommendation": "triton_candidate"
+    },
+    {
+      "run": "h20-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 128,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 1.4540237839840298,
+      "recommendation": "compiled_candidate"
+    },
+    {
+      "run": "h20-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 512,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 1.5111211692316728,
+      "recommendation": "compiled_candidate"
+    },
+    {
+      "run": "h20-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 1024,
+        "Hk": 4,
+        "Hv": 4,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 1.5190299025110037,
+      "recommendation": "compiled_candidate"
+    },
+    {
+      "run": "npu-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 128,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 1.0497241529359662,
+      "recommendation": "compiled_candidate"
+    },
+    {
+      "run": "npu-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 512,
+        "Hk": 16,
+        "Hv": 16,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 0.8110970579342821,
+      "recommendation": "eager"
+    },
+    {
+      "run": "npu-constants",
+      "kind": "prefill",
+      "shape": {
+        "B": 1,
+        "T": 1024,
+        "Hk": 4,
+        "Hv": 4,
+        "K": 128,
+        "V": 128,
+        "dtype": "float32"
+      },
+      "speedup": 1.4613353345542512,
+      "recommendation": "compiled_candidate"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+[
+  {
+    "run": "h20-constants",
+    "kind": "decode",
+    "shape": {
+      "B": 1,
+      "T": 1,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "bfloat16"
+    },
+    "baseline": "own_torch_token_recurrence",
+    "value_tile": 16,
+    "num_warps": 4,
+    "baseline_ms": 0.21157916635274887,
+    "optimized_ms": 0.04232698120176792,
+    "speedup": 4.998683117611789,
+    "correctness": {
+      "output": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 5.960464477539063e-08,
+        "relative_l2": 4.593085733972657e-08,
+        "finite": true
+      }
+    },
+    "recommendation": "triton_candidate"
+  },
+  {
+    "run": "h20-constants",
+    "kind": "decode",
+    "shape": {
+      "B": 4,
+      "T": 1,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "bfloat16"
+    },
+    "baseline": "own_torch_token_recurrence",
+    "value_tile": 8,
+    "num_warps": 8,
+    "baseline_ms": 0.2120876219123602,
+    "optimized_ms": 0.04079421050846577,
+    "speedup": 5.198963756593524,
+    "correctness": {
+      "output": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 5.960464477539063e-08,
+        "relative_l2": 4.948755716327469e-08,
+        "finite": true
+      }
+    },
+    "recommendation": "triton_candidate"
+  },
+  {
+    "run": "h20-constants",
+    "kind": "decode",
+    "shape": {
+      "B": 16,
+      "T": 1,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "bfloat16"
+    },
+    "baseline": "own_torch_token_recurrence",
+    "value_tile": 16,
+    "num_warps": 4,
+    "baseline_ms": 0.212543411180377,
+    "optimized_ms": 0.0423721969127655,
+    "speedup": 5.0161055283008915,
+    "correctness": {
+      "output": {
+        "max_abs": 7.62939453125e-06,
+        "relative_l2": 8.425610758422408e-06,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 1.1920928955078125e-07,
+        "relative_l2": 5.0910070825693765e-08,
+        "finite": true
+      }
+    },
+    "recommendation": "triton_candidate"
+  },
+  {
+    "run": "h20-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 128,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 1.0673793964087963,
+    "optimized_ms": 0.7340866141021252,
+    "speedup": 1.4540237839840298,
+    "compile_seconds": 6.072432630928233,
+    "break_even_calls": 18220,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 7,
+      "fx_nodes_before": 123,
+      "fx_nodes_after": 141,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 0.20867851306684315,
+      "backend": "inductor",
+      "compile_and_first_execution_seconds": 5.86375411786139
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 3.3527612686157227e-08,
+        "relative_l2": 2.993395753492223e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 2.980232238769531e-07,
+        "relative_l2": 2.3837176854613062e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "compiled_candidate"
+  },
+  {
+    "run": "h20-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 512,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 1.8977937754243612,
+    "optimized_ms": 1.2558845803141594,
+    "speedup": 1.5111211692316728,
+    "compile_seconds": 4.926847547991201,
+    "break_even_calls": 7676,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 7,
+      "fx_nodes_before": 261,
+      "fx_nodes_after": 279,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 0.440338779008016,
+      "backend": "inductor",
+      "compile_and_first_execution_seconds": 4.486508768983185
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 4.470348358154297e-08,
+        "relative_l2": 3.033658799722616e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 4.172325134277344e-07,
+        "relative_l2": 2.4785225605228334e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "compiled_candidate"
+  },
+  {
+    "run": "h20-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 1024,
+      "Hk": 4,
+      "Hv": 4,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 3.056728420779109,
+    "optimized_ms": 2.0122898276895285,
+    "speedup": 1.5190299025110037,
+    "compile_seconds": 7.429371676873416,
+    "break_even_calls": 7114,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 7,
+      "fx_nodes_before": 445,
+      "fx_nodes_after": 463,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 0.7650924308691174,
+      "backend": "inductor",
+      "compile_and_first_execution_seconds": 6.664279246004298
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 3.725290298461914e-08,
+        "relative_l2": 3.035636950698972e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 2.980232238769531e-07,
+        "relative_l2": 2.521951216749585e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "compiled_candidate"
+  },
+  {
+    "run": "npu-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 128,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 0.6509646002086811,
+    "optimized_ms": 0.6201292009791359,
+    "speedup": 1.0497241529359662,
+    "compile_seconds": 27.128746532005607,
+    "break_even_calls": 879793,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 0,
+      "fx_nodes_before": 147,
+      "fx_nodes_after": 165,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 0.27987554300489137,
+      "backend": "torchair",
+      "compile_and_first_execution_seconds": 26.848870989000716
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 3.725290298461914e-08,
+        "relative_l2": 2.598318644686515e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 4.172325134277344e-07,
+        "relative_l2": 3.443617515586084e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "compiled_candidate"
+  },
+  {
+    "run": "npu-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 512,
+      "Hk": 16,
+      "Hv": 16,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 1.4457697994657792,
+    "optimized_ms": 1.782486800220795,
+    "speedup": 0.8110970579342821,
+    "compile_seconds": 16.38182125199819,
+    "break_even_calls": null,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 0,
+      "fx_nodes_before": 369,
+      "fx_nodes_after": 387,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 0.6823597279944806,
+      "backend": "torchair",
+      "compile_and_first_execution_seconds": 15.69946152400371
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 4.0978193283081055e-08,
+        "relative_l2": 2.674665893209749e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 5.21540641784668e-07,
+        "relative_l2": 3.606227210184443e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "eager"
+  },
+  {
+    "run": "npu-constants",
+    "kind": "prefill",
+    "shape": {
+      "B": 1,
+      "T": 1024,
+      "Hk": 4,
+      "Hv": 4,
+      "K": 128,
+      "V": 128,
+      "dtype": "float32"
+    },
+    "baseline": "portable_chunk_eager_same_chunk",
+    "chunk_size": 64,
+    "baseline_ms": 2.0627438003430143,
+    "optimized_ms": 1.411547200405039,
+    "speedup": 1.4613353345542512,
+    "compile_seconds": 19.704248503992858,
+    "break_even_calls": 30259,
+    "compiler": {
+      "lowered_domain_ops": 1,
+      "hoisted_factory_constants": 2,
+      "normalized_factory_devices": 0,
+      "fx_nodes_before": 665,
+      "fx_nodes_after": 683,
+      "algorithm": "finite_nilpotent_doubling",
+      "approximate_gate_truncation": false,
+      "export_and_lower_seconds": 1.2000603999986197,
+      "backend": "torchair",
+      "compile_and_first_execution_seconds": 18.504188103994238
+    },
+    "correctness": {
+      "output": {
+        "max_abs": 4.470348358154297e-08,
+        "relative_l2": 2.7062637286690006e-07,
+        "finite": true
+      },
+      "state": {
+        "max_abs": 3.5762786865234375e-07,
+        "relative_l2": 2.904232587752631e-07,
+        "finite": true
+      }
+    },
+    "recommendation": "compiled_candidate"
+  }
+]

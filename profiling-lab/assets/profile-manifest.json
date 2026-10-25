@@ -1,0 +1,109 @@
+{
+  "capture_tool": "torch.profiler",
+  "hardware_run_terminal": "done",
+  "pod_exit_status": [
+    0
+  ],
+  "nsys_collected": false,
+  "ncu_collected": false,
+  "simulation_explicitly_labeled": true,
+  "profiles": {
+    "cpu": {
+      "summary": "cpu-summary.json",
+      "trace": "cpu-trace.json.gz",
+      "activities": [
+        "CPU"
+      ],
+      "gpu_kernels": 0,
+      "cpu_operator_events": 6124,
+      "source_sha256": {
+        "cuda_decode.py": "ef025e175053b6c939d764bb96c41fe6145b148ca80dd980f81d53259522f20d",
+        "platform.py": "550de6a20166fe7392297e15cc0bd2e4c898b5beb2e3262dac418d32130bc4de",
+        "ops.py": "1fecd8ed848516aac4a827fd555c6ea0e88c55ad07311120e6554157fdd3e03e",
+        "benchmark.py": "0242c90fdb0189453aafcd47b7d931f08e250f886ff0ea6470c513247d3230d9",
+        "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+        "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498",
+        "profile.py": "50d20565cc0b284dbb02ee7e0d0b7278a080c19e8f1948ec571743bde385c82f",
+        "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13"
+      },
+      "numerical_gate": {
+        "prefill": {
+          "output": {
+            "max_abs": 7.450580596923828e-08,
+            "relative_l2": 2.0790444921203743e-07,
+            "finite": true
+          },
+          "state": {
+            "max_abs": 2.384185791015625e-07,
+            "relative_l2": 1.6834307814406202e-07,
+            "finite": true
+          }
+        }
+      },
+      "phase_projection": "CPU user_annotation only",
+      "raw_summary": "cpu-summary.raw.json",
+      "analysis_source_sha256": "3773c234877b409d6ed548fddf8740cbfc7e62db5f2b079c55008bf2b1a402c7"
+    },
+    "cuda": {
+      "summary": "cuda-summary.json",
+      "trace": "cuda-trace.json.gz",
+      "activities": [
+        "CPU",
+        "CUDA"
+      ],
+      "gpu_kernels": 1032,
+      "cpu_operator_events": 5764,
+      "source_sha256": {
+        "cuda_decode.py": "ef025e175053b6c939d764bb96c41fe6145b148ca80dd980f81d53259522f20d",
+        "platform.py": "550de6a20166fe7392297e15cc0bd2e4c898b5beb2e3262dac418d32130bc4de",
+        "ops.py": "1fecd8ed848516aac4a827fd555c6ea0e88c55ad07311120e6554157fdd3e03e",
+        "benchmark.py": "0242c90fdb0189453aafcd47b7d931f08e250f886ff0ea6470c513247d3230d9",
+        "__init__.py": "fbfd99fb202714a058c06f44af8a6a3b2582a6930a1f01d34df9fdf674294605",
+        "validation.py": "b9dddfabbb16944d59dc152c2dc7a66e2e6f26cc146f67d76464f49c73025498",
+        "profile.py": "50d20565cc0b284dbb02ee7e0d0b7278a080c19e8f1948ec571743bde385c82f",
+        "compiler.py": "a4e4f4cbf9e66a3f0e9df0533b8c3756178c068e0f43bf683d4d7ba0f3460b13"
+      },
+      "numerical_gate": {
+        "prefill": {
+          "output": {
+            "max_abs": 6.705522537231445e-08,
+            "relative_l2": 2.1954126339096547e-07,
+            "finite": true
+          },
+          "state": {
+            "max_abs": 2.980232238769531e-07,
+            "relative_l2": 1.916862544248943e-07,
+            "finite": true
+          }
+        },
+        "compiled": {
+          "output": {
+            "max_abs": 7.450580596923828e-08,
+            "relative_l2": 2.3163194384778762e-07,
+            "finite": true
+          },
+          "state": {
+            "max_abs": 4.76837158203125e-07,
+            "relative_l2": 2.2579776270958973e-07,
+            "finite": true
+          }
+        },
+        "decode": {
+          "output": {
+            "max_abs": 2.384185791015625e-07,
+            "relative_l2": 4.103212916106713e-07,
+            "finite": true
+          },
+          "state": {
+            "max_abs": 5.960464477539063e-08,
+            "relative_l2": 5.189323815102398e-08,
+            "finite": true
+          }
+        }
+      },
+      "phase_projection": "CPU user_annotation only",
+      "raw_summary": "cuda-summary.raw.json",
+      "analysis_source_sha256": "3773c234877b409d6ed548fddf8740cbfc7e62db5f2b079c55008bf2b1a402c7"
+    }
+  }
+}

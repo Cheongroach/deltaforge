@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deltaforge-gdn"
+version = "0.2.0"
+description = "Gated DeltaNet compiler experiments and an offline profiling lab"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.7"]
+license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+cuda = ["triton>=3.5"]
+
+[tool.setuptools]
+packages = ["deltaforge"]

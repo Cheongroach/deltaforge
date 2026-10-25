@@ -1,0 +1,12 @@
+{
+  "exported_practice": true,
+  "desktop_mobile": true,
+  "offline_no_http_requests": true,
+  "page_errors": [],
+  "measured_regression": true,
+  "gpu_decode_15_vs_1": true,
+  "cpu_no_fake_gpu": true,
+  "chrome_trace_import": true,
+  "simulated_amdahl": true,
+  "timeline_event_click": true
+}
