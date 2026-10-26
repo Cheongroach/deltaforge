@@ -2,7 +2,9 @@
 
 2026-10-25 · 独立实践项目，AI 辅助实现、调研与实验。
 
-本轮负责把 Gated DeltaNet 算子实验接入真实 Qwen3.5 训练路径，完成数值诊断、稳定求解、编译与完整 LoRA 步验证。STAR 按“背景是什么 → 我负责解决什么 → 如何判断与取舍 → 得到了什么结果”组织；重点在技术决策及其证据。
+本轮把 Gated DeltaNet 算子实验接入真实 Qwen3.5 训练路径，检验数值兼容性、稳定求解和完整 LoRA 步性能。STAR 按背景、任务、行动、结果组织；[阅读版](STAR-friendly.md) 先解释职责与判断过程，本文保留公式、指标及实现追问。
+
+GDN 用状态矩阵保存 token 历史；adapter 是模型与后端之间的接入层；oracle 指明确选择的计算参照，本轮为显式 torch adapter。LoRA 只训练附加的小矩阵。本轮 compiled 是直接编译 GDN，不是全模型编译。
 
 ## S — Situation：为什么要做
 
@@ -37,7 +39,7 @@ DeltaForge 最初已有独立 recurrence、chunk GDN、图编译和 Triton decod
 
 第一轮默认路径对 torch 的梯度误差超过门禁；第二轮改为逐后端落盘，避免一个失败遮蔽其他候选。
 
-从模型第 0／12／22 层截取真实 Q/K/V/g/beta，同时固定对应上游梯度，分别比较 torch chunk32／64、旧 doubling、新 block、直接 triangular、独立 recurrence 和 FLA。这样可以区分局部 kernel 差异与前层误差传播。
+从模型第 0／12／22 层截取真实 Q/K/V/g/beta，同时固定对应上游梯度，分别比较 torch chunk32／64、旧 doubling、新 block、直接 triangular、独立 recurrence 和 FLA。上游梯度是后续计算传回本层的信号；固定它可以区分局部 kernel 差异与前层误差传播。
 
 另构造近共线 key、弱 decay 的反例。对于 `L=0.999×tril(ones,-1)`，C=32 的旧逆展开 relative L2=4.57553；C=64 最大绝对误差达到 2.57698e10。证据表明，中间矩阵幂的大数抵消会破坏浮点结果，编译本身不能修复算法稳定性。
 
@@ -58,10 +60,12 @@ $$
 
 它避免形成大矩阵幂，并保留 PyTorch matmul 的 autograd。直接 `solve_triangular` 和独立 recurrence 用于交叉核验；跨厂商编译覆盖与性能需要分别验证。
 
+反例与真实层的误差下降支持本次替换，没有建立 block 对全部合法输入的浮点误差上界。
+
 | 候选 | 判断依据 | 本轮决定 |
 |---|---|---|
 | doubling | 实数域精确，但已出现浮点反例和真实层大误差 | 保留为实验对照 |
-| block | 反例与真实层误差显著降低，可微且可直接编译 | 新默认训练候选 |
+| block | 反例与真实层误差降低，可微且可直接编译 | 新默认训练候选 |
 | direct triangular | 独立求解可核验 block；编译覆盖与成本仍需实测 | 保留候选／oracle |
 | token recurrence | 独立数学参照；逐 token 执行成本较高 | 正确性核验 |
 | FLA | 随机算子明显更快，但本轮真实模型梯度门禁失败 | 保留强基线证据，继续定位梯度差异 |
@@ -71,6 +75,8 @@ $$
 ### 4. 用完整步和终态评价结果
 
 每后端两次独立进程，各十个更新，其中两步 warmup、八步测量；第二次反转后端顺序。保存 372 个 trainable gradient tensor 的完整性、loss、有效 token、step 时间、显存和 adapter hash。
+
+两次使用相同 seed，并共享磁盘缓存；它们不是 multi-seed 或两次独立冷启动。
 
 逐文件核验九个模型资产与公开 ESCI 数据，保留源码快照和失败 JSON。worker 不共享开发机用户路径，因此采用自包含 payload；遇到 HTTP 413 后，比选 Base85 与 Base64，最终精简必需源码／依赖，以低于请求限制的 Base64 包提交。
 

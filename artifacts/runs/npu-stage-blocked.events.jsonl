@@ -1,0 +1,1 @@
+{"event": "probe", "device": "npu", "device_name": "Ascend910B4-1", "versions": {"torch": "2.7.1+cpu", "torch-npu": "2.7.1", "triton": "3.5.1", "torchair": null, "tilelang": null, "flash-linear-attention": null}, "torchair_importable": true, "matmul_verified": true}

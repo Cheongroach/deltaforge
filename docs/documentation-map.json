@@ -1,0 +1,158 @@
+{
+  "edition_date": "2026-10-26",
+  "experiment_date": "2026-10-25",
+  "protocol": "scientific-writing-editing",
+  "documents": [
+    {
+      "document": "README.md",
+      "baseline_sha256": "9c9511731f8e488e59042c4e34a46cd3ec537312d0ec48e3d3b240c99a2d5663",
+      "friendly": null,
+      "purpose": "项目入口，直接重写"
+    },
+    {
+      "document": "DESIGN.md",
+      "baseline_sha256": "05ca4ee3f89e4fd861ff81fc2e2da15f815d8428d5ebf7af5d8bcbe5809ef13e",
+      "friendly": "DESIGN-friendly.md",
+      "purpose": "技术稿保留公式；阅读版用记忆更新与最小反例解释"
+    },
+    {
+      "document": "RESULTS.md",
+      "baseline_sha256": "cf8e5a36cebf8118c37021f9390fc39dbe414cb47525b8c555953b3c672f1c38",
+      "friendly": "RESULTS-friendly.md",
+      "purpose": "保留历史算子协议；阅读版解释比较对象与回本"
+    },
+    {
+      "document": "TRAINING_RESULTS.md",
+      "baseline_sha256": "1defd9c5a1d2c16d581e5c7779ebdc37ef195d0bd4c3f57215ff8a3fb4129156",
+      "friendly": "TRAINING_RESULTS-friendly.md",
+      "purpose": "保留完整数值与门禁；阅读版先用三图回答研究问题"
+    },
+    {
+      "document": "TRAINING_INTEGRATION.md",
+      "baseline_sha256": "803757e0740df11c800cfc10eafa0a291367c7e127cf5b2d20a426190b3bd881",
+      "friendly": "TRAINING_INTEGRATION-friendly.md",
+      "purpose": "保留 API 契约；阅读版按环境与验收步骤解释操作"
+    },
+    {
+      "document": "PROFILING_GUIDE.md",
+      "baseline_sha256": "3655920ab3001be921efc88c5eb97014912a0eec90ed1ffe200954b480acb7b1",
+      "friendly": "PROFILING_GUIDE-friendly.md",
+      "purpose": "保留采集和指标定义；阅读版先教读一段时间线"
+    },
+    {
+      "document": "STAR.md",
+      "baseline_sha256": "a1f04d2afad8ad326ac5d4d454d59cec4aca72d38e8cbfc55b207d5082c76004",
+      "friendly": "STAR-friendly.md",
+      "purpose": "技术版用于追问；阅读版先解释职责与判断过程"
+    },
+    {
+      "document": "RESEARCH.md",
+      "baseline_sha256": "923af1bb066c9730fd5967696785d3e1d1df4e3e4b5b6bdedede15584b22a66e",
+      "friendly": null,
+      "purpose": "按选题问题重排，保留来源与单源限制"
+    },
+    {
+      "document": "MAINSTREAM_MIGRATION.md",
+      "baseline_sha256": "f4bec87a84b22e67a68c2683c73fd3b95a7193cb501b16c9b32736f3ff67ab49",
+      "friendly": null,
+      "purpose": "先解释成熟可用的标准，再讲当前缺口与阶段"
+    },
+    {
+      "document": "TRAINING_RESEARCH_PLAN.md",
+      "baseline_sha256": "419648e04fb32dbd40861a570d2b100a0b6667a0f5a480428859534d5ac5f90c",
+      "friendly": null,
+      "purpose": "研究问题、已有证据、待验证假设与否定条件"
+    },
+    {
+      "document": "RESUME.md",
+      "baseline_sha256": "6501854e51d11d313f58c94d4bc24d5e79e2aeab1b755d6a877035143f4eeb8e",
+      "friendly": null,
+      "purpose": "保持简历用途，更新结果与比较条件，并同步 PDF"
+    },
+    {
+      "document": "artifacts/README.md",
+      "baseline_sha256": "b13062e1defebdf50a299d4c285618ca71614e0c3bf034ed926bf27c174b2c9c",
+      "friendly": null,
+      "purpose": "解释证据怎样支持结论及怎样追溯源码"
+    },
+    {
+      "document": "progress/WEEKLY_2026-10-25.md",
+      "baseline_sha256": "ddab9dcf54ecaaafa0f896142ac706e31e7daf235d51603047fddc30ae7d89f6",
+      "friendly": null,
+      "purpose": "先讲问题与结果，按任务解释；timeline 放在后面"
+    },
+    {
+      "document": "PUBLIC_EXPORT.md",
+      "baseline_sha256": "28ed87ded52addbdd5e59c1a42f169bed84bcf3120ef038810a6ca919799190a",
+      "friendly": null,
+      "purpose": "解释公开材料范围与证据缺口"
+    }
+  ],
+  "new_reading_entries": [
+    "READING_GUIDE.md",
+    "conversations/README.md"
+  ],
+  "records_preserved": [
+    "raw JSON/CSV results",
+    "source snapshots",
+    "conversation transcript",
+    "third-party source archives",
+    "font licenses"
+  ],
+  "figure_source": "training-results/attempt-03/evidence",
+  "figure_review": {
+    "rendered": true,
+    "visual_inspection": "Three PNG figures inspected; threshold label and overlapping FLA markers revised",
+    "mathematical_verification": "Training medians, 8-step counts, 1552 tokens and paired kernel medians independently checked against raw JSON",
+    "new_gpu_experiments": false
+  },
+  "delivery_checks": {
+    "authored_pages": 22,
+    "friendly_pages": 6,
+    "markdown_files_checked_in_publication": 66,
+    "relative_links_checked": 470,
+    "relative_link_errors": 0,
+    "existing_runtime_and_raw_asset_changes": 0,
+    "training_summary_recomputed": "14 CPU tests, six terminal training arms",
+    "historical_summary_recomputed": "193 events, 123 measurements, nine final comparisons; all aggregates equal",
+    "resume_pdf": "One rendered and visually inspected page; current results and six links checked",
+    "publication_layout": "main/doc root docs plus doc/docs mirrors; public historical archives preserved",
+    "new_gpu_experiments": false
+  },
+  "editing_passes": {
+    "science_and_evidence": {
+      "status": "complete",
+      "checks": [
+        "Compared training medians, paired kernel medians, gates, token counts and validation differences with terminal JSON",
+        "Verified all ten figure source SHA256 values unchanged",
+        "Independently checked column-vector recurrence against row-stacked chunk formula in double precision; max output difference 2.220446049250313e-16",
+        "Separated old doubling operator experiments from new block LoRA evidence; retained native/FLA failures, same-seed and shared-cache conditions"
+      ],
+      "corrections": [
+        "Fixed v-Sbar^T k and S^T q column-vector orientation, with query scale applied once",
+        "Corrected stale no-model/no-FLA states in design, profiling, research and roadmap",
+        "Changed friendly wording from 22nd GDN layer to model layer index 22",
+        "Preserved mathematical equivalence without asserting universal floating stability"
+      ]
+    },
+    "reader_order": {
+      "status": "complete",
+      "checks": [
+        "Reading guide routes six questions to friendly and technical companions",
+        "Friendly pages define terms before explanations, use a scalar memory example and introduce comparison objects before results",
+        "Training results present acceptance, full training steps and mature-kernel comparison before failure chronology",
+        "Weekly journal presents task decisions before the preserved timeline",
+        "Roadmap starts from completed evidence and prioritizes unresolved baseline gradients"
+      ]
+    },
+    "language_and_redundancy": {
+      "status": "complete",
+      "checks": [
+        "Removed unsupported team attribution and unqualified significance wording",
+        "Reviewed figure captions, units, reference labels and prose consistency",
+        "Kept exact numerical tables in technical docs and plain explanations in friendly docs",
+        "Reviewed PDF rendering: one page, Chinese glyphs and six clickable evidence links visible"
+      ]
+    }
+  }
+}

@@ -1,0 +1,146 @@
+
+
+
+def forward(self, q, k, v, g, beta, initial_state):
+    q, k, v, g, beta, initial_state, = fx_pytree.tree_flatten_spec(([q, k, v, g, beta, initial_state], {}), self._in_spec)
+    _guards_fn = self._guards_fn(q, k, v, g, beta, initial_state);  _guards_fn = None
+    repeat_interleave = torch.ops.aten.repeat_interleave.self_int(q, 2, 2);  q = None
+    transpose = torch.ops.aten.transpose.int(repeat_interleave, 1, 2);  repeat_interleave = None
+    _assert_tensor_metadata_default = torch.ops.aten._assert_tensor_metadata.default(transpose, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default = None
+    to = torch.ops.aten.to.dtype(transpose, torch.float32);  transpose = None
+    repeat_interleave_1 = torch.ops.aten.repeat_interleave.self_int(k, 2, 2);  k = None
+    transpose_1 = torch.ops.aten.transpose.int(repeat_interleave_1, 1, 2);  repeat_interleave_1 = None
+    _assert_tensor_metadata_default_1 = torch.ops.aten._assert_tensor_metadata.default(transpose_1, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_1 = None
+    to_1 = torch.ops.aten.to.dtype(transpose_1, torch.float32);  transpose_1 = None
+    transpose_2 = torch.ops.aten.transpose.int(v, 1, 2);  v = None
+    _assert_tensor_metadata_default_2 = torch.ops.aten._assert_tensor_metadata.default(transpose_2, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_2 = None
+    to_2 = torch.ops.aten.to.dtype(transpose_2, torch.float32);  transpose_2 = None
+    transpose_3 = torch.ops.aten.transpose.int(g, 1, 2);  g = None
+    _assert_tensor_metadata_default_3 = torch.ops.aten._assert_tensor_metadata.default(transpose_3, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_3 = None
+    to_3 = torch.ops.aten.to.dtype(transpose_3, torch.float32);  transpose_3 = None
+    transpose_4 = torch.ops.aten.transpose.int(beta, 1, 2);  beta = None
+    _assert_tensor_metadata_default_4 = torch.ops.aten._assert_tensor_metadata.default(transpose_4, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_4 = None
+    to_4 = torch.ops.aten.to.dtype(transpose_4, torch.float32);  transpose_4 = None
+    pad = torch.ops.aten.pad.default(to, [0, 0, 0, 7]);  to = None
+    pad_1 = torch.ops.aten.pad.default(to_1, [0, 0, 0, 7]);  to_1 = None
+    pad_2 = torch.ops.aten.pad.default(to_2, [0, 0, 0, 7]);  to_2 = None
+    pad_3 = torch.ops.aten.pad.default(to_3, [0, 7]);  to_3 = None
+    pad_4 = torch.ops.aten.pad.default(to_4, [0, 7]);  to_4 = None
+    reshape = torch.ops.aten.reshape.default(pad, [2, 4, 3, 8, 8]);  pad = None
+    mul = torch.ops.aten.mul.Tensor(reshape, 0.3535533905932738);  reshape = None
+    reshape_1 = torch.ops.aten.reshape.default(pad_1, [2, 4, 3, 8, 8]);  pad_1 = None
+    reshape_2 = torch.ops.aten.reshape.default(pad_2, [2, 4, 3, 8, 12]);  pad_2 = None
+    reshape_3 = torch.ops.aten.reshape.default(pad_3, [2, 4, 3, 8]);  pad_3 = None
+    reshape_4 = torch.ops.aten.reshape.default(pad_4, [2, 4, 3, 8]);  pad_4 = None
+    cumsum = torch.ops.aten.cumsum.default(reshape_3, -1);  reshape_3 = None
+    unsqueeze = torch.ops.aten.unsqueeze.default(cumsum, 4)
+    unsqueeze_1 = torch.ops.aten.unsqueeze.default(cumsum, 3)
+    sub = torch.ops.aten.sub.Tensor(unsqueeze, unsqueeze_1);  unsqueeze = unsqueeze_1 = None
+    clamp = torch.ops.aten.clamp.default(sub, None, 0);  sub = None
+    exp = torch.ops.aten.exp.default(clamp);  clamp = None
+    ones = torch.ops.aten.ones.default([8, 8], dtype = torch.bool, device = device(type='cpu'), pin_memory = False)
+    tril = torch.ops.aten.tril.default(ones);  ones = None
+    mul_1 = torch.ops.aten.mul.Tensor(exp, tril);  exp = tril = None
+    unsqueeze_2 = torch.ops.aten.unsqueeze.default(reshape_4, 4)
+    transpose_5 = torch.ops.aten.transpose.int(reshape_1, -1, -2)
+    matmul = torch.ops.aten.matmul.default(reshape_1, transpose_5);  transpose_5 = None
+    mul_2 = torch.ops.aten.mul.Tensor(unsqueeze_2, matmul);  unsqueeze_2 = matmul = None
+    mul_3 = torch.ops.aten.mul.Tensor(mul_2, mul_1);  mul_2 = None
+    tril_1 = torch.ops.aten.tril.default(mul_3, -1);  mul_3 = None
+    unsqueeze_3 = torch.ops.aten.unsqueeze.default(reshape_4, 4)
+    mul_4 = torch.ops.aten.mul.Tensor(unsqueeze_3, reshape_2);  unsqueeze_3 = reshape_2 = None
+    exp_1 = torch.ops.aten.exp.default(cumsum)
+    mul_5 = torch.ops.aten.mul.Tensor(reshape_4, exp_1);  reshape_4 = exp_1 = None
+    unsqueeze_4 = torch.ops.aten.unsqueeze.default(mul_5, 4);  mul_5 = None
+    mul_6 = torch.ops.aten.mul.Tensor(unsqueeze_4, reshape_1);  unsqueeze_4 = None
+    cat = torch.ops.aten.cat.default([mul_4, mul_6], -1);  mul_4 = mul_6 = None
+    unit_lower_solve = torch.ops.deltaforge.unit_lower_solve.default(tril_1, cat);  tril_1 = cat = None
+    slice_1 = torch.ops.aten.slice.Tensor(unit_lower_solve, 4, 0, 12)
+    slice_2 = torch.ops.aten.slice.Tensor(unit_lower_solve, 4, 12, 9223372036854775807);  unit_lower_solve = None
+    transpose_6 = torch.ops.aten.transpose.int(reshape_1, -1, -2)
+    matmul_1 = torch.ops.aten.matmul.default(mul, transpose_6);  transpose_6 = None
+    mul_7 = torch.ops.aten.mul.Tensor(matmul_1, mul_1);  matmul_1 = mul_1 = None
+    select = torch.ops.aten.select.int(cumsum, 3, -1)
+    unsqueeze_5 = torch.ops.aten.unsqueeze.default(select, 3);  select = None
+    sub_1 = torch.ops.aten.sub.Tensor(unsqueeze_5, cumsum);  unsqueeze_5 = None
+    exp_2 = torch.ops.aten.exp.default(sub_1);  sub_1 = None
+    unsqueeze_6 = torch.ops.aten.unsqueeze.default(exp_2, 4);  exp_2 = None
+    mul_8 = torch.ops.aten.mul.Tensor(reshape_1, unsqueeze_6);  reshape_1 = unsqueeze_6 = None
+    _assert_tensor_metadata_default_5 = torch.ops.aten._assert_tensor_metadata.default(initial_state, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_5 = None
+    to_5 = torch.ops.aten.to.dtype(initial_state, torch.float32);  initial_state = None
+    select_1 = torch.ops.aten.select.int(slice_1, 2, 0)
+    select_2 = torch.ops.aten.select.int(slice_2, 2, 0)
+    matmul_2 = torch.ops.aten.matmul.default(select_2, to_5);  select_2 = None
+    sub_2 = torch.ops.aten.sub.Tensor(select_1, matmul_2);  select_1 = matmul_2 = None
+    select_3 = torch.ops.aten.select.int(cumsum, 2, 0)
+    exp_3 = torch.ops.aten.exp.default(select_3);  select_3 = None
+    unsqueeze_7 = torch.ops.aten.unsqueeze.default(exp_3, 3);  exp_3 = None
+    select_4 = torch.ops.aten.select.int(mul, 2, 0)
+    matmul_3 = torch.ops.aten.matmul.default(select_4, to_5);  select_4 = None
+    mul_9 = torch.ops.aten.mul.Tensor(unsqueeze_7, matmul_3);  unsqueeze_7 = matmul_3 = None
+    select_5 = torch.ops.aten.select.int(mul_7, 2, 0)
+    matmul_4 = torch.ops.aten.matmul.default(select_5, sub_2);  select_5 = None
+    add = torch.ops.aten.add.Tensor(mul_9, matmul_4);  mul_9 = matmul_4 = None
+    select_6 = torch.ops.aten.select.int(cumsum, 2, 0)
+    select_7 = torch.ops.aten.select.int(select_6, 2, -1);  select_6 = None
+    exp_4 = torch.ops.aten.exp.default(select_7);  select_7 = None
+    unsqueeze_8 = torch.ops.aten.unsqueeze.default(exp_4, 2);  exp_4 = None
+    unsqueeze_9 = torch.ops.aten.unsqueeze.default(unsqueeze_8, 3);  unsqueeze_8 = None
+    mul_10 = torch.ops.aten.mul.Tensor(unsqueeze_9, to_5);  unsqueeze_9 = to_5 = None
+    select_8 = torch.ops.aten.select.int(mul_8, 2, 0)
+    transpose_7 = torch.ops.aten.transpose.int(select_8, -1, -2);  select_8 = None
+    matmul_5 = torch.ops.aten.matmul.default(transpose_7, sub_2);  transpose_7 = sub_2 = None
+    add_1 = torch.ops.aten.add.Tensor(mul_10, matmul_5);  mul_10 = matmul_5 = None
+    select_9 = torch.ops.aten.select.int(slice_1, 2, 1)
+    select_10 = torch.ops.aten.select.int(slice_2, 2, 1)
+    matmul_6 = torch.ops.aten.matmul.default(select_10, add_1);  select_10 = None
+    sub_3 = torch.ops.aten.sub.Tensor(select_9, matmul_6);  select_9 = matmul_6 = None
+    select_11 = torch.ops.aten.select.int(cumsum, 2, 1)
+    exp_5 = torch.ops.aten.exp.default(select_11);  select_11 = None
+    unsqueeze_10 = torch.ops.aten.unsqueeze.default(exp_5, 3);  exp_5 = None
+    select_12 = torch.ops.aten.select.int(mul, 2, 1)
+    matmul_7 = torch.ops.aten.matmul.default(select_12, add_1);  select_12 = None
+    mul_11 = torch.ops.aten.mul.Tensor(unsqueeze_10, matmul_7);  unsqueeze_10 = matmul_7 = None
+    select_13 = torch.ops.aten.select.int(mul_7, 2, 1)
+    matmul_8 = torch.ops.aten.matmul.default(select_13, sub_3);  select_13 = None
+    add_2 = torch.ops.aten.add.Tensor(mul_11, matmul_8);  mul_11 = matmul_8 = None
+    select_14 = torch.ops.aten.select.int(cumsum, 2, 1)
+    select_15 = torch.ops.aten.select.int(select_14, 2, -1);  select_14 = None
+    exp_6 = torch.ops.aten.exp.default(select_15);  select_15 = None
+    unsqueeze_11 = torch.ops.aten.unsqueeze.default(exp_6, 2);  exp_6 = None
+    unsqueeze_12 = torch.ops.aten.unsqueeze.default(unsqueeze_11, 3);  unsqueeze_11 = None
+    mul_12 = torch.ops.aten.mul.Tensor(unsqueeze_12, add_1);  unsqueeze_12 = add_1 = None
+    select_16 = torch.ops.aten.select.int(mul_8, 2, 1)
+    transpose_8 = torch.ops.aten.transpose.int(select_16, -1, -2);  select_16 = None
+    matmul_9 = torch.ops.aten.matmul.default(transpose_8, sub_3);  transpose_8 = sub_3 = None
+    add_3 = torch.ops.aten.add.Tensor(mul_12, matmul_9);  mul_12 = matmul_9 = None
+    select_17 = torch.ops.aten.select.int(slice_1, 2, 2);  slice_1 = None
+    select_18 = torch.ops.aten.select.int(slice_2, 2, 2);  slice_2 = None
+    matmul_10 = torch.ops.aten.matmul.default(select_18, add_3);  select_18 = None
+    sub_4 = torch.ops.aten.sub.Tensor(select_17, matmul_10);  select_17 = matmul_10 = None
+    select_19 = torch.ops.aten.select.int(cumsum, 2, 2)
+    exp_7 = torch.ops.aten.exp.default(select_19);  select_19 = None
+    unsqueeze_13 = torch.ops.aten.unsqueeze.default(exp_7, 3);  exp_7 = None
+    select_20 = torch.ops.aten.select.int(mul, 2, 2);  mul = None
+    matmul_11 = torch.ops.aten.matmul.default(select_20, add_3);  select_20 = None
+    mul_13 = torch.ops.aten.mul.Tensor(unsqueeze_13, matmul_11);  unsqueeze_13 = matmul_11 = None
+    select_21 = torch.ops.aten.select.int(mul_7, 2, 2);  mul_7 = None
+    matmul_12 = torch.ops.aten.matmul.default(select_21, sub_4);  select_21 = None
+    add_4 = torch.ops.aten.add.Tensor(mul_13, matmul_12);  mul_13 = matmul_12 = None
+    select_22 = torch.ops.aten.select.int(cumsum, 2, 2);  cumsum = None
+    select_23 = torch.ops.aten.select.int(select_22, 2, -1);  select_22 = None
+    exp_8 = torch.ops.aten.exp.default(select_23);  select_23 = None
+    unsqueeze_14 = torch.ops.aten.unsqueeze.default(exp_8, 2);  exp_8 = None
+    unsqueeze_15 = torch.ops.aten.unsqueeze.default(unsqueeze_14, 3);  unsqueeze_14 = None
+    mul_14 = torch.ops.aten.mul.Tensor(unsqueeze_15, add_3);  unsqueeze_15 = add_3 = None
+    select_24 = torch.ops.aten.select.int(mul_8, 2, 2);  mul_8 = None
+    transpose_9 = torch.ops.aten.transpose.int(select_24, -1, -2);  select_24 = None
+    matmul_13 = torch.ops.aten.matmul.default(transpose_9, sub_4);  transpose_9 = sub_4 = None
+    add_5 = torch.ops.aten.add.Tensor(mul_14, matmul_13);  mul_14 = matmul_13 = None
+    cat_1 = torch.ops.aten.cat.default([add, add_2, add_4], 2);  add = add_2 = add_4 = None
+    slice_3 = torch.ops.aten.slice.Tensor(cat_1, 2, 0, 17);  cat_1 = None
+    transpose_10 = torch.ops.aten.transpose.int(slice_3, 1, 2);  slice_3 = None
+    _assert_tensor_metadata_default_6 = torch.ops.aten._assert_tensor_metadata.default(transpose_10, dtype = torch.float32, device = device(type='cpu'), layout = torch.strided);  _assert_tensor_metadata_default_6 = None
+    to_6 = torch.ops.aten.to.dtype(transpose_10, torch.float32);  transpose_10 = None
+    return pytree.tree_unflatten((to_6, add_5), self._out_spec)
+    

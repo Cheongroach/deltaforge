@@ -1,6 +1,8 @@
 # Qwen3.5 训练后端接入
 
-固定 Transformers 5.2.0 的可恢复 Qwen3.5 GDN adapter。H20 的 stable block 与直接 compiled 路径已完成两次十步 LoRA，CPU 14 项正常退出；参照为显式 torch adapter，原生默认／FLA 的本轮真实模型梯度门禁仍失败。完整范围见 [结果报告](TRAINING_RESULTS.md)。
+本接口在 Transformers 5.2.0 中只替换 GDN callable，退出时恢复原实现。H20 的 block 和直接 compiled 路径已各完成两次十步 LoRA；参照为显式 torch adapter，原生默认／FLA 的真实模型梯度检查未通过。完整范围见 [结果报告](TRAINING_RESULTS.md)；第一次操作建议先读 [接入阅读版](TRAINING_INTEGRATION-friendly.md)。
+
+下文把 adapter 指接入层，functional state 指返回新状态、保留训练计算图而不修改调用方状态的接口。compiled 指直接编译 GDN 计算，未编译整个模型。
 
 ## 安装与使用
 
@@ -17,6 +19,7 @@ python -m pip install --no-deps "fla-core==0.4.1" "einops==0.8.1"
 ```python
 from deltaforge.backends import use_backend
 
+optimizer.zero_grad()
 with use_backend(model, "deltaforge", chunk_size=32) as selection:
     loss = model(**batch, use_cache=False).loss
     loss.backward()
@@ -62,6 +65,8 @@ python -m deltaforge.training_probe --phase train --backend deltaforge --repetit
 ```
 
 14 项 CPU 测试覆盖数学、double 梯度、state/padding/GQA、scale、真实 Qwen 层输出与参数梯度、checkpoint 和异常恢复。开发机另有 `/proc/.../comm` 沙箱限制，断言与进程退出分别记录；第三轮 worker 已在安装 FLA 前以正常 exit 0 复核。
+
+`--phase gate` 与 `--phase train` 是独立命令。手动复跑时先检查目标后端的 `gate_passed`，合格后再调用 train；不能把训练命令存在或退出成功作为数值门禁通过的证据。上述 `report_training.py` 重算的是仓库中保存的终态证据，新的输出需单独核验。
 
 模型固定为公开 Qwen/Qwen3.5-2B，文件 revision/hash 见 `training-assets/lock.json`。数据为 ESCI 官方来源的 12 train＋4 validation，源 split hash 和 query 隔离已验证；仅用于 causal-LM 后端兼容性探针。
 

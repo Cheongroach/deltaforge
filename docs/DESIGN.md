@@ -1,12 +1,14 @@
 # DeltaForge 项目设计与技术手稿
 
-目标：形成可解释、可复跑的算子与编译实践。当前实现和结果见 [实测报告](RESULTS.md)，新模型背景与出处见 [调研](RESEARCH.md)。
+本文保留公式、张量契约和实现决策。第一次阅读可先看 [原理阅读版](DESIGN-friendly.md)。当前训练结果见 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)，早期双硬件算子结果见 [RESULTS.md](RESULTS.md)，选题来源见 [RESEARCH.md](RESEARCH.md)。
 
 ## 项目问题与边界
 
 面向部署 Qwen 混合注意力模型的框架开发者，解决 GDN 递推依赖、三角求解的后端适配和形状特化问题。第一阶段优化变量是通过数值验收的稳定算子执行时间；最终变量是模型 TTFT / TPOT、吞吐和显存，须另做端到端实验。
 
-当前实现：token recurrence、chunk prefill、领域 unit_lower_solve、FakeTensor 元信息、FX 求解展开、Inductor / TorchAir 编译入口、CUDA Triton decode、配置扫描、数学及梯度校验。NPU 使用 PyTorch 原语和 TorchAir；不等于已手写 AscendC kernel。完整模型接入、原生 NPU kernel、融合 backward、在线编译 cache 和 packed serving 属于后续阶段。
+当前实现包含逐 token recurrence、chunk prefill、可微分块求解、可恢复 Qwen3.5 adapter 和直接 compiled 训练路径。固定 H20 LoRA 已完成数值与完整步验证。早期领域 `unit_lower_solve`、FakeTensor、FX doubling、Inductor／TorchAir 与 Triton decode 保留为独立实验路径。
+
+NPU 历史验证使用 PyTorch 原语和 TorchAir，没有手写 AscendC kernel。新 block 的 NPU 训练、融合 backward、在线 bucket／cache 策略、packed serving 和完整模型推理仍待验证。
 
 代码位于独立 deltaforge/，不属于 vLLM-Omni 上游贡献；未来提出上游 PR 时，另行满足其 contributor intent 与验证要求。
 
@@ -14,24 +16,24 @@
 
 | 张量 | 布局 | 语义 |
 |---|---|---|
-| Q / K | [B,T,Hk,K] | 输入已 L2 归一化；Q 另乘 K 的负二分之一次方 |
+| Q / K | [B,T,Hk,K] | core 输入已 L2 归一化；查询缩放只施加一次 |
 | V | [B,T,Hv,V] | Hv 必须是 Hk 的整数倍；K 与 V 可不同 |
 | g / β | [B,T,Hv] | g 是非正 log decay；β∈[0,1] |
 | S₀ | [B,Hv,K,V] | FP32；函数不原地修改调用方 state |
 | lengths | [B]，可选 | 有效长度；padding 是恒等状态转移 |
 
-令 αₜ=exp(gₜ)，K×V 布局的递推为：
+以下单 token 的 q、k、v 均为列向量，维度分别为 dₖ、dₖ、dᵥ；S 为 dₖ×dᵥ 矩阵。q 在递推公式中尚未缩放。令 αₜ=exp(gₜ)：
 
 \[
 \bar S_t=\alpha_t S_{t-1},\quad
-r_t=\beta_t(v_t-k_t^\top\bar S_t),\quad
+r_t=\beta_t(v_t-\bar S_t^\top k_t),\quad
 S_t=\bar S_t+k_t r_t^\top,\quad
-o_t=q_t^\top S_t/\sqrt K.
+o_t=S_t^\top q_t/\sqrt{d_k}.
 \]
 
 等价为 \(S_t=\alpha_t(I-\beta_t k_tk_t^\top)S_{t-1}+\beta_t k_tv_t^\top\)。不能混用其他库的 V×K 转置布局。外部调用方负责 gate 构造、Q/K normalization 和 Request ID 到 state slot 的映射。
 
-chunk 内定义 \(G_i=\sum_{t=0}^i g_t\)，\(D_{ij}=\exp(G_i-G_j)\)（i≥j，其余为零），则：
+chunk 公式中 Q／K／V 按 token 为行堆叠，分别为 C×dₖ、C×dₖ、C×dᵥ，Q 已除以 √dₖ。这里的 K 是 key 矩阵；张量布局中的 K 维度对应 dₖ。定义 \(G_i=\sum_{t=0}^i g_t\)，\(D_{ij}=\exp(G_i-G_j)\)（i≥j，其余为零）：
 
 \[
 L=\operatorname{StrictLower}[\operatorname{diag}(\beta)(KK^\top\odot D)],\quad A=(I+L)^{-1},
@@ -51,7 +53,20 @@ S_1=\exp(G_{C-1})S_0+K^\top\operatorname{diag}[\exp(G_{C-1}-G)]R.
 
 避免直接计算 exp(G_tail)/exp(G_i)，长序列时分母会 underflow。实现用 prefix 差后取 exp；上三角先限制指数再 mask，避免无效正指数 overflow。padding 令 Q/K/V/β/g 为零，保留 state，输出为零。
 
-## 编译改写与正确性
+## 求解算法：合法性与浮点稳定性
+
+令 M=I+L。当前训练默认用分块三角逆：
+
+\[
+M=\begin{bmatrix}A&0\\B&D\end{bmatrix},\qquad
+M^{-1}=\begin{bmatrix}A^{-1}&0\\-D^{-1}BA^{-1}&D^{-1}\end{bmatrix}.
+\]
+
+递归求解对角块，再组合 cross block，避免显式形成大矩阵幂。可微 PyTorch 原语保留 autograd，训练设置 `semantic_solve=False`。直接 `solve_triangular` 与独立 recurrence 用于交叉核验。
+
+旧 doubling 在真实模型出现浮点抵消：同输入第 22 层输出 relative L2 为 16.5455，新 block 为 3.34325e-5。对于 `L=0.999×tril(ones,-1)`、C=64，旧方法 inverse max abs 为 2.57698e10，新 block 为 5.9605e-8。[反例记录](../training-results/cancellation-counterexample.json) 支持本次替换，但没有证明 block 对所有合法输入的误差上界。
+
+下面保留旧展开的推导，以说明它为什么数学成立、却不足以保证浮点结果。
 
 严格下三角 C×C 的 L 满足 L 的 C 次方为零。令 X=−L：
 
@@ -65,13 +80,15 @@ S_1=\exp(G_{C-1})S_0+K^\top\operatorname{diag}[\exp(G_{C-1}-G)]R.
 2. 每级 power=power@power。
 3. inverse=inverse+power@inverse，直到覆盖 C−1 次幂。
 
-C=64 时初始一次幂后执行 5 级 doubling，新增 10 次小矩阵乘。非 2 的幂 C 也成立，多余的幂为零。实数域等价不表示浮点 bitwise 相同。
+C=64 时初始一次幂后执行 5 级 doubling，新增 10 次小矩阵乘。非 2 的幂 C 也成立，多余的幂在实数域为零。该恒等式既不保证浮点 bitwise 相同，也不保证中间量不会放大误差。
 
 FX 只展开领域 unit_lower_solve，不能把任意 linalg_solve_triangular 改成有限多项式。一般三角矩阵不满足幂零性。torch.export 捕获固定 shape；torch.compile 按 dtype / device 特化。调用方使用 validate_inputs 核验 g、β、有限性和布局契约；这些值域检查未嵌入编译热路径。
 
 改写首先提供可编译的后端形式，性能收益必须实测。通用三角求解可能已高度优化，新增小 GEMM 也可能变慢；不先承诺超越 FLA / FlashQLA。
 
 ## 编译与执行结构
+
+当前真实训练直接 compile block GDN，并验证 forward／backward／非重入 checkpoint。以下图描述的是早期 `compiler.py` 语义 lowering，仍使用 doubling，未纳入新训练支持：
 
 ```mermaid
 flowchart TB
@@ -118,7 +135,8 @@ flowchart TB
 | 编译 | semantic solve ↔ FX lowering | domain op 消失，fullgraph 编译后数值通过才算成功 |
 | decode | PyTorch recurrence ↔ Triton | 算子参考基线；不是 FLA / FlashInfer |
 | prefill | 同 chunk eager ↔ compiled | 相同 dtype / shape；不能合并不同 chunk 与精度收益 |
-| 模型 | 单层 / 完整模型接入 | 尚未验证，不填写端到端 TTFT / TPOT 收益 |
+| 模型训练 | 真实单层、整模型、完整 LoRA 步 | 固定 H20、torch 参照通过；原生默认／FLA 梯度未闭合 |
+| 模型推理 | 完整服务负载 | 未验证，不填写端到端 TTFT／TPOT 收益 |
 
 不同设备的软件栈和 CPU 配额不同，不能用两端 wall 比值单独归因芯片。失败编译保留原始错误，eager fallback 不能记作 compiled。
 
@@ -129,13 +147,13 @@ flowchart TB
 | 原生 prefill | H20 TileLang；910B4 AscendC；Cube / Vector 分工、double buffer、融合边界 | 与 FLA / FlashQLA / NPU native 同形状对照，三次独立确认 |
 | 动态运行 | shape buckets、编译 cache、packed layout、state slot ownership、admission | 重编译次数、cache hit、padding waste、TTFT 分布 |
 | 融合 backward | 推导梯度、重算与片上资源取舍 | gradcheck、long-context 数值和显存 / 时间对照 |
-| 模型闭环 | Qwen3.5-2B 单层接入，再完整 GDN 层；关联蒸馏 fallback | 逐层误差、logits KL、自然生成质量、端到端时间与显存 |
+| 模型闭环 | 在已通过固定 LoRA 的基础上闭合原生梯度比较，延长训练预算，再验证推理接入 | 逐层误差、参数梯度、任务质量、完整步与推理时间／显存 |
 
 建议 T 按 128/256/512/1024/2048/4096 分桶并保留 lengths。cache key 包含代码 hash、backend、硬件、驱动/CANN、框架版本、shape、dtype 和 chunk。padding waste 超过 20% 时考虑细桶 / eager，此阈值是设计起点，尚未证明最优。
 
 编译成本 C、每调用节省 Δ，盈亏平衡调用数为 ceil(C/Δ)。Δ≤0 不发布。过度融合可能挤压寄存器/UB 和 occupancy，必须保留两 kernel 方案。上下文 affine scan 增加 K³ 运算；弱衰减 head 不能直接丢弃历史。gate truncation 是近似算法，需额外误差与任务质量门禁。
 
-## 面试练习
+## 学习与复核
 
 独立推导幂零展开与 padding 恒等状态；说明为什么仅匹配领域 op；比较 FP32 state 与 BF16 activation；解释 value tile 并行度与 Q/K 冗余；区分 TorchAir 编译和 AscendC kernel；用 Amdahl 定律解释 operator speedup 的端到端上限；计算编译回本次数；指出 state slot 与 Request ID 的一致性边界。完成独立复跑与修改一项 kernel schedule 后，再将“AI 辅助实践”更新为个人独立完成的贡献。
 

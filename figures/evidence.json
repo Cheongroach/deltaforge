@@ -1,0 +1,247 @@
+{
+  "scope": "Replot existing terminal evidence; no new GPU experiment",
+  "seed_repetitions": "two processes, same seed, shared disk caches; not multi-seed",
+  "sources_sha256": {
+    "training-results/attempt-03/evidence/model-gate/model-gates.json": "a7e1c60e0fa62160970b05566d45ddd87b1aa43e49b926cdfe2dd760db759e03",
+    "training-assets/lock.json": "802452cebbc857d5f6669e1ed6afb00f4959991fe216a70b7ba13f4994922537",
+    "training-results/attempt-03/evidence/train-torch-0/training-torch-0.json": "f23dd4e0043fad1ae6bbac67a492bc10df185492d3ec2ddfba8d4ee975428420",
+    "training-results/attempt-03/evidence/train-deltaforge-0/training-deltaforge-0.json": "cf2701c99c0c7f84e709e4b97176e1f60160eb7a83a59fbfd835a9295f74f75a",
+    "training-results/attempt-03/evidence/train-compiled-0/training-compiled-0.json": "c5ed37f748904f30da13d4f17e2e61238862f32dc2a97260aa4c8bcb15561702",
+    "training-results/attempt-03/evidence/train-torch-1/training-torch-1.json": "11e3ca65fcea0b23cce568ecd577eb0156052dd268cc02bd57212972c136a7dd",
+    "training-results/attempt-03/evidence/train-deltaforge-1/training-deltaforge-1.json": "c7ca0641ed9d52d0c7db04b22dcbcdf675f29294d62ee9e4bf4bf7ea7eb8ebe5",
+    "training-results/attempt-03/evidence/train-compiled-1/training-compiled-1.json": "6994033f9de836e9bacc2da14e94884aaf8dd2e3577d4863dbe74ff6c2eddfe4",
+    "training-results/attempt-03/evidence/kernel-0/kernel-results.json": "97fcd3c6ff470966eaa2baebf295d27ac68cc97370961c854858ac31736a4da3",
+    "training-results/attempt-03/evidence/kernel-1/kernel-results.json": "3877b2a54a8b25ee530101b3191db083560d83902e7161ebb5ed4b9435b0fae8"
+  },
+  "model_error_percent": {
+    "logits": {
+      "default": 2.7366086840629578,
+      "deltaforge": 2.2011231631040573,
+      "compiled": 2.2349655628204346,
+      "fla": 2.6040973141789436
+    },
+    "parameter_gradient_relative_l2": {
+      "default": 21.886418354468432,
+      "deltaforge": 2.7236239793739694,
+      "compiled": 2.6874790461790843,
+      "fla": 22.404234696217664
+    }
+  },
+  "training_step_seconds": {
+    "torch-0": [
+      0.7794158281758428,
+      1.0381156522780657,
+      2.5396152874454856,
+      0.8097941307350993,
+      0.8657729886472225,
+      1.0997879365459085,
+      0.8020013142377138,
+      0.8058855524286628
+    ],
+    "deltaforge-0": [
+      0.6170397568494081,
+      0.6196525944396853,
+      0.7861751178279519,
+      0.8382532661780715,
+      0.6081375572830439,
+      0.6226918399333954,
+      0.6121559273451567,
+      0.6269782921299338
+    ],
+    "compiled-0": [
+      0.3790683029219508,
+      0.3778790645301342,
+      0.5127427950501442,
+      0.6992697939276695,
+      0.38180335238575935,
+      0.37623357865959406,
+      0.3820313895121217,
+      0.3787956200540066
+    ],
+    "torch-1": [
+      0.7520072590559721,
+      1.01739074382931,
+      0.9035673597827554,
+      0.7523446176201105,
+      0.8843467039987445,
+      0.9910430768504739,
+      0.7608046997338533,
+      0.7542938301339746
+    ],
+    "deltaforge-1": [
+      0.6293237134814262,
+      0.6567505653947592,
+      0.7939816815778613,
+      0.9004678558558226,
+      0.623055687174201,
+      0.6411293717101216,
+      0.6282109003514051,
+      0.6145838629454374
+    ],
+    "compiled-1": [
+      0.41046546027064323,
+      0.4033716255798936,
+      0.8568551577627659,
+      0.4103835942223668,
+      0.4062798013910651,
+      0.4049468543380499,
+      0.4041139017790556,
+      0.4066833211109042
+    ]
+  },
+  "training_step_medians_seconds": {
+    "torch-0": 0.8377835596911609,
+    "deltaforge-0": 0.6211722171865404,
+    "compiled-0": 0.3804358276538551,
+    "torch-1": 0.8225757018662989,
+    "deltaforge-1": 0.6352265425957739,
+    "compiled-1": 0.40648156125098467
+  },
+  "compiled_speedup_vs_torch": [
+    2.2021678790290755,
+    2.0236482543875938
+  ],
+  "kernel_t2048_paired_samples": [
+    {
+      "backend": "torch",
+      "repetition": 0,
+      "paired_median_ms": 93.5685345903039,
+      "samples": [
+        94.71639525145292,
+        93.11747178435326,
+        93.50695181638002,
+        92.97529608011246,
+        93.687585555017,
+        93.63011736422777,
+        93.3840237557888,
+        92.81907230615616,
+        94.10534054040909,
+        94.56211980432272
+      ]
+    },
+    {
+      "backend": "deltaforge",
+      "repetition": 0,
+      "paired_median_ms": 62.02387483790517,
+      "samples": [
+        63.313511200249195,
+        68.2073999196291,
+        62.57826182991266,
+        63.1971824914217,
+        63.42813931405544,
+        61.469487845897675,
+        61.157203279435635,
+        60.84988173097372,
+        61.35961599647999,
+        61.169507913291454
+      ]
+    },
+    {
+      "backend": "compiled",
+      "repetition": 0,
+      "paired_median_ms": 27.800616342574358,
+      "samples": [
+        28.994057327508926,
+        27.829963713884354,
+        32.41235017776489,
+        27.771268971264362,
+        27.278796769678593,
+        28.040410950779915,
+        28.1253419816494,
+        27.06264890730381,
+        27.045215480029583,
+        27.247711084783077
+      ]
+    },
+    {
+      "backend": "fla",
+      "repetition": 0,
+      "paired_median_ms": 1.9955267198383808,
+      "samples": [
+        1.9836407154798508,
+        2.1646851673722267,
+        1.95352453738451,
+        2.0183734595775604,
+        2.00014840811491,
+        1.9909050315618515,
+        2.019263803958893,
+        1.9392883405089378,
+        2.0169755443930626,
+        1.9677476957440376
+      ]
+    },
+    {
+      "backend": "torch",
+      "repetition": 1,
+      "paired_median_ms": 88.07073580101132,
+      "samples": [
+        87.35916018486023,
+        89.75005615502596,
+        90.2582872658968,
+        88.35483901202679,
+        85.87075024843216,
+        86.67533099651337,
+        88.03964033722878,
+        88.10183126479387,
+        87.54488918930292,
+        90.49618057906628
+      ]
+    },
+    {
+      "backend": "deltaforge",
+      "repetition": 1,
+      "paired_median_ms": 57.985716965049505,
+      "samples": [
+        61.11894175410271,
+        64.40459378063679,
+        61.741276644170284,
+        56.85094837099314,
+        57.631767354905605,
+        58.201794512569904,
+        57.26257897913456,
+        57.769639417529106,
+        58.96700359880924,
+        57.249730452895164
+      ]
+    },
+    {
+      "backend": "compiled",
+      "repetition": 1,
+      "paired_median_ms": 23.215704131871462,
+      "samples": [
+        23.83592538535595,
+        23.61911255866289,
+        23.411361500620842,
+        23.20014499127865,
+        23.575434461236,
+        23.231263272464275,
+        23.09399750083685,
+        23.098482750356197,
+        23.134403862059116,
+        22.773374803364277
+      ]
+    },
+    {
+      "backend": "fla",
+      "repetition": 1,
+      "paired_median_ms": 1.9180718809366226,
+      "samples": [
+        1.8929224461317062,
+        1.929490827023983,
+        1.8665045499801636,
+        1.930229365825653,
+        1.9329721108078957,
+        1.9273953512310982,
+        1.8762992694973946,
+        1.908748410642147,
+        1.8637264147400856,
+        1.9488446414470673
+      ]
+    }
+  ],
+  "figure_meanings": {
+    "model-checks": "Forward similarity does not establish gradient compatibility",
+    "training-steps": "Measured step samples, including observed tails",
+    "kernel-baseline": "FLA is faster on this random single-operator workload"
+  }
+}

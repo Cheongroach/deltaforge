@@ -2,11 +2,15 @@
 
 调研截止：2026-10-25。面向 AI Infra、算子开发、AI 编译器岗位。
 
-## 选题结论
+## 为什么选择 GDN
 
-选择 **DeltaForge：Gated DeltaNet 异构算子编译与自动调优**。以 Qwen 混合注意力为背景，围绕精确数学改写、领域 IR、图编译、CUDA kernel 和双硬件验证建立项目。GDN 不是新算法：原论文发表于 2024 年；价值在于它在近期模型中的普及及异构实现问题。FlashQLA 已有成熟 CUDA 优化，不能把重复实现包装成原创算法或业界领先。[来源 1](#s1)[来源 2](#s2)
+选题要同时满足两个条件：在当前单卡资源上能验证；能够深入到计算依赖、数值和编译，而不只停留在模型调用。Gated DeltaNet（GDN）用固定大小状态矩阵保存 token 历史，其递推可以转换为分块矩阵运算，适合检验这两个条件。
 
-## 近期进展
+因此选择 DeltaForge：围绕 GDN 求解、图编译和后端适配建立独立项目。领域 IR 指明确表达这类计算语义的中间表示；编译器只对满足其契约的计算改写。异构验证指分别在 H20 和 910B4 运行，不是跨厂商分布式训练。
+
+GDN 原论文发表于 2024 年；FlashQLA 已有成熟 CUDA 优化。本项目价值要靠实际兼容性、稳定性或性能缺口证明，不能把重新实现已有算法当作原创。[来源 1](#s1)[来源 2](#s2)
+
+## 哪些架构变化提供了动机
 
 | 模型 / 工具 | 官方可核验进展 | 算子与编译机会 |
 |---|---|---|
@@ -18,7 +22,9 @@
 
 参数和日期按官方陈述，不是独立性能复现。Qwen 博客与 Qwen GitHub 不是两份独立性能证据。FlashQLA 作者报告的 2–3× forward、2× backward 不作为本项目结果。GDN 原理可交叉阅读原论文、FlashQLA 和 Transformers；最新模型的精确发布信息仍属于官方单源事实。
 
-## 候选比较
+表中 QSA／CSA／DSA 指相应模型的稀疏或压缩 attention 机制；MoE 指按 token 选择部分专家计算；N-gram embedding 指按相邻 token 组合查表。这里只用它们说明可能涉及的索引、访存和调度问题，未实现或评测这些模型。
+
+## 为什么没有同时推进其他方向
 
 | 选题 | 深度 | 当前资源可落地性 | 取舍 |
 |---|---|---|---|
@@ -33,7 +39,7 @@
 
 现有 servedistill profiling 曾定位 FP32 fallback 和细碎 kernel 发射；GDN 编译可以作为后续接入对象，但本次没有将新算子接入那次训练，不能合并两次实验的速度数字。现有 H20 / 910B4 推理实验提供模型与硬件理解，本项目进一步进入算子数学和编译层。
 
-新模型提供架构动机。当前 fixture 锚定 Qwen3.5-2B 的形状，未运行完整 Qwen3.8-Flash-Next 或 DeepSeek-V4.1 模型。详见 [设计](DESIGN.md) 和 [实测](RESULTS.md)。
+新模型提供选题动机。早期随机输入 fixture 锚定 Qwen3.5-2B 形状；后续已下载锁定权重并完成该模型的短程 LoRA 兼容性验证，见 [训练结果](TRAINING_RESULTS.md)。本项目未运行完整 Qwen3.8-Flash-Next 或 DeepSeek-V4.1，也未复现表中作者的性能主张。
 
 ## 来源
 
@@ -49,6 +55,6 @@
 
 <a id="s6"></a>6. [FlashQLA README](https://raw.githubusercontent.com/QwenLM/FlashQLA/main/README.md)，检索于 2026-10-25；版本、平台与 API。main 是移动引用，正式基准需锁 commit。
 
-<a id="s7"></a>7. [Qwen3.5-2B 官方 ModelScope config](https://modelscope.cn/models/Qwen/Qwen3.5-2B/resolve/master/config.json)，本次实际下载；仅配置，未下载权重。
+<a id="s7"></a>7. [Qwen3.5-2B 官方 ModelScope config](https://modelscope.cn/models/Qwen/Qwen3.5-2B/resolve/master/config.json)，最初调研下载配置；后续真实训练的模型文件与 revision／SHA256 另见 [训练资产 lock](../training-assets/lock.json)。
 
 <a id="s8"></a>8. [Transformers Qwen3.5 实现](https://raw.githubusercontent.com/huggingface/transformers/main/src/transformers/models/qwen3_5/modeling_qwen3_5.py)，检索于 2026-10-25；形状、状态精度与 normalization 契约，main 不是锁定的模型 revision。

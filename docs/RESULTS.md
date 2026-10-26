@@ -1,8 +1,8 @@
 # DeltaForge 双硬件实测报告
 
-> 历史算子实验，原始数值与源码快照保持不变。新 stable block／LoRA 结果见 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)。
+实测日期：2026-10-25。本报告保留旧 doubling／语义编译路径的历史微基准协议与数值。工作负载为固定 seed 随机算子输入，锚定 Qwen3.5-2B GDN 维度，没有加载完整模型权重。后来的 block 真实训练另见 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)，不沿用这里的 NPU 性能结论。
 
-实测日期：2026-10-25。工作负载为固定种子随机算子夹具，锚定 Qwen3.5-2B GDN 维度；未加载完整模型权重。
+本轮检验编译覆盖、同 chunk 编译收益与 CUDA decode 融合。先读 [结果阅读版](RESULTS-friendly.md) 可以了解比较对象、回本计算和实际用途；本文保留所有测量表及失败记录。prefill 处理一段 token，decode 处理一个新 token；此处均为算子实验。
 
 ## 已完成结果
 
@@ -99,4 +99,6 @@ run-index.json 仅保留实验别名、终态、退出码与资源信息；原�
 
 ## 实用边界与下一步
 
-已完成可复跑算子/编译原型。NPU 尚未手写 AscendC kernel；未做多卡、packed serving、动态 cache、fused backward 或完整 Qwen 模型接入。下一阶段先引入锁版本 FLA / FlashQLA 基线及 profiler，再做单层和整模型误差 / TTFT / TPOT / 显存测试。算子速度不能直接写成任务吞吐或模型推理加速。
+这轮闭合了固定形状的双硬件算子／编译实验。后续已采 CPU／CUDA profile，并以新 block 完成固定 H20 Qwen3.5 LoRA 与 FLA 随机算子对照，分别见 [观测手册](PROFILING_GUIDE.md) 和 [训练结果](TRAINING_RESULTS.md)。
+
+新算法的 NPU 训练、原生 AscendC、多卡、packed serving、完整模型推理与融合 backward 仍未验收。这里的旧算法速度不能直接写成模型训练或服务吞吐收益。

@@ -1,0 +1,32 @@
+{
+  "lowered_domain_ops": 1,
+  "hoisted_factory_constants": 2,
+  "normalized_factory_devices": 7,
+  "fx_nodes_before": 146,
+  "fx_nodes_after": 155,
+  "algorithm": "finite_nilpotent_doubling",
+  "approximate_gate_truncation": false,
+  "example_only_cpu_export": true,
+  "shape": {
+    "B": 2,
+    "T": 17,
+    "Hk": 2,
+    "Hv": 4,
+    "K": 8,
+    "V": 12,
+    "chunk": 8,
+    "dtype": "float32"
+  },
+  "correctness": {
+    "output": {
+      "max_abs": 1.1920928955078125e-07,
+      "relative_l2": 1.469502279860535e-07,
+      "finite": true
+    },
+    "state": {
+      "max_abs": 2.384185791015625e-07,
+      "relative_l2": 1.1868442584272998e-07,
+      "finite": true
+    }
+  }
+}

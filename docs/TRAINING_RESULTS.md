@@ -1,6 +1,8 @@
 # Qwen3.5 单卡训练结果与支持范围
 
-日期：2026-10-25。第三轮 worker 终态 `done`、exit 0；14 项 CPU 检查和六个独立训练进程全部完成。DeltaForge 的分块求解与直接 `torch.compile(GDN)` 已在固定 Qwen3.5-2B LoRA 配置下通过数值门禁。参照为显式 torch adapter，原生默认／FLA 的本轮梯度门禁仍失败；因此 M2 尚未满足最初的原生默认路径退出条件，也没有“达到主流采用”的证据。
+实验日期：2026-10-25；文档整理：2026-10-26。本轮检验替换 GDN 后是否保持数值兼容、完成参数更新并改善完整训练步。分块求解和直接 `torch.compile(GDN)` 相对显式 torch adapter 通过固定 Qwen3.5-2B LoRA 检查；原生默认／FLA 梯度检查未通过，M2 的原生默认退出条件仍未满足。
+
+第一次阅读可先看 [三图阅读版](TRAINING_RESULTS-friendly.md)。本文保留协议、完整数值、诊断及支持矩阵。第三轮 worker 为 `done`、exit 0；14 项 CPU 检查及六个安排的训练进程全部完成。程序完成与数值检查分别核对。
 
 ## 配置与判据
 
@@ -11,29 +13,11 @@
 - 同 seed、初始化、样本顺序和优化器预算，每后端两次独立进程，第二次反转训练后端次序。进程共享设备和磁盘编译缓存；独立进程不等于独立冷缓存。
 - 原定门禁不变：model logits relative L2≤3%，全部 trainable 参数梯度的聚合 relative L2≤8%，loss abs≤0.05；kernel output≤5%、每种输入梯度≤8%；最终 validation loss 对 torch abs≤0.05。
 
-## 三轮结果与故障定位
-
-| 轮次 | 结果 | 处理 |
-|---|---|---|
-| attempt-01 | 默认路径对 torch 梯度误差 22.57%，在后端训练前停止；CPU 13 项正常结束 | 保留失败；增加逐后端和真实层输入诊断 |
-| attempt-02 | 仅 torch 合格；DeltaForge／compiled logits 误差约 32%，FLA 梯度约 18%；torch 两次十步训练成功 | 未用随机夹具合格替代真实模型合格；定位幂零展开的大数抵消 |
-| attempt-03 | torch／DeltaForge／compiled 合格并各两次训练；default／FLA 不合格；所有安排的子任务 exit 0 | 新默认 block；旧 doubling 留作反例；失败后端跳过训练 |
-
-有限幂零展开在实数域精确，但不保证浮点稳定。反例 `L=0.999×tril(ones,-1)`：C=32 原展开 inverse relative L2=4.57553、max abs=32；block relative L2=1.4028e-8、max abs=5.9605e-8。C=64 原展开 max abs=2.57698e10，block 仍为 5.9605e-8。完整 recurrence 反例与回归见 [cancellation-counterexample.json](../training-results/cancellation-counterexample.json)。
-
-第三轮固定真实 Q/K/V/g/beta **和对应上游梯度**，排除整模型前层误差传播：
-
-| 层 | 旧 doubling 输出 relative L2 | 新 block 输出 relative L2 | block 最大输入梯度 relative L2 |
-|---|---:|---:|---:|
-| 0 | 3.49122 | 1.96996e-6 | 7.4e-6 |
-| 12 | 4.14491e-5 | 2.75823e-5 | 4.5e-5 |
-| 22 | 16.5455 | 3.34325e-5 | 2.6e-5 |
-
-同输入的直接 triangular 与独立 recurrence 也接近 torch，支持本次修复与真实模型故障的对应关系。FLA/common 与 native 的局部 g/beta 梯度误差明显高于只替换 normalization；原因仍未闭合。结论限定于本版本、输入、精度与参照，不能推出 FLA 普遍错误。跨轮 torch 的误差／最终 hash 有变化；同轮两个训练重复 hash 一致，本次不承诺跨作业位级确定性。
-
 ## 整模型门禁
 
 以下均相对显式 torch adapter（chunk32，共同 BF16 normalization）；默认为当前安装环境的原生 callable，FLA 为共同 normalization 的 adapter。所有 372 个 trainable gradient tensor 都存在且有限。
+
+门禁指进入训练前的预设验收阈值。logits 是模型输出打分；参数梯度决定更新方向，两者分别检查。relative L2 定义为 `||候选−参考||₂ / max(||参考||₂, ε)`；参数梯度在全部可训练张量上聚合，数值实现见 probe。loss abs 是两个损失值的绝对差。
 
 | 后端 | logits relative L2 | 参数梯度 relative L2 | loss abs | 合格 |
 |---|---:|---:|---:|---|
@@ -80,6 +64,28 @@ validation 只用于数值兼容性，四条数据、十步更新不足以评价
 FLA 明显更快且保存量更低，DeltaForge 没有 CUDA 领先性证据。saved tensor 是 hooks 记录的逻辑字节总和，没有按底层 storage 去重，不等于真实激活峰值。计时不带 hooks，保存量另采。
 
 首次 forward/backward 含 dispatch／编译／运行，不能作为纯 compile 时间：第一次 kernel 进程的 compiled T=256 为 14.28s、T=2048 为 105.99s；第二进程共享磁盘 cache 后为 1.25s／3.11s。FLA 第一次 T=256 为 52.81s，第二次为 78.09ms；之前的真实模型子任务可能已经预热部分 kernel。首次成本和 cache 的影响已保存，尚未得到完全隔离冷缓存的对比。
+
+## 数值修复的诊断依据
+
+结果中的新 block 来自三轮故障定位。旧 doubling 是有限幂零展开，数学上精确，但不保证浮点稳定。
+
+| 轮次 | 结果 | 处理 |
+|---|---|---|
+| attempt-01 | 默认路径对 torch 梯度误差 22.57%，在后端训练前停止；CPU 13 项正常结束 | 保留失败；增加逐后端和真实层输入诊断 |
+| attempt-02 | 仅 torch 合格；DeltaForge／compiled logits 误差约 32%，FLA 梯度约 18%；torch 两次十步训练成功 | 未用随机夹具合格替代真实模型合格；定位幂零展开的大数抵消 |
+| attempt-03 | torch／DeltaForge／compiled 合格并各两次训练；default／FLA 不合格；所有安排的子任务 exit 0 | 新默认 block；旧 doubling 留作反例；失败后端跳过训练 |
+
+反例 `L=0.999×tril(ones,-1)`：C=32 原展开 inverse relative L2=4.57553、max abs=32；block relative L2=1.4028e-8、max abs=5.9605e-8。C=64 原展开 max abs=2.57698e10，block 仍为 5.9605e-8。完整 recurrence 反例与回归见 [cancellation-counterexample.json](../training-results/cancellation-counterexample.json)。这些观察没有提供所有输入的稳定性保证。
+
+第三轮固定真实 Q/K/V/g/beta 和对应上游梯度，排除整模型前层误差传播：
+
+| 层 | 旧 doubling 输出 relative L2 | 新 block 输出 relative L2 | block 最大输入梯度 relative L2 |
+|---|---:|---:|---:|
+| 0 | 3.49122 | 1.96996e-6 | 7.4e-6 |
+| 12 | 4.14491e-5 | 2.75823e-5 | 4.5e-5 |
+| 22 | 16.5455 | 3.34325e-5 | 2.6e-5 |
+
+同输入的直接 triangular 与独立 recurrence 也接近 torch，支持本次修复与真实模型故障的对应关系。FLA/common 与 native 的局部 g/beta 梯度误差明显高于只替换 normalization；原因仍未定位。结论限定于本版本、输入、精度与参照，不能推出 FLA 普遍错误。跨轮 torch 的误差／最终 hash 有变化；同轮两个训练重复 hash 一致，本次不承诺跨作业位级确定性。
 
 ## 支持矩阵与阶段状态
 
