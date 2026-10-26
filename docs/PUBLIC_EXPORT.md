@@ -22,6 +22,6 @@ main 提供运行代码、实验结果、阅读文档和离线 Profiling Lab；d
 
 ## 哪些文件经过阅读整理
 
-2026-10-26 对 authored 文档重新组织，并为六篇技术材料增加 `-friendly` 版本。三张图从第三轮 JSON 重绘；原始 JSON／CSV、源码快照、对话和第三方许可保留。整理范围及三轮编辑核验见 [documentation-map.json](documentation-map.json)。
+2026-10-26 对 authored 文档重新组织，并为六篇技术材料增加 `-friendly` 版本；2026-10-27 另增加 72 步单一首读教程 [一步步认识 DeltaForge 项目](一步步认识DeltaForge项目-friendly.md)。三张图从第三轮 JSON 重绘；原始 JSON／CSV、源码快照、对话和第三方许可保留。整理范围及三轮编辑核验见 [documentation-map.json](documentation-map.json)。
 
 profile 页面用 CPU `user_annotation` 定义阶段，保留原 summary 和采样源码，以便解释数据投影。算子表聚合整次采集，页面时间线按阶段筛选，两者不能直接当作同一统计范围。

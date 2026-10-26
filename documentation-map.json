@@ -89,6 +89,7 @@
     }
   ],
   "new_reading_entries": [
+    "一步步认识DeltaForge项目-friendly.md",
     "READING_GUIDE.md",
     "conversations/README.md"
   ],
@@ -107,10 +108,10 @@
     "new_gpu_experiments": false
   },
   "delivery_checks": {
-    "authored_pages": 22,
-    "friendly_pages": 6,
-    "markdown_files_checked_in_publication": 66,
-    "relative_links_checked": 470,
+    "authored_pages": 23,
+    "friendly_pages": 7,
+    "markdown_files_checked_in_publication": 69,
+    "relative_links_checked": 515,
     "relative_link_errors": 0,
     "existing_runtime_and_raw_asset_changes": 0,
     "training_summary_recomputed": "14 CPU tests, six terminal training arms",
@@ -123,6 +124,7 @@
     "science_and_evidence": {
       "status": "complete",
       "checks": [
+        "Verified the 72-step tutorial's model gates, six training medians, speed ratios, layer-22 diagnosis, cancellation counterexample, mature-kernel ranges and first-call records against terminal JSON",
         "Compared training medians, paired kernel medians, gates, token counts and validation differences with terminal JSON",
         "Verified all ten figure source SHA256 values unchanged",
         "Independently checked column-vector recurrence against row-stacked chunk formula in double precision; max output difference 2.220446049250313e-16",
@@ -138,7 +140,9 @@
     "reader_order": {
       "status": "complete",
       "checks": [
-        "Reading guide routes six questions to friendly and technical companions",
+        "A single 72-step tutorial is the only first-read entry and assumes existing embedding, Q/K/V, PyTorch and training basics",
+        "Every tutorial step has exactly one memory sentence and one stop question; each step stays within 38 source lines",
+        "Reading guide routes follow-up questions to friendly and technical companions",
         "Friendly pages define terms before explanations, use a scalar memory example and introduce comparison objects before results",
         "Training results present acceptance, full training steps and mature-kernel comparison before failure chronology",
         "Weekly journal presents task decisions before the preserved timeline",
@@ -148,6 +152,7 @@
     "language_and_redundancy": {
       "status": "complete",
       "checks": [
+        "The step-by-step tutorial contains no repeated long prose or unsupported promotional wording; embedding appears only in the prerequisite list",
         "Removed unsupported team attribution and unqualified significance wording",
         "Reviewed figure captions, units, reference labels and prose consistency",
         "Kept exact numerical tables in technical docs and plain explanations in friendly docs",
