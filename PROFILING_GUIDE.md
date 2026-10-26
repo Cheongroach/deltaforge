@@ -1,6 +1,8 @@
 # DeltaForge 性能观测与实操手册
 
-这一版先把学习和观测闭环做出来：打开 [Profiling Lab](profiling-lab/profiling-lab.html)，不用 GPU、不用联网，也能探索真实测量、读已采集时间线、计算模拟结果和做判断练习。浏览器不会执行 PyTorch／CUDA；实际采集入口是 `profile.py`。
+本手册解释算子时间线怎样采集、哪些指标可以支持性能判断。第一次阅读先看 [观测阅读版](PROFILING_GUIDE-friendly.md)。打开 [Profiling Lab](profiling-lab/profiling-lab.html) 可离线探索真实微基准、已有时间线和教学模拟；实际采集入口为 `profile.py`，浏览器不执行 PyTorch／CUDA。
+
+这里的 profile 对应旧算子源码，完整模型 LoRA 是后来的独立实验。下文 forward／backward 指算子夹具，不是整模型训练。CUDA 容器终态为 done、Pod exit 0，窗口含 1032 个 kernel；数据范围以 [manifest](profiling-lab/assets/profile-manifest.json) 为准。
 
 ## 先玩十五分钟
 
@@ -34,7 +36,7 @@ CUDA 教学采集在每个阶段内部同步，让 CPU 标签结束前对应 GPU
 
 ## 自己执行一遍
 
-在包含 `deltaforge/` 的父目录执行：
+在独立 GitHub 仓库根执行；本地 flat 实验目录需从包含 `deltaforge/` 的父目录执行：
 
 ```bash
 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m deltaforge.profile \
@@ -85,9 +87,10 @@ python -m deltaforge.benchmark \
 |---|---|---|---|
 | token recurrence | 数学直观，适合独立 oracle | 多步发射，不适合拿它代表成熟 kernel | 已实现与验证 |
 | 原生 triangular solve | 语义清楚，直接表达 chunk 求解 | 某些后端慢或 converter 不支持 | 两端测过；NPU 图中 eye 不支持 |
-| 有限幂零倍增＋矩阵乘 | 利用领域契约，便于后端编译 | 小 GEMM 数增加，部分 shape 回归 | 两端编译与数值验收；T=512 NPU 回归 |
+| 有限幂零倍增＋矩阵乘 | 利用领域契约，便于后端编译 | 小 GEMM 数增加；已发现浮点抵消 | 历史双硬件随机验证；T=512 NPU 回归；未用于新训练支持 |
+| 分块三角逆 | 避免显式形成大矩阵幂，可微、可直接 compile | 稳定性与性能仍需按输入验证 | 后续真实层与固定 H20 LoRA 通过 |
 | Triton decode 融合 | 减少状态重复读写与多次发射 | tile/warps 改变并行度与资源压力 | CUDA 24 格配置扫描 |
-| FLA / FlashQLA 成熟 kernel | 更强的真实竞争基线，含既有优化 | API、精度、状态布局和 backward 需统一 | 尚未安装与复现；不能宣称胜出 |
+| FLA / FlashQLA 成熟 kernel | 更强的竞争基线，含既有优化 | API、精度、状态布局和 backward 需统一 | 后续 FLA 0.4.1 随机算子已测且更快；真实模型梯度未通过；FlashQLA 未实测 |
 | 原生 AscendC / Cube＋Vector 设计 | 可以针对 NPU 数据搬运与片上资源 | 工程量、SDK 与数值验收要求高 | 尚未实现 |
 
 除了算法候选，还有两个实际选择：**编译成本是否值得摊销**，以及 **特定 shape 是否保留 eager**。910B4 的 T=128 约 5% 收益需要约 88 万次调用摊销本轮编译；T=512 编译更慢，不回本。这些判断比统一“开启编译”更接近实际系统需求。
@@ -109,6 +112,8 @@ python -m deltaforge.benchmark \
 
 可能值得验证的条件包括：固定 shape 高频重复、GDN 占比高、小 batch 的发射敏感场景、NPU 后端缺少可编译算子、训练中大图的保存激活与重算成本。它们是**待检验假设**，不是本项目已经成立的优势。
 
-## 下一轮：进入训练框架与研究
+## 与后续训练实验怎样衔接
 
-参见 [研究与训练路线](TRAINING_RESEARCH_PLAN.md)。这一版尚未完成完整训练框架接入；页面中的 backward 是真实 PyTorch 算子夹具，模拟曲线不属于训练性能数据。下一轮先闭合成熟基线、解析梯度／保存激活、重算、真实模型训练步，再讨论多卡与论文贡献。
+后续已完成固定 Transformers／Qwen3.5-2B LoRA 接入、block 修复、直接 compile 和随机 FLA 对照，见 [训练结果](TRAINING_RESULTS.md)。这些结果不能改变旧 trace 的源码或 shape，也没有提供完整模型 nsys／ncu 机制证据。
+
+[研究计划](TRAINING_RESEARCH_PLAN.md) 将原生默认／FLA 梯度分歧列为优先问题，再检验编译摊销、保存激活与重算、长预算和框架扩展。
