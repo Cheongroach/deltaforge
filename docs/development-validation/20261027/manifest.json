@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-27",
+  "source": {
+    "repository": "https://github.com/Cheongroach/deltaforge",
+    "branch": "main",
+    "commit": "6ffc4df42fd4d78e2778edb0724f07f914b6d305",
+    "isolated_clone": "/tmp/deltaforge-deep-lab-20261027/repo"
+  },
+  "runtime": {
+    "python": "3.11.2",
+    "torch": "2.9.1",
+    "transformers": "5.2.0",
+    "peft": "0.18.1",
+    "triton": "3.5.1",
+    "cuda_available": false,
+    "new_gpu_experiments": false
+  },
+  "executions": [
+    {
+      "name": "initial_cpu_gate",
+      "command": "PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m deltaforge.cpu_gate --output /tmp/deltaforge-deep-lab-20261027/cpu-gates.json --sandbox-exit",
+      "status": "failed_before_tests",
+      "return_code": 1,
+      "evidence": "Injected libstdc++.so.6 lacked GLIBCXX_3.4.30 required by libtorch_python.so",
+      "resolution": "Remove the injected LD_LIBRARY_PATH for Python validation commands; use the system libstdc++.so.6.0.30"
+    },
+    {
+      "name": "cpu_gate",
+      "command": "env -u LD_LIBRARY_PATH PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m deltaforge.cpu_gate --output /tmp/deltaforge-deep-lab-20261027/cpu-gates.json --sandbox-exit",
+      "status": "passed",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 2.977452039718628,
+      "output_sha256": "9b81a0d24405629f5e4d32e73288ea30a56209676372d4fe85ae461767bac0f3",
+      "scope": "CPU contracts, numerical checks, gradients, state handoff, counterexample and random small Qwen layer class; no GPU performance"
+    },
+    {
+      "name": "cancellation_diagnostic",
+      "command": "env -u LD_LIBRARY_PATH python <inline cancellation and gradient diagnostic>",
+      "status": "passed",
+      "observations": {
+        "c64_doubling_inverse_max_abs": 25769803776.0,
+        "c64_block_inverse_max_abs": 5.960464477539063e-08,
+        "doubling_gdn_output_relative_l2": 3.8445916175842285,
+        "doubling_gdn_gradient_relative_l2": 2919.74462890625,
+        "block_gdn_output_relative_l2": 1.9856636868098576e-07,
+        "block_gdn_gradient_relative_l2": 5.535016498470213e-07,
+        "triangular_gdn_output_relative_l2": 1.8195933648712526e-07,
+        "triangular_gdn_gradient_relative_l2": 4.966855158272665e-07
+      },
+      "scope": "New local CPU diagnostic with seed 23; separate from the historical H20 model-layer evidence"
+    },
+    {
+      "name": "historical_fx_lowering",
+      "command": "env -u LD_LIBRARY_PATH python <inline export_lower diagnostic>",
+      "status": "passed",
+      "observations": {
+        "lowered_domain_ops": 1,
+        "hoisted_factory_constants": 2,
+        "normalized_factory_devices": 7,
+        "fx_nodes_before": 146,
+        "fx_nodes_after": 155,
+        "algorithm": "finite_nilpotent_doubling",
+        "semantic_op_remaining": false,
+        "output_relative_l2": 1.3742652527071186e-07,
+        "state_relative_l2": 1.3186610203774762e-07,
+        "export_and_lower_seconds": 1.3116529919207096
+      },
+      "scope": "CPU graph export and historical doubling lowering only; not the current block training path"
+    },
+    {
+      "name": "direct_block_compile",
+      "command": "env -u LD_LIBRARY_PATH TORCHINDUCTOR_CACHE_DIR=/tmp/deltaforge-deep-lab-20261027/inductor-cache python <inline torch.compile block diagnostic>",
+      "status": "passed",
+      "observations": {
+        "first_seconds": 5.9934526812285185,
+        "second_seconds": 0.042891450226306915,
+        "output_relative_l2": 1.3735248671764566e-07,
+        "state_relative_l2": 1.296174048093235e-07
+      },
+      "scope": "Small CPU fixture; demonstrates compilation and cache behavior, not a latency benchmark or H20 result"
+    },
+    {
+      "name": "wheel_build",
+      "command": "python -m pip wheel --no-deps --wheel-dir /tmp/deltaforge-deep-lab-20261027/wheelhouse .",
+      "status": "passed",
+      "artifact": "deltaforge_gdn-0.3.0-py3-none-any.whl",
+      "artifact_bytes": 36367,
+      "artifact_sha256": "2ef8bbdbc4d58550bedd4be81734d3390125de2383e2fecf7dd4764f0535cb2e"
+    },
+    {
+      "name": "initial_venv",
+      "command": "python -m venv --system-site-packages /tmp/deltaforge-deep-lab-20261027/venv",
+      "status": "failed_before_install",
+      "return_code": 1,
+      "evidence": "Debian Python did not provide ensurepip",
+      "resolution": "Create a --without-pip venv and use the existing pip --python option"
+    },
+    {
+      "name": "wheel_install_and_smoke",
+      "command": "python -m venv --without-pip --system-site-packages /tmp/deltaforge-deep-lab-20261027/venv-nopip && python -m pip --python /tmp/deltaforge-deep-lab-20261027/venv-nopip/bin/python install --no-deps /tmp/deltaforge-deep-lab-20261027/wheelhouse/deltaforge_gdn-0.3.0-py3-none-any.whl",
+      "status": "passed",
+      "import_path": "/tmp/deltaforge-deep-lab-20261027/venv-nopip/lib/python3.11/site-packages/deltaforge/__init__.py",
+      "smoke_output_relative_l2": 1.0849650067257244e-07,
+      "smoke_state_relative_l2": 1.0527704574769814e-07
+    },
+    {
+      "name": "training_evidence_recompute",
+      "command": "python tools/report_training.py --output /tmp/deltaforge-deep-lab-20261027/reports/training-summary.json",
+      "status": "passed",
+      "cpu_tests": 14,
+      "training_arms": 6,
+      "accepted": [
+        "compiled",
+        "deltaforge",
+        "torch"
+      ],
+      "rejected": [
+        "default",
+        "fla"
+      ],
+      "output_sha256": "1a4d18e79a873d52e39ab345174686c24ae0494570643143f08ac83e0129c543",
+      "scope": "Recomputed from historical terminal H20 JSON; no new GPU run"
+    },
+    {
+      "name": "operator_evidence_recompute",
+      "command": "python tools/report_results.py && git diff --exit-code -- artifacts/measurements.json artifacts/measurements.csv artifacts/summary.json artifacts/dispatch-plan.json",
+      "status": "passed",
+      "events": 193,
+      "measurements": 123,
+      "final_comparisons": 9,
+      "tracked_outputs_changed": false,
+      "scope": "Recomputed historical H20/910B4 operator aggregates; no new device run"
+    },
+    {
+      "name": "figure_reproduction",
+      "command": "python tools/plot_evidence.py --output /tmp/deltaforge-deep-lab-20261027/figures",
+      "status": "passed",
+      "figures": 3,
+      "byte_identical_to_publication": true,
+      "png_sha256": {
+        "kernel-baseline.png": "a3155ec9c85d544dd21326feb7fbc08fea4d5d3e8f1ea29222071d32c57232c7",
+        "model-checks.png": "a83db327103438d5fb47ce5d538cc266fc9d893b16f3449687e5d2139b71de75",
+        "training-steps.png": "14b6d543d241e19f215d965e7b4acbae2466166ed98c2d8c52d9332a413e9b1a"
+      }
+    },
+    {
+      "name": "cpu_profile",
+      "command": "env -u LD_LIBRARY_PATH OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m deltaforge.profile --device cpu --output /tmp/deltaforge-deep-lab-20261027/profile-cpu --iterations 2",
+      "status": "passed",
+      "iterations": 2,
+      "profile_window_us": 55369.916015625,
+      "cpu_operator_events": 7794,
+      "captured_gpu_kernels": 0,
+      "timeline_events": 7800,
+      "operator_rows": 123,
+      "summary_sha256": "cd946b43303f36cd1df3bb9ce483bb5868d37af13fa7535e74269b4c29e99b57",
+      "trace_gzip_sha256": "4991c907e070c17978414ca69f211748c9ae41b4e8cc449335d6f09872ff11ec",
+      "scope": "New CPU profiler capture; instrumentation timings are not latency claims"
+    },
+    {
+      "name": "offline_lab_data",
+      "command": "python tools/build_lab_data.py --cpu /tmp/deltaforge-deep-lab-20261027/profile-cpu/summary.json --cuda profiling-lab/assets/cuda-summary.json --output /tmp/deltaforge-deep-lab-20261027/lab-data.js",
+      "status": "passed",
+      "profiles": [
+        "cpu",
+        "cuda"
+      ],
+      "operator_events": 193,
+      "comparisons": 9,
+      "output_bytes": 2669600,
+      "output_sha256": "5666de99805d5338a6f95a8ad05c80e4b9463ea36f289371877d0b550fa45107"
+    },
+    {
+      "name": "python_syntax",
+      "command": "python -m compileall -q deltaforge tools",
+      "status": "passed"
+    }
+  ],
+  "monitoring_boundaries": {
+    "implemented": [
+      "Structured JSONL lifecycle, qualification, training-step and kernel-result events",
+      "Source, model and data SHA256 provenance",
+      "Numerical gates for output, state, logits, loss and gradients",
+      "Per-step loss, gradient norm, effective tokens, wall time and CUDA allocated/reserved peaks",
+      "Compiler cache hit/miss counters",
+      "torch.profiler CPU/CUDA phase annotations, shapes, memory and Chrome trace export",
+      "Offline timeline and comparison lab"
+    ],
+    "not_implemented": [
+      "Prometheus or production online alerting",
+      "nsys capture for the current block training path",
+      "ncu hardware-counter capture",
+      "Long-horizon multi-seed model-quality monitoring",
+      "New block training on 910B4"
+    ]
+  }
+}

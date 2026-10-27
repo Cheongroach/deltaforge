@@ -1625,6 +1625,7 @@ CPU contract
 
 能不看文档回答 10 个以上，再进入：
 
+- [完整开发实战](DeltaForge完整开发实战-friendly.md)：按真实命令实现、验证、监控、构建和发布。
 - [设计阅读版](DESIGN-friendly.md)：复习 GDN 与 block 的直觉。
 - [训练结果阅读版](TRAINING_RESULTS-friendly.md)：用三张图复核终态。
 - [接入阅读版](TRAINING_INTEGRATION-friendly.md)：开始安装和复跑。

@@ -25,6 +25,8 @@
 
 [figures/evidence.json](../../figures/evidence.json) 保存三张阅读图的原始样本、统计值和来源 SHA256；图没有增加实验样本。
 
+2026-10-27 的本地开发工具链复跑另见 [development-validation manifest](../development-validation/20261027/manifest.json)。它记录 CPU gate、抵消诊断、FX／direct compile、wheel、隔离安装、证据重算和 CPU profile 的命令、失败修复、结果及 SHA256；不包含新 GPU 实验。
+
 ## 重算与复建
 
 从独立 GitHub 仓库根执行：

@@ -2,7 +2,7 @@
 
 DeltaForge 为 Qwen 模型中的 Gated DeltaNet（GDN，一种用状态矩阵保存历史信息的计算）提供可替换后端，研究数值稳定性、图编译和完整训练步性能。
 
-第一次阅读只打开 [一步步认识 DeltaForge 项目](一步步认识DeltaForge项目-friendly.md)。它默认已掌握 embedding、Q/K/V、PyTorch 和训练基础，用 72 个小步骤依次解释 GDN state、chunk、旧算法故障、block 修复、后端门禁与真实 LoRA 结果。其他材料从 [阅读入口](READING_GUIDE.md) 按需查证。
+第一次阅读只打开 [一步步认识 DeltaForge 项目](一步步认识DeltaForge项目-friendly.md)。它默认已掌握 embedding、Q/K/V、PyTorch 和训练基础，用 72 个小步骤依次解释 GDN state、chunk、旧算法故障、block 修复、后端门禁与真实 LoRA 结果。读懂后进入 [完整开发实战](DeltaForge完整开发实战-friendly.md)，实际操作代码检索、验证、编译、构建、证据重算和监控。其他材料从 [阅读入口](READING_GUIDE.md) 按需查证。
 
 ## 当前结果
 
@@ -17,6 +17,7 @@ FLA 是已有的高性能 GDN 实现。本轮随机算子测试中它明显更�
 | 用途 | 入口 |
 |---|---|
 | 唯一首读教程 | [一步步认识 DeltaForge 项目](一步步认识DeltaForge项目-friendly.md) |
+| 深度工具链与完整开发流程 | [DeltaForge 完整开发实战](DeltaForge完整开发实战-friendly.md) |
 | 原理、结果、接入和性能观测的查证地图 | [READING_GUIDE.md](READING_GUIDE.md) |
 | 真实模型后端接口与复跑 | [TRAINING_INTEGRATION.md](TRAINING_INTEGRATION.md) |
 | 每项任务的问题、候选、决定和 timeline | [小周报](progress/WEEKLY_2026-10-25.md) |

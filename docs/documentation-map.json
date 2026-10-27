@@ -90,6 +90,7 @@
   ],
   "new_reading_entries": [
     "一步步认识DeltaForge项目-friendly.md",
+    "DeltaForge完整开发实战-friendly.md",
     "READING_GUIDE.md",
     "conversations/README.md"
   ],
@@ -98,7 +99,8 @@
     "source snapshots",
     "conversation transcript",
     "third-party source archives",
-    "font licenses"
+    "font licenses",
+    "2026-10-27 CPU development validation manifest"
   ],
   "figure_source": "training-results/attempt-03/evidence",
   "figure_review": {
@@ -108,10 +110,10 @@
     "new_gpu_experiments": false
   },
   "delivery_checks": {
-    "authored_pages": 23,
-    "friendly_pages": 7,
-    "markdown_files_checked_in_publication": 69,
-    "relative_links_checked": 515,
+    "authored_pages": 24,
+    "friendly_pages": 8,
+    "markdown_files_checked_in_publication": 72,
+    "relative_links_checked": 557,
     "relative_link_errors": 0,
     "existing_runtime_and_raw_asset_changes": 0,
     "training_summary_recomputed": "14 CPU tests, six terminal training arms",
@@ -124,6 +126,8 @@
     "science_and_evidence": {
       "status": "complete",
       "checks": [
+        "Verified the 62-step development tutorial against a new isolated CPU toolchain run and the 2026-10-27 machine-readable manifest",
+        "Matched CPU gate, wheel, terminal-summary, profile-summary and Lab-data SHA256 values to generated artifacts",
         "Verified the 72-step tutorial's model gates, six training medians, speed ratios, layer-22 diagnosis, cancellation counterexample, mature-kernel ranges and first-call records against terminal JSON",
         "Compared training medians, paired kernel medians, gates, token counts and validation differences with terminal JSON",
         "Verified all ten figure source SHA256 values unchanged",
@@ -140,6 +144,8 @@
     "reader_order": {
       "status": "complete",
       "checks": [
+        "The development tutorial follows source freeze, implementation, diagnosis, adapter, compiler, validation, training, performance, monitoring, packaging and final runbook order",
+        "All 62 development steps are contiguous and bounded to at most 51 source lines",
         "A single 72-step tutorial is the only first-read entry and assumes existing embedding, Q/K/V, PyTorch and training basics",
         "Every tutorial step has exactly one memory sentence and one stop question; each step stays within 38 source lines",
         "Reading guide routes follow-up questions to friendly and technical companions",
@@ -152,6 +158,8 @@
     "language_and_redundancy": {
       "status": "complete",
       "checks": [
+        "The development tutorial separates current CPU execution, historical device execution and unexecuted monitoring design at first use",
+        "The development tutorial contains no duplicated long prose or unsupported performance language",
         "The step-by-step tutorial contains no repeated long prose or unsupported promotional wording; embedding appears only in the prerequisite list",
         "Removed unsupported team attribution and unqualified significance wording",
         "Reviewed figure captions, units, reference labels and prose consistency",
